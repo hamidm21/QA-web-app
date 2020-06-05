@@ -1,3 +1,7 @@
+stages:
+  - build
+  - deploy
+
 # Official docker image.
 image: docker:latest
 
@@ -6,23 +10,21 @@ services:
 
 before_script:
   - docker login registry.gitlab.com -u hamidmoradik -p 423178511
-  - docker build -t registry.gitlab.com/halyab/halyab-web .
-  - docker push registry.gitlab.com/halyab/halyab-web
 
-
-# This folder is cached between builds
-# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
-cache:
-  paths:
-    - node_modules/
-
-# build:
-#   stage: build
-#   script:
-#     - npm i
-#     - npm run build
-
-start:
+build:
   stage: build
   script:
-    - npm -v
+    - docker build -t registry.gitlab.com/halyab/halyab-web .
+    - docker push registry.gitlab.com/halyab/halyab-web
+  only:
+  - master
+
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploy to staging server"
+  environment:
+    name: staging
+    url: http://3tour.ir
+  only:
+  - master
