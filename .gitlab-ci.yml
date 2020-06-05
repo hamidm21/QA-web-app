@@ -5,9 +5,9 @@ image: docker:latest
 #   - docker:dind
 
 before_script:
-  - docker login -u hmk21 -p 423178511
-  - docker build -t hmk21/halyab-web .
-  - docker push hmk21/halyab-web
+  - docker login registry.gitlab.com -u hamidmoradik -p 423178511
+  - docker build -t registry.gitlab.com/halyab/halyab-web .
+  - docker push registry.gitlab.com/halyab/halyab-web
 
 
 # This folder is cached between builds
