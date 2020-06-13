@@ -1,19 +1,19 @@
 <template>
   <div class="home">
     <Hero />
-    <Contact_us_form />
+    <ContactUsForm />
     <Footer />
   </div>
 </template>
 
 <script>
 import Hero from '~/components/landing/hero_section.vue'
-import Contact_us_form from '~/components/web/contact_us_form.vue'
+import ContactUsForm from '~/components/web/contact_us_form.vue'
 import Footer from '~/components/landing/footer.vue'
 
 export default {
   components: {
-    Contact_us_form,
+    ContactUsForm,
     Footer
   },
   auth: false,

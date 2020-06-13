@@ -232,7 +232,7 @@
                                             </div>
                                         <div class="flex-col items-center">
                                             <small>تاریخ پایان پرسش</small>
-                                            <Picker v-bind:ddOpen="this.ddOpen" v-bind:opener="this.opener" />
+                                            <Picker v-bind:ddOpen="this.ddOpen" v-bind:opener="this.opener" v-bind:current="current"/>
                                         </div>
                                             </div>
                                         </div>
@@ -240,10 +240,15 @@
                                 </div>
                                 <hr>
                             </div>
-                            <div class="flex flex-col w-full p-2 justify-center items-center">
-                                <div class="flex w-1/2 justify-center items-center">
-                                    <div @click="submitProject()" class="flex justify-center items-center bg-green w-full text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
-                                        ثبت پروژه
+                            <div class="flex flex-col sm:flex-row w-full p-2 justify-center items-center">
+                                <div class="flex w-1/2 sm:w-1/4 justify-center items-center">
+                                    <div @click="submitProject()" class="flex justify-center items-center bg-primary w-full text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline cursor-pointer shadow-md cursor-pointer">
+                                        ویرایش پروژه
+                                    </div>
+                                </div>
+                                <div class="flex w-1/2 sm:w-1/4 justify-center items-center">
+                                    <div @click="cancel()" class="flex justify-center items-center bg-red w-full text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline cursor-pointer shadow-md cursor-pointer">
+                                        لغو
                                     </div>
                                 </div>
                             </div>
@@ -262,14 +267,29 @@ import Uploader from '~/components/dashboard/upload_file'
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'questions');
+        this.dd2Handler(this.dd2.filter(x => x.id === 5)[0])
+        if (!this.dd2Selected.category_less) {
+            this.dd3Handler(this.categories.filter(x => x.id === this.item.category)[0])
+            this.dd4Selected = this.dd3Selected.sub_cats.filter(x => x.id === this.item.sub_category)[0]
+        } else {
+            this.dd4Selected = this.catless.filter(x => x.id === this.item.sub_category)[0]
+        }
     },
-    async asyncData({ $axios }) {
-        const s_res = await $axios.$get("/api/initdata")
+    async asyncData({ $axios, params }) {
+        const id = params.id
+        const s_res = await $axios.$get("/api/initdata");
+        const q_res = await $axios.get(`/api/questions/${id}`);
         return {
             categories: s_res.categories,
             catless: s_res.catless_sub_cats,
             dd1: s_res.question_types,
             dd2: s_res.halyab_grades,
+            item: q_res.data,
+            dd1Selected: q_res.data.question_type_name,
+            subject: q_res.data.subject,
+            desc: q_res.data.desc,
+            max_cost: q_res.data.max_cost,
+            current: q_res.data.max_allowed_time
         }
     },
     methods: {
@@ -309,6 +329,9 @@ export default {
         showError(str) {
             this.$toast.error(str)
         },
+        cancel() {
+            this.$router.push(`/user/questions/${this.$route.params.id}`)
+        },
         submitProject() {
             const errors = []
             const Files = this.$store.state.question.add.Files
@@ -333,17 +356,16 @@ export default {
                     counter = counter + 1;
                 }
             }
-            console.log({obj})
             this.$axios.post('/api/questions/', obj).then((res) => {
-                console.log(res);
                 this.$router.push("/user/questions")
             }).catch((e) => {
-                console.log({e});
             });
         }
     },
     data() {
         return {
+            current: '',
+            item: '',
             subject: '',
             desc: '',
             max_cost: 0,

@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="882.5" height="660.5" viewBox="0 0 882.5 660.5">
+  <defs>
+    <filter id="Rectangle_69" x="188" y="0" width="410.5" height="410.5" filterUnits="userSpaceOnUse">
+      <feOffset dx="20" dy="-20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_69-2" x="0" y="250" width="410.5" height="410.5" filterUnits="userSpaceOnUse">
+      <feOffset dx="20" dy="-20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.5" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_5930" x="472" y="113" width="410.5" height="410.5" filterUnits="userSpaceOnUse">
+      <feOffset dx="20" dy="-20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.5" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Cards" transform="translate(-54 -3773.5)">
+    <g id="card_" data-name="card " transform="translate(9 283)">
+      <g transform="matrix(1, 0, 0, 1, 45, 3490.5)" filter="url(#Rectangle_69)">
+        <g id="Rectangle_69-3" data-name="Rectangle 69" transform="translate(188 33.5)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="377" height="377" rx="15" stroke="none"/>
+          <rect x="0.5" y="0.5" width="376" height="376" rx="14.5" fill="none"/>
+        </g>
+      </g>
+      <g id="Path_5929" data-name="Path 5929" transform="translate(233 3839)" fill="#1251a4">
+        <path d="M 362 61.5 L 15 61.5 C 11.12689971923828 61.5 7.485650062561035 59.99174880981445 4.746950149536133 57.2530517578125 C 2.008249998092651 54.51435089111328 0.5 50.87310028076172 0.5 47 L 0.5 0.5 L 376.5 0.5 L 376.5 47 C 376.5 50.87310028076172 374.9917602539063 54.51435089111328 372.2530517578125 57.2530517578125 C 369.5143432617188 59.99174880981445 365.8731079101563 61.5 362 61.5 Z" stroke="none"/>
+        <path d="M 1 1 L 1 47 C 1 50.73954772949219 2.45623779296875 54.2552490234375 5.100494384765625 56.89949798583984 C 7.7447509765625 59.54375076293945 11.26043701171875 61 15 61 L 362 61 C 365.7395629882813 61 369.2552490234375 59.54375076293945 371.8995056152344 56.89949798583984 C 374.5437622070313 54.2552490234375 376 50.73954772949219 376 47 L 376 1 L 1 1 M 0 0 L 377 0 L 377 47 C 377 55.28424835205078 370.2842407226563 62 362 62 L 15 62 C 6.7156982421875 62 0 55.28424835205078 0 47 L 0 0 Z" stroke="none" fill="#707070"/>
+      </g>
+      <text id="ساختمان_داده" data-name="ساختمان داده" transform="translate(524 3569)" font-size="24" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-65.39" y="0">ساختمان داده</tspan></text>
+      <g id="Group_595" data-name="Group 595">
+        <g id="graduate-cap" transform="translate(561 3559.028)">
+          <g id="school" transform="translate(0 51)">
+            <path id="Path_5922" data-name="Path 5922" d="M5.1,64.018v5.1l8.934,4.85,8.934-4.85v-5.1l-8.934,4.85ZM14.039,51,0,58.657l14.039,7.657,11.486-6.254v8.806h2.552V58.657Z" transform="translate(0 -51)"/>
+          </g>
+        </g>
+        <text id="کارشناسی_" data-name="کارشناسی " transform="translate(547 3627)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-79.87" y="0">کارشناسی</tspan><tspan y="0"> </tspan></text>
+      </g>
+      <g id="Group_590" data-name="Group 590">
+        <text id="مهلت_پس_فردا" data-name="مهلت پس فردا" transform="translate(547 3709)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-117.261" y="0">مهلت پس فردا</tspan></text>
+        <g id="connection-indicator" transform="translate(537.5 3690.272)">
+          <g id="today" transform="translate(25.5)">
+            <path id="Path_5925" data-name="Path 5925" d="M47.682,2.773H46.3V0H43.523V2.773H32.432V0H29.659V2.773H28.273A2.781,2.781,0,0,0,25.5,5.545V24.954a2.781,2.781,0,0,0,2.773,2.773H47.682a2.781,2.781,0,0,0,2.773-2.773V5.545A2.781,2.781,0,0,0,47.682,2.773Zm0,22.182H28.273V9.7H47.682Z" transform="translate(-25.5)"/>
+            <rect id="Rectangle_70" data-name="Rectangle 70" width="6.932" height="6.932" transform="translate(5.545 12.477)"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_591" data-name="Group 591">
+        <g id="money" transform="translate(561 3734.547)">
+          <g id="Group_588" data-name="Group 588" transform="translate(0)">
+            <path id="Path_5926" data-name="Path 5926" d="M14.059,0A14.059,14.059,0,1,0,28.119,14.059,14.055,14.055,0,0,0,14.059,0Zm1.989,22.621v2.685H12.3V22.593c-2.4-.513-4.45-2.053-4.6-4.787h2.749c.141,1.476,1.153,2.622,3.726,2.622,2.763,0,3.374-1.378,3.374-2.235,0-1.16-.626-2.264-3.747-3.009-3.487-.837-5.877-2.278-5.877-5.16,0-2.411,1.947-3.986,4.372-4.513v-2.7h3.747V5.546a4.989,4.989,0,0,1,4.014,4.759h-2.77c-.077-1.561-.9-2.622-3.121-2.622-2.109,0-3.374.949-3.374,2.313,0,1.188.914,1.947,3.747,2.685s5.877,1.947,5.877,5.5C20.421,20.745,18.481,22.157,16.049,22.621Z" transform="translate(0)"/>
+          </g>
+        </g>
+        <g id="Group_592" data-name="Group 592">
+          <text id="_۱۵_۰۰۰" data-name="۱۵،۰۰۰" transform="translate(547 3754)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-49.261" y="0">۱۵،۰۰۰</tspan></text>
+          <text id="تومان" transform="translate(496 3754)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-44.87" y="0">تومان</tspan></text>
+        </g>
+      </g>
+      <g id="Group_594" data-name="Group 594">
+        <g id="chat-bubbles" transform="translate(561 3779)">
+          <g id="forum">
+            <path id="Path_5927" data-name="Path 5927" d="M27.062,5.7H24.214V18.516H5.7v2.849a1.346,1.346,0,0,0,1.424,1.424H22.789l5.7,5.7V7.122A1.346,1.346,0,0,0,27.062,5.7Zm-5.7,8.546V1.424A1.346,1.346,0,0,0,19.941,0H1.424A1.346,1.346,0,0,0,0,1.424V21.365l5.7-5.7H19.941A1.346,1.346,0,0,0,21.365,14.243Z"/>
+          </g>
+        </g>
+        <g id="Group_589" data-name="Group 589" transform="translate(16 4)">
+          <text id="پیشنهاد" transform="translate(512 3794)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-61.357" y="0">پیشنهاد</tspan></text>
+          <text id="_۳" data-name="۳" transform="translate(531 3794)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-12.809" y="0">۳</tspan></text>
+        </g>
+      </g>
+      <line id="Line_6" data-name="Line 6" x2="336" transform="translate(253.5 3591.5)" fill="none" stroke="rgba(112,112,112,0.51)" stroke-width="1"/>
+      <g id="Group_593" data-name="Group 593">
+        <text id="رشته_مهندسی_کامپیوتر" data-name="رشته مهندسی کامپیوتر" transform="translate(547 3667)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-174.817" y="0">رشته مهندسی کامپیوتر</tspan></text>
+        <g id="book">
+          <g id="book-2" data-name="book" transform="translate(561 3610.31)">
+            <g id="Group_585" data-name="Group 585" transform="translate(0 39.648)">
+              <g id="Group_584" data-name="Group 584">
+                <path id="Path_5923" data-name="Path 5923" d="M14.51,41.866l-1.944-1.005a11.1,11.1,0,0,0-10.083,0l-1.94,1A1,1,0,0,0,0,42.758V62.393a1,1,0,0,0,1.464.891l1.936-1a9.077,9.077,0,0,1,8.247,0l1.94,1a1,1,0,0,0,1.464-.891V42.758A1,1,0,0,0,14.51,41.866ZM13.045,60.744l-.48-.248a11.1,11.1,0,0,0-10.083,0l-.475.246V43.368L3.4,42.648a9.079,9.079,0,0,1,8.247,0l1.4.723Z" transform="translate(0 -39.65)"/>
+              </g>
+            </g>
+            <g id="Group_587" data-name="Group 587" transform="translate(13.045 39.648)">
+              <g id="Group_586" data-name="Group 586">
+                <path id="Path_5924" data-name="Path 5924" d="M252.225,41.864l-1.944-1.005a11.094,11.094,0,0,0-10.083,0l-1.94,1a1,1,0,0,0-.543.891V62.391a1,1,0,0,0,1.464.891l1.936-1a9.08,9.08,0,0,1,8.247,0l1.94,1a1,1,0,0,0,1.464-.891V42.756A1,1,0,0,0,252.225,41.864ZM250.76,60.742l-.48-.248a11.1,11.1,0,0,0-10.083,0l-.476.246V43.366l1.394-.721a9.081,9.081,0,0,1,8.247,0l1.4.723Z" transform="translate(-237.715 -39.648)"/>
+              </g>
+            </g>
+          </g>
+          <path id="Path_5928" data-name="Path 5928" d="M.442,1.284s8.171-4.668,11.421.332S13,20.477,13,20.477H.063Z" transform="translate(562 3651)"/>
+        </g>
+      </g>
+      <text id="در_حال_انتظار" data-name="در حال انتظار" transform="translate(411 3876)" fill="#fff" font-size="23" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-59.11" y="0">در حال انتظار</tspan></text>
+    </g>
+    <g id="card_2" data-name="card " transform="translate(-179 533)">
+      <g transform="matrix(1, 0, 0, 1, 233, 3240.5)" filter="url(#Rectangle_69-2)">
+        <g id="Rectangle_69-4" data-name="Rectangle 69" transform="translate(0 283.5)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="377" height="377" rx="15" stroke="none"/>
+          <rect x="0.5" y="0.5" width="376" height="376" rx="14.5" fill="none"/>
+        </g>
+      </g>
+      <g id="Path_5929-2" data-name="Path 5929" transform="translate(233 3839)" fill="#17c69b">
+        <path d="M 362 61.5 L 15 61.5 C 11.12689971923828 61.5 7.485650062561035 59.99174880981445 4.746950149536133 57.2530517578125 C 2.008249998092651 54.51435089111328 0.5 50.87310028076172 0.5 47 L 0.5 0.5 L 376.5 0.5 L 376.5 47 C 376.5 50.87310028076172 374.9917602539063 54.51435089111328 372.2530517578125 57.2530517578125 C 369.5143432617188 59.99174880981445 365.8731079101563 61.5 362 61.5 Z" stroke="none"/>
+        <path d="M 1 1 L 1 47 C 1 50.73954772949219 2.45623779296875 54.2552490234375 5.100494384765625 56.89949798583984 C 7.7447509765625 59.54375076293945 11.26043701171875 61 15 61 L 362 61 C 365.7395629882813 61 369.2552490234375 59.54375076293945 371.8995056152344 56.89949798583984 C 374.5437622070313 54.2552490234375 376 50.73954772949219 376 47 L 376 1 L 1 1 M 0 0 L 377 0 L 377 47 C 377 55.28424835205078 370.2842407226563 62 362 62 L 15 62 C 6.7156982421875 62 0 55.28424835205078 0 47 L 0 0 Z" stroke="none" fill="#707070"/>
+      </g>
+      <text id="حسابان_" data-name="حسابان " transform="translate(595 3566)" font-size="24" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-78.814" y="0">حسابان</tspan><tspan y="0"> </tspan></text>
+      <g id="Group_595-2" data-name="Group 595">
+        <g id="graduate-cap-2" data-name="graduate-cap" transform="translate(561 3559.028)">
+          <g id="school-2" data-name="school" transform="translate(0 51)">
+            <path id="Path_5922-2" data-name="Path 5922" d="M5.1,64.018v5.1l8.934,4.85,8.934-4.85v-5.1l-8.934,4.85ZM14.039,51,0,58.657l14.039,7.657,11.486-6.254v8.806h2.552V58.657Z" transform="translate(0 -51)"/>
+          </g>
+        </g>
+        <text id="متوسطه_دوم_پایه_یازدهم" data-name="متوسطه دوم ، پایه یازدهم" transform="translate(547 3627)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-204.322" y="0">متوسطه دوم ، پایه یازدهم</tspan></text>
+      </g>
+      <g id="Group_590-2" data-name="Group 590">
+        <text id="مهلت_امروز" data-name="مهلت امروز" transform="translate(547 3709)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-86.678" y="0">مهلت امروز</tspan></text>
+        <g id="connection-indicator-2" data-name="connection-indicator" transform="translate(537.5 3690.272)">
+          <g id="today-2" data-name="today" transform="translate(25.5)">
+            <path id="Path_5925-2" data-name="Path 5925" d="M47.682,2.773H46.3V0H43.523V2.773H32.432V0H29.659V2.773H28.273A2.781,2.781,0,0,0,25.5,5.545V24.954a2.781,2.781,0,0,0,2.773,2.773H47.682a2.781,2.781,0,0,0,2.773-2.773V5.545A2.781,2.781,0,0,0,47.682,2.773Zm0,22.182H28.273V9.7H47.682Z" transform="translate(-25.5)"/>
+            <rect id="Rectangle_70-2" data-name="Rectangle 70" width="6.932" height="6.932" transform="translate(5.545 12.477)"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_591-2" data-name="Group 591">
+        <g id="money-2" data-name="money" transform="translate(561 3734.547)">
+          <g id="Group_588-2" data-name="Group 588" transform="translate(0)">
+            <path id="Path_5926-2" data-name="Path 5926" d="M14.059,0A14.059,14.059,0,1,0,28.119,14.059,14.055,14.055,0,0,0,14.059,0Zm1.989,22.621v2.685H12.3V22.593c-2.4-.513-4.45-2.053-4.6-4.787h2.749c.141,1.476,1.153,2.622,3.726,2.622,2.763,0,3.374-1.378,3.374-2.235,0-1.16-.626-2.264-3.747-3.009-3.487-.837-5.877-2.278-5.877-5.16,0-2.411,1.947-3.986,4.372-4.513v-2.7h3.747V5.546a4.989,4.989,0,0,1,4.014,4.759h-2.77c-.077-1.561-.9-2.622-3.121-2.622-2.109,0-3.374.949-3.374,2.313,0,1.188.914,1.947,3.747,2.685s5.877,1.947,5.877,5.5C20.421,20.745,18.481,22.157,16.049,22.621Z" transform="translate(0)"/>
+          </g>
+        </g>
+        <g id="Group_592-2" data-name="Group 592">
+          <text id="_۵_۰۰۰" data-name="۵،۰۰۰" transform="translate(547 3754)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-42.817" y="0">۵،۰۰۰</tspan></text>
+          <text id="تومان-2" data-name="تومان" transform="translate(496 3754)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-44.87" y="0">تومان</tspan></text>
+        </g>
+      </g>
+      <g id="Group_594-2" data-name="Group 594">
+        <g id="chat-bubbles-2" data-name="chat-bubbles" transform="translate(561 3779)">
+          <g id="forum-2" data-name="forum">
+            <path id="Path_5927-2" data-name="Path 5927" d="M27.062,5.7H24.214V18.516H5.7v2.849a1.346,1.346,0,0,0,1.424,1.424H22.789l5.7,5.7V7.122A1.346,1.346,0,0,0,27.062,5.7Zm-5.7,8.546V1.424A1.346,1.346,0,0,0,19.941,0H1.424A1.346,1.346,0,0,0,0,1.424V21.365l5.7-5.7H19.941A1.346,1.346,0,0,0,21.365,14.243Z"/>
+          </g>
+        </g>
+        <g id="Group_589-2" data-name="Group 589" transform="translate(16 4)">
+          <text id="پیشنهاد-2" data-name="پیشنهاد" transform="translate(512 3794)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-61.357" y="0">پیشنهاد</tspan></text>
+          <text id="_۲" data-name="۲" transform="translate(531 3794)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-9.922" y="0">۲</tspan></text>
+        </g>
+      </g>
+      <line id="Line_6-2" data-name="Line 6" x2="336" transform="translate(253.5 3591.5)" fill="none" stroke="rgba(112,112,112,0.51)" stroke-width="1"/>
+      <g id="Group_593-2" data-name="Group 593">
+        <text id="ریاضی_فیزیک" data-name="ریاضی فیزیک" transform="translate(547 3667)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-106.504" y="0">ریاضی فیزیک</tspan></text>
+        <g id="book-3" data-name="book">
+          <g id="book-4" data-name="book" transform="translate(561 3610.31)">
+            <g id="Group_585-2" data-name="Group 585" transform="translate(0 39.648)">
+              <g id="Group_584-2" data-name="Group 584">
+                <path id="Path_5923-2" data-name="Path 5923" d="M14.51,41.866l-1.944-1.005a11.1,11.1,0,0,0-10.083,0l-1.94,1A1,1,0,0,0,0,42.758V62.393a1,1,0,0,0,1.464.891l1.936-1a9.077,9.077,0,0,1,8.247,0l1.94,1a1,1,0,0,0,1.464-.891V42.758A1,1,0,0,0,14.51,41.866ZM13.045,60.744l-.48-.248a11.1,11.1,0,0,0-10.083,0l-.475.246V43.368L3.4,42.648a9.079,9.079,0,0,1,8.247,0l1.4.723Z" transform="translate(0 -39.65)"/>
+              </g>
+            </g>
+            <g id="Group_587-2" data-name="Group 587" transform="translate(13.045 39.648)">
+              <g id="Group_586-2" data-name="Group 586">
+                <path id="Path_5924-2" data-name="Path 5924" d="M252.225,41.864l-1.944-1.005a11.094,11.094,0,0,0-10.083,0l-1.94,1a1,1,0,0,0-.543.891V62.391a1,1,0,0,0,1.464.891l1.936-1a9.08,9.08,0,0,1,8.247,0l1.94,1a1,1,0,0,0,1.464-.891V42.756A1,1,0,0,0,252.225,41.864ZM250.76,60.742l-.48-.248a11.1,11.1,0,0,0-10.083,0l-.476.246V43.366l1.394-.721a9.081,9.081,0,0,1,8.247,0l1.4.723Z" transform="translate(-237.715 -39.648)"/>
+              </g>
+            </g>
+          </g>
+          <path id="Path_5928-2" data-name="Path 5928" d="M.442,1.284s8.171-4.668,11.421.332S13,20.477,13,20.477H.063Z" transform="translate(562 3651)"/>
+        </g>
+      </g>
+      <text id="انجام_شده" data-name="انجام شده" transform="translate(410 3876)" fill="#fff" font-size="23" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-46.22" y="0">انجام شده</tspan></text>
+    </g>
+    <g id="card_3" data-name="card " transform="translate(293 396)">
+      <g transform="matrix(1, 0, 0, 1, -239, 3377.5)" filter="url(#Path_5930)">
+        <g id="Path_5930-2" data-name="Path 5930" transform="translate(472 146.5)" fill="#fff">
+          <path d="M 362 376.5 L 15 376.5 C 11.12689971923828 376.5 7.485650062561035 374.9917602539063 4.746950149536133 372.2530517578125 C 2.008249998092651 369.5143432617188 0.5 365.8731079101563 0.5 362 L 0.5 15 C 0.5 11.12689971923828 2.008249998092651 7.485650062561035 4.746950149536133 4.746950149536133 C 7.485650062561035 2.008249998092651 11.12689971923828 0.5 15 0.5 L 362 0.5 C 365.8731079101563 0.5 369.5143432617188 2.008249998092651 372.2530517578125 4.746950149536133 C 374.9917602539063 7.485650062561035 376.5 11.12689971923828 376.5 15 L 376.5 362 C 376.5 365.8731079101563 374.9917602539063 369.514404296875 372.2530517578125 372.2530517578125 C 369.514404296875 374.9917602539063 365.8731079101563 376.5 362 376.5 Z" stroke="none"/>
+          <path d="M 15 1 C 11.26043701171875 1 7.7447509765625 2.45623779296875 5.100494384765625 5.100494384765625 C 2.45623779296875 7.7447509765625 1 11.26043701171875 1 15 L 1 362 C 1 365.7395629882813 2.45623779296875 369.2552490234375 5.100494384765625 371.8995056152344 C 7.7447509765625 374.5437622070313 11.26043701171875 376 15 376 L 362 376 C 365.7395629882813 376 369.2552490234375 374.5437622070313 371.8995056152344 371.8995056152344 C 374.5437622070313 369.2552490234375 376 365.7395629882813 376 362 L 376 15 C 376 11.26043701171875 374.5437622070313 7.7447509765625 371.8995056152344 5.100494384765625 C 369.2552490234375 2.45623779296875 365.7395629882813 1 362 1 L 15 1 M 15 0 L 362 0 C 370.2842407226563 0 377 6.7156982421875 377 15 L 377 362 C 377 370.2842407226563 370.2842407226563 377 362 377 L 15 377 C 6.7156982421875 377 0 370.2842407226563 0 362 L 0 15 C 0 6.7156982421875 6.7156982421875 0 15 0 Z" stroke="none" fill="#707070"/>
+        </g>
+      </g>
+      <g id="Path_5929-3" data-name="Path 5929" transform="translate(233 3839)" fill="#1251a4">
+        <path d="M 362 61.5 L 15 61.5 C 11.12689971923828 61.5 7.485650062561035 59.99174880981445 4.746950149536133 57.2530517578125 C 2.008249998092651 54.51435089111328 0.5 50.87310028076172 0.5 47 L 0.5 0.5 L 376.5 0.5 L 376.5 47 C 376.5 50.87310028076172 374.9917602539063 54.51435089111328 372.2530517578125 57.2530517578125 C 369.5143432617188 59.99174880981445 365.8731079101563 61.5 362 61.5 Z" stroke="none"/>
+        <path d="M 1 1 L 1 47 C 1 50.73954772949219 2.45623779296875 54.2552490234375 5.100494384765625 56.89949798583984 C 7.7447509765625 59.54375076293945 11.26043701171875 61 15 61 L 362 61 C 365.7395629882813 61 369.2552490234375 59.54375076293945 371.8995056152344 56.89949798583984 C 374.5437622070313 54.2552490234375 376 50.73954772949219 376 47 L 376 1 L 1 1 M 0 0 L 377 0 L 377 47 C 377 55.28424835205078 370.2842407226563 62 362 62 L 15 62 C 6.7156982421875 62 0 55.28424835205078 0 47 L 0 0 Z" stroke="none" fill="#707070"/>
+      </g>
+      <text id="معادلات_دیفرانسیل" data-name="معادلات دیفرانسیل" transform="translate(500 3567)" font-size="24" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-89.838" y="0">معادلات دیفرانسیل</tspan></text>
+      <g id="Group_595-3" data-name="Group 595">
+        <g id="graduate-cap-3" data-name="graduate-cap" transform="translate(561 3559.028)">
+          <g id="school-3" data-name="school" transform="translate(0 51)">
+            <path id="Path_5922-3" data-name="Path 5922" d="M5.1,64.018v5.1l8.934,4.85,8.934-4.85v-5.1l-8.934,4.85ZM14.039,51,0,58.657l14.039,7.657,11.486-6.254v8.806h2.552V58.657Z" transform="translate(0 -51)"/>
+          </g>
+        </g>
+        <text id="کارشناسی_2" data-name="کارشناسی " transform="translate(547 3627)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-79.87" y="0">کارشناسی</tspan><tspan y="0"> </tspan></text>
+      </g>
+      <g id="Group_590-3" data-name="Group 590">
+        <text id="مهلت_فردا" data-name="مهلت فردا" transform="translate(547 3709)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-79.017" y="0">مهلت فردا</tspan></text>
+        <g id="connection-indicator-3" data-name="connection-indicator" transform="translate(537.5 3690.272)">
+          <g id="today-3" data-name="today" transform="translate(25.5)">
+            <path id="Path_5925-3" data-name="Path 5925" d="M47.682,2.773H46.3V0H43.523V2.773H32.432V0H29.659V2.773H28.273A2.781,2.781,0,0,0,25.5,5.545V24.954a2.781,2.781,0,0,0,2.773,2.773H47.682a2.781,2.781,0,0,0,2.773-2.773V5.545A2.781,2.781,0,0,0,47.682,2.773Zm0,22.182H28.273V9.7H47.682Z" transform="translate(-25.5)"/>
+            <rect id="Rectangle_70-3" data-name="Rectangle 70" width="6.932" height="6.932" transform="translate(5.545 12.477)"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_591-3" data-name="Group 591">
+        <g id="money-3" data-name="money" transform="translate(561 3734.547)">
+          <g id="Group_588-3" data-name="Group 588" transform="translate(0)">
+            <path id="Path_5926-3" data-name="Path 5926" d="M14.059,0A14.059,14.059,0,1,0,28.119,14.059,14.055,14.055,0,0,0,14.059,0Zm1.989,22.621v2.685H12.3V22.593c-2.4-.513-4.45-2.053-4.6-4.787h2.749c.141,1.476,1.153,2.622,3.726,2.622,2.763,0,3.374-1.378,3.374-2.235,0-1.16-.626-2.264-3.747-3.009-3.487-.837-5.877-2.278-5.877-5.16,0-2.411,1.947-3.986,4.372-4.513v-2.7h3.747V5.546a4.989,4.989,0,0,1,4.014,4.759h-2.77c-.077-1.561-.9-2.622-3.121-2.622-2.109,0-3.374.949-3.374,2.313,0,1.188.914,1.947,3.747,2.685s5.877,1.947,5.877,5.5C20.421,20.745,18.481,22.157,16.049,22.621Z" transform="translate(0)"/>
+          </g>
+        </g>
+        <g id="Group_592-3" data-name="Group 592">
+          <text id="_۱۰_۰۰۰" data-name="۱۰،۰۰۰" transform="translate(547 3754)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-45.713" y="0">۱۰،۰۰۰</tspan></text>
+          <text id="تومان-3" data-name="تومان" transform="translate(496 3754)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-44.87" y="0">تومان</tspan></text>
+        </g>
+      </g>
+      <g id="Group_594-3" data-name="Group 594">
+        <g id="chat-bubbles-3" data-name="chat-bubbles" transform="translate(561 3779)">
+          <g id="forum-3" data-name="forum">
+            <path id="Path_5927-3" data-name="Path 5927" d="M27.062,5.7H24.214V18.516H5.7v2.849a1.346,1.346,0,0,0,1.424,1.424H22.789l5.7,5.7V7.122A1.346,1.346,0,0,0,27.062,5.7Zm-5.7,8.546V1.424A1.346,1.346,0,0,0,19.941,0H1.424A1.346,1.346,0,0,0,0,1.424V21.365l5.7-5.7H19.941A1.346,1.346,0,0,0,21.365,14.243Z"/>
+          </g>
+        </g>
+        <g id="Group_589-3" data-name="Group 589" transform="translate(16 4)">
+          <text id="پیشنهاد-3" data-name="پیشنهاد" transform="translate(512 3794)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-61.357" y="0">پیشنهاد</tspan></text>
+          <text id="_۳-2" data-name="۳" transform="translate(531 3794)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-12.809" y="0">۳</tspan></text>
+        </g>
+      </g>
+      <line id="Line_6-3" data-name="Line 6" x2="336" transform="translate(253.5 3591.5)" fill="none" stroke="rgba(112,112,112,0.51)" stroke-width="1"/>
+      <g id="Group_593-3" data-name="Group 593">
+        <text id="دروس_عمومی_دانشگاه" data-name="دروس عمومی دانشگاه" transform="translate(547 3667)" font-size="20" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-174.913" y="0">دروس عمومی دانشگاه</tspan></text>
+        <g id="book-5" data-name="book">
+          <g id="book-6" data-name="book" transform="translate(561 3610.31)">
+            <g id="Group_585-3" data-name="Group 585" transform="translate(0 39.648)">
+              <g id="Group_584-3" data-name="Group 584">
+                <path id="Path_5923-3" data-name="Path 5923" d="M14.51,41.866l-1.944-1.005a11.1,11.1,0,0,0-10.083,0l-1.94,1A1,1,0,0,0,0,42.758V62.393a1,1,0,0,0,1.464.891l1.936-1a9.077,9.077,0,0,1,8.247,0l1.94,1a1,1,0,0,0,1.464-.891V42.758A1,1,0,0,0,14.51,41.866ZM13.045,60.744l-.48-.248a11.1,11.1,0,0,0-10.083,0l-.475.246V43.368L3.4,42.648a9.079,9.079,0,0,1,8.247,0l1.4.723Z" transform="translate(0 -39.65)"/>
+              </g>
+            </g>
+            <g id="Group_587-3" data-name="Group 587" transform="translate(13.045 39.648)">
+              <g id="Group_586-3" data-name="Group 586">
+                <path id="Path_5924-3" data-name="Path 5924" d="M252.225,41.864l-1.944-1.005a11.094,11.094,0,0,0-10.083,0l-1.94,1a1,1,0,0,0-.543.891V62.391a1,1,0,0,0,1.464.891l1.936-1a9.08,9.08,0,0,1,8.247,0l1.94,1a1,1,0,0,0,1.464-.891V42.756A1,1,0,0,0,252.225,41.864ZM250.76,60.742l-.48-.248a11.1,11.1,0,0,0-10.083,0l-.476.246V43.366l1.394-.721a9.081,9.081,0,0,1,8.247,0l1.4.723Z" transform="translate(-237.715 -39.648)"/>
+              </g>
+            </g>
+          </g>
+          <path id="Path_5928-3" data-name="Path 5928" d="M.442,1.284s8.171-4.668,11.421.332S13,20.477,13,20.477H.063Z" transform="translate(562 3651)"/>
+        </g>
+      </g>
+      <text id="در_حال_انتظار-2" data-name="در حال انتظار" transform="translate(411 3876)" fill="#fff" font-size="23" font-family="IRANSans-Medium, IRANSans" font-weight="500"><tspan x="-59.11" y="0">در حال انتظار</tspan></text>
+    </g>
+  </g>
+</svg>

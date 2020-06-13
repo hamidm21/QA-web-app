@@ -1,19 +1,17 @@
 <template>
   <div class="user-layout">
     <div class="user-head flex shadow-md">
-        <div class="w-full sm:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm sm:py-0 py-2">
+        <div class="w-full sm:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm sm:py-0 py-2 relative">
             <div class="flex flex justify-between items-center py-2">
-                <div class="flex justify-center items-center">
-                    <img @click="isProfOpen = !isProfOpen" class="rounded-full w-12 border-2 border-transparent hover:border-primary mx-1" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' ">
-                    <div class="flex flex-col justify-center items-start">
-                        <p>
-                            {{ $auth.user.full_name ? $auth.user.full_name : 'کاربر مهمان' }}
-                        </p>
-                        <small>
-                            {{ $auth.user.username }}
-                        </small>
+                <div class="flex justify-center items-center relative">
+                    <img @click="isProfOpen = !isProfOpen; isNotifOpen = false" class="rounded-full w-12 border-2 border-transparent hover:border-primary mx-1 cursor-pointer" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' ">
+                    <div @click="isNotifOpen = !isNotifOpen; isProfOpen = false" class="flex justify-center items-center hover:shadow-md rounded-full w-12 h-12 border-transparent mx-1 cursor-pointer relative">
+                      <div v-if="this.$store.state.dashboard.unReads >= 1" class="flex justify-center items-center bg-red absolute top-0 right-0 w-4 h-4 rounded-full text-white text-center text-xxs">
+                        {{ this.$store.state.dashboard.unReads }}
+                      </div>
+                      <img class="w-6 mx-4" src="~/assets/icons/bell-regular.svg" alt="نوتیفیکیشن">
                     </div>
-                    <img class="w-6 mx-4" src="~/assets/icons/bell-regular.svg" alt="نوتیفیکیشن">
+                    
                 </div>
                 <transition
                   enter-active-class="transition ease-out duration-100"
@@ -26,37 +24,160 @@
                 <div v-show="isProfOpen" class="origin-bottom-right absolute left-1-5 sm:left-4 top-5 sm:top-4 mt-2 w-48 rounded-md shadow-lg" style="direction: rtl;">
                       <div class="rounded-md bg-white shadow-xs">
                         <div class="py-1">
+                          <div class="flex flex-col p-2">
+                            <div class="flex">
+                              <img class="rounded-full w-10 h-10 border-2 border-transparent" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' ">
+                              <div class="flex flex-col justify-center items-start">
+                                <p class="px-2">
+                                  {{ $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' }}
+                                </p>
+                                <p class="px-2 text-sm text-gray-700">
+                                  {{ $auth.user.username }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <hr>
                           <nuxt-link to="/user/dashboard" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-                            <img class="pl-2 w-6" src="~/assets/icons/icon-user.svg" alt="پیشخوان" >
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-home.svg" alt="پیشخوان" style="filter: invert(0.6);" >
                             پیشخوان
                           </nuxt-link>
                           <nuxt-link to="/user/profile" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-                            <img class="pl-2 w-6" src="~/assets/icons/icon-user.svg" alt="پروفایل" >
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-user.svg" alt="پروفایل" style="filter: invert(0.6);">
                             حساب کاربری
                           </nuxt-link>
                           <nuxt-link to="/user/questions" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-                            <img class="pl-2 w-6" src="~/assets/icons/icon-file-plus.svg" alt="پروژه های من" >
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-file-plus.svg" alt="پروژه های من" style="filter: invert(0.6);">
                             پروژه های من 
                           </nuxt-link>
                           <nuxt-link to="/user/finance" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-                            <img class="pl-2 w-6" src="~/assets/icons/icon-refresh.svg" alt="افزایش اعتبار" >
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-refresh.svg" alt="افزایش اعتبار" style="filter: invert(0.6);">
                             افزایش اعتبار 
                           </nuxt-link>
                           <hr>
-                          <form method="POST" action="/auth/logout">
-                            <button type="submit" class="flex text-red items-center justify-start w-full text-right px-4 py-2 text-sm leading-5 hover:bg-gray-200 focus:outline-none focus:bg-gray-100">
+                            <div @click="logout()" class="flex text-red items-center justify-start w-full text-right px-4 py-2 text-sm leading-5 hover:bg-gray-200 focus:outline-none focus:bg-gray-100">
                               <img class="pl-2 w-1/6" src="~/assets/icons/logout.svg" alt="خروج" >
                               خروج از حساب
-                            </button>
-                          </form>
+                            </div>
                         </div>
                       </div>
                     </div>
                 </transition>
-          <!-- <a href="#">
-          <img src="~/assets/img/halyab_icon.png" alt="icon" class="w-10" style="border-radius: 50%;">
-        </a> -->
+                <transition
+                  enter-active-class="transition ease-out duration-100"
+                  enter-class="transform opacity-0 scale-95"
+                  enter-to-class="transform opacity-100 scale-100"
+                  leave-active-class="transition ease-in duration-75"
+                  leave-class="transform opacity-100 scale-100"
+                  leave-to-class="transform opacity-0 scale-95"
+                >
+                <div v-show="isNotifOpen" class="origin-bottom-right absolute left-1-5 sm:left-8 top-5 sm:top-4 mt-2 w-64 rounded-md shadow-lg" style="direction: rtl;">
+                      <div v-if="this.$store.state.dashboard.notifs.length > 0" class="w-full rounded-md bg-gray-100 shadow-md p-2">
+                        <div @click="viewNotif(notif)" v-for="notif in this.$store.state.dashboard.notifs" v-bind:key="notif.id" class="flex flex-col bg-white p-2 rounded-md shadow-md my-1 hover:shadow-lg cursor-pointer">
+                            <div class="flex justify-start items-center text-xs py-2">
+                              <img class="w-4 mx-2" src="~/assets/icons/bell-regular.svg" alt="نوتیفیکیشن">
+                              {{notif.jcreate_time}}
+                            </div>
+                            <div>
+                              {{ notif.desc }}
+                            </div>
+                        </div>
+                        <div class="flex justify-center items-center rounded-full w-8 h-8 cursor-pointer hover:shadow-md">
+                          <img @click="viewAll()" class="w-5 my-2" src="~/assets/icons/icon-view.svg" alt="نوتیفیکیشن">
+                        </div>
+                      </div>
+                      <div class="w-full rounded-md bg-gray-100 shadow-md p-4" v-else>
+                        هیچ اطلاعیه جدیدی وجود ندارد !
+                      </div>
+                    </div>
+                </transition>
+
         </div>
+        <div @click="openMenu = true" class="absolute flex justify-center items-center right-0 sm:hidden mr-4 w-12 h-12 rounded-full hover:shadow-md cursor-pointer" >
+          <img class="w-6 mx-4" src="~/assets/icons/icon-menu.svg" alt="نوتیفیکیشن">
+        </div>
+        <!-- responsive menu -->
+        <transition
+            enter-class="ease-out duration-300"
+            enter-active-class="opacity-0"
+            enter-to-class="opacity-100"
+            leave-class="ease-in duration-200"
+            leave-active-class="opacity-100"
+            leave-to-class="opacity-0"
+        >
+            <div v-if="openMenu" class="fixed inset-x-0 px-4 pt-4 top-0 sm:flex" style="direction: rtl; z-index:99;">
+            <div class="fixed inset-0 transition-opacity">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+                <transition
+                enter-class="ease-out duration-300"
+                enter-active-class="opacity-0 translate-y-4"
+                enter-to-class="opacity-100 translate-y-0"
+                leave-class="ease-in duration-200"
+                leave-active-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 translate-y-4"
+                >
+                    <div v-show="openMenu" class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                        <div class="bg-white px-4 pt-5 pb-4">
+                        <div>
+                            <div class="flex flex-col w-full mt-3 text-center relative">
+                              <div @click="openMenu = false" class="flex justify-center items-center w-12 h-12 cursor-pointer absolute ">
+                                <img src="~/assets/icons/icon-x.svg" alt="خروج">
+                              </div>
+                              <div class="flex w-full justify-center items-center">
+                                <img class="w-32" src="~/assets/icons/full-logo.png" alt="icon">
+                              </div>
+                              <hr>
+                            <div @click="openMenu = false" class="w-full flex flex-col leading-10 justify-center items-center mt-4">
+                              <div @click="menuSelect('/user/dashboard')">
+                                <div class="flex">
+                                  پیشخوان
+                                </div>
+                              </div>
+                                <hr class="w-full">
+                              <div @click="menuSelect('/user/questions')">
+                                <div>
+                                  پروژه های من
+                                </div>
+                              </div>
+                                <hr class="w-full">
+                              <div @click="menuSelect('/user/othersQuestions')">
+                                <div>
+                                  پروژه های دیگران
+                                </div>
+                              </div>
+                                <hr class="w-full">
+                              <div @click="menuSelect('/user/profile')">
+                                <div>
+                                  حساب کاربر
+                                </div>
+                              </div>
+                                <hr class="w-full">
+                              <div @click="menuSelect('/user/trx')">
+                                <div>
+                                  گردش حساب
+                                </div>
+                              </div>
+                                <hr class="w-full">
+                                <div to="/user/dashboard">
+                                <div>
+                                  تماس با ما
+                                </div>
+                              </div>
+                                <hr class="w-full">
+                                <div to="/user/dashboard">
+                                <div>
+                                  درباره ما
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </transition>
+            </div>
+        </transition>
       </div>
       <div class="side-nav hidden sm:flex flex-col bg-primary" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
           <div class="w-full h-fit flex justify-start items-center">
@@ -73,7 +194,7 @@
                 <nuxt-link to="/user/questions">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'questions' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-file-plus.svg" alt="ثبت پروژه">
-                      ثبت پروژه
+                      پروژه های من
                   </li>
                 </nuxt-link>
                 <nuxt-link to="/user/othersQuestions">
@@ -115,9 +236,43 @@
 
 <script>
 export default {
+  middleware: 'auth',
+  methods: {
+    async logout() {
+      this.isProfOpen = false;
+      await this.$auth.logout('local');
+      this.$router.push('/')
+    },
+    async viewNotif(notif) {
+      await this.$axios.get(`/api/notifications/${notif.id}/setread`);
+      this.$store.commit("unSetNotifs", notif.id)
+      this.$store.commit("setUnReadNotifs", this.$store.state.dashboard.unReads - 1)
+      this.$router.push(`/user/questions/${notif.question.id}`)
+    },
+    async viewAll() {
+      await this.$axios.get("/api/notifications/setallread");
+      this.$store.commit("setNotifs", [])
+      this.$store.commit("setUnReadNotifs", 0)
+    },
+    menuSelect(to) {
+      this.openMenu = false;
+      this.$router.push(to)
+    }
+  },
+  async asyncData({ $axios }) {
+      const n_res = await $axios.$get("/api/notifications");
+      console.log({n_res})
+      return {
+        notifNum: 0
+      }
+  },
   data() {
     return {
-      isProfOpen: false
+      isProfOpen: false,
+      isNotifOpen: false,
+      openMenu: false,
+      notifNum: 0,
+      notifs: []
     }
   }
 }

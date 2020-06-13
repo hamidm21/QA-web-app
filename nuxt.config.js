@@ -58,7 +58,12 @@ module.exports = {
     }
   },
   axios: {
-    baseURL: 'https://halyab.com'
+    baseURL: 'https://halyab.com',
+    proxy: true // Can be also an object with default options
+  },
+  proxy: {
+    '/api/': 'https://halyab.com',
+    '/accounts/': 'https://halyab.com',
   },
   server: {
     port: 2121, // default: 3000
@@ -86,7 +91,7 @@ module.exports = {
   auth: {
     redirect: {
       login: '/auth/login',
-      logout: '/auth/logout',
+      logout: false,
       callback: '/auth/login',
       home: '/dashboard'
     },
@@ -94,7 +99,7 @@ module.exports = {
       local: {
         endpoints: {
           login: { url: '/accounts/', method: 'post', propertyName: 'access'},
-          logout: { url: '/api/auth/logout', method: 'post'},
+          logout: false,
           user: { url: '/accounts/users/', method: 'get', propertyName: 'user_info'}
         },
         // set true for cookie based auth

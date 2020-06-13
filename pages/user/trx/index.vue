@@ -1,6 +1,6 @@
 <template>
     <div class="user-dash sm:pr-250   content-center h-full sm:h-full flex flex-col">
-        <div class="p-10">
+        <div class="w-full sm:p-10">
             <div class="flex flex-col rounded-md bg-white rouended-md w-full h-full shadow-md ">
                 <div class="flex justify-between items-center">
                   <div class="p-4 text-center">
@@ -14,7 +14,7 @@
                   </nuxt-link>
                 </div>
                 <hr class="w-full mb-5">
-        <div v-if="transactions.length === 0" class="bg-white w-full flex flex-col  items-center p-12">
+        <div v-if="transactions.length === 0" class="bg-white w-full flex flex-col items-center sm:p-12">
           <img class="w-20" src="~/assets/icons/empty-box.svg" alt="جعبه خالی">
           <p class="font-bold">
               نتیجه ای یافت نشد
@@ -24,11 +24,11 @@
           </p>
         </div>
         <div v-else class="bg-white w-full h-full flex flex-col items-center rounded-b-md">
-            <div class="w-3/5 flex justify-between items-center p-4 bg-white m-2 shadow-md rounded-md" v-for="tsa in transactions" v-bind:key="tsa.id">
-                <div class="w-fit rounded-md rounded-l-none h-auto flex justify-center items-center" >
+            <div class="w-full sm:w-3/5 flex justify-between items-center p-4 bg-white m-2 shadow-md rounded-md" v-for="tsa in transactions" v-bind:key="tsa.id">
+                <div class="w-fit rounded-md rounded-l-none h-auto flex justify-center items-center writing-on sm:writing-off">
                     <div v-bind:class="tsa.state !== 1 ? 'bg-red' : tsa.state === 1 && tsa.transaction_type === 'increase' ? 'bg-green' : 'bg-orange'" class="w-3 h-3 rounded-full">
                     </div>
-                    <p class="p-2">
+                    <p class="p-2" >
                         {{ tsa.state !== 1 ? "ناموفق" : tsa.state === 1 && tsa.transaction_type === 'increase' ? "واریز" : "برداشت" }}
                     </p>
                 </div>
@@ -130,5 +130,10 @@ export default {
 </script>
 
 <style>
-
+.writing-on {
+  writing-mode: tb-rl;
+}
+.writing-off {
+  writing-mode: none;
+}
 </style>

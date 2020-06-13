@@ -24,16 +24,16 @@
             <label class="flex text-gray-700 text-sm font-bold mb-2" for="row">
                 رمز عبور
             </label>
-            <input v-model="register.password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pass" type="text" placeholder="رمز عبور" required/>
+            <input v-model="register.password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pass" type="password" placeholder="رمز عبور" required/>
             </div>
             <div class="mb-6">
             <label class="flex text-gray-700 text-sm font-bold mb-2" for="column">
                 تکرار رمز عبور
             </label>
-            <input v-model="register.retyped" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="column" type="text" placeholder="تکرار رمز عبور" required/>
+            <input v-model="register.retyped" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="column" type="password" placeholder="تکرار رمز عبور" required/>
             </div>
             <div class="flex items-center justify-center">
-            <button @click="authRegister" type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
+            <button @click="authRegister" type="button" class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
                 ثبت نام
             </button>
             </div>
@@ -43,7 +43,7 @@
               </nuxt-link>
             </div>
           </div>
-          <div class="hidden bg-blue-600 text-bold items-center justify-center md:flex md:flex-col md:max-w-md" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39); color:white; border-top-left-radius: inherit; border-bottom-left-radius: inherit;">
+          <div class="hidden bg-primary text-bold items-center justify-center md:flex md:flex-col md:max-w-md" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39); color:white; border-top-left-radius: inherit; border-bottom-left-radius: inherit;">
             <img class="p-4" src="~/assets/img/register.svg" style="width: 50%;" alt="auth-logo">
             <div class="block items-center justify-center pb-2">
               <h1 class="font-bold" style="font-size: xx-large;">

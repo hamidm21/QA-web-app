@@ -9,7 +9,7 @@ COPY package.json /usr/src/app/
 RUN npm i
 # Copy the code to workdir
 COPY . /usr/src/app/
-# Build project with gulp 
+# Build project
 RUN npm run build
 
 EXPOSE 2121 8989

@@ -110,14 +110,15 @@ if (process.client) {
     types.indexOf("Files") > -1;
 
 }
+
 export default {
     methods: {
-        addFile(file) {
+        async addFile(file) {
           if (this.FILES.length < 4) {
+            const base = await this.toBase64(file)
             const isImage = file.type.match("image.*"),
                 objectURL = URL.createObjectURL(file),
                 obj = {};
-
             obj.name = file.name;
             obj.id = objectURL;
             obj.size =
@@ -130,9 +131,18 @@ export default {
             isImage ? this.images.push(obj) : this.files.push(obj);
 
             this.FILES.push(file);
+            this.$store.commit("addToFiles", {id: objectURL, base})
           } else {
             this.$toast.info('تعداد فایل های بارگذاری شده نمیتواند بیشتر از ۴ باشد')
           }
+        },
+        toBase64(file) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+          })
         },
         dropHandler(e) {
             e.preventDefault();
@@ -181,14 +191,17 @@ export default {
             this.counter = 0
             this.images = [];
             this.files = [];
+            this.$store.commit("removeAllFiles")
         },
         cancelOneImage(id) {
           this.images = this.images.filter(x => x.id !== id)
           this.FILES = this.FILES.filter(x => x.id !== id)
+          this.$store.commit("removeFromFiles", id)
         },
         cancelOneFile(id) {
           this.files = this.files.filter(x => x.id !== id)
-          this.FILES = this.FILES.filter(x => x.id !== id)
+          this.FILES = this.FILES.filter(x => x.id !== id),
+          this.$store.commit("removeFromFiles", id)
         }
 
     },

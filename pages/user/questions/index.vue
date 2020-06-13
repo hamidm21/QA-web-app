@@ -1,6 +1,6 @@
 <template>
     <div class="user-dash sm:pr-250 h-full sm:h-full flex flex-col">
-        <div class="p-10">
+        <div class="w-full sm:p-10">
             <div class="flex flex-col rounded-md bg-white rouended-md w-full shadow-md">
                 <div class="w-full flex justify-between items-center">
                     <h3 class="p-4">
@@ -98,31 +98,56 @@
                         </table>
                     </div>
                 </div>
+                <hr v-if="pagination.pages > 1" class="w-full">
+                <div v-if="pagination.pages > 1" id="paginator" class="m-2">
+                    <Pagination v-bind:ps="pagination.pages" v-bind:p="pagination.page" v-bind:changePage="changePage" />
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Pagination from '~/components/dashboard/pagination';
+
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'questions');
     },
     async asyncData({ $axios }) {
-        const s_res = await $axios.$get("/api/questions")
+        const s_res = await $axios.$get("/api/questions?page=1");
         return {
             items: s_res.results,
+            pagination: {
+                page: 1,
+                pages: Math.floor(s_res.count / 25)
+            }
         }
     },
     data() {
         return {
-            items: []
+            items: [],
+            pagination: {
+                page: 0,
+                pages: 0
+            }
         }
     },
     methods: {
         goToQuestion(id) {
             this.$router.push(`/user/questions/${id}`)
         },
+        async changePage(page) {
+            const s_res = await this.$axios.get(`/api/questions?page=${page}`);
+            this.items = s_res.data.results,
+            this.pagination = {
+                page: page,
+                pages: Math.floor(s_res.count / 25) 
+            }
+        }
+    },
+    components: {
+        Pagination
     },
     auth: true,
     layout: 'dashboard/user',

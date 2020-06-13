@@ -19,7 +19,7 @@
                 </div>
                 </div>
                 <div class="hidden sm:flex justify-end items-center pl-16" style="width: 50%;">
-                    <img style="width: 100%" src="~/assets/img/questions.jpeg" alt="سوالات">
+                    <img style="width: 100%" src="~/assets/img/questions.svg" alt="سوالات">
                 </div>
             </div>
         </div>

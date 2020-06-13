@@ -3,27 +3,27 @@
         <div class="p-10 w-full h-full flex justify-center items-center">
             <div class="flex flex-col rounded-lg bg-white rouended-md w-r35 shadow-lg">
                 <div class="w-full flex flex-col justify-start items-end" >
-                    <div class="bg-primary w-full h-32 rounded rounded-b-none flex justify-start">
-                        <img class="rounded-full w-32 h-32 shadow-2xl border-4 relative" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' " style="top: 60px; right:18px">
+                    <div class="bg-primary w-full h-32 rounded rounded-b-none flex justify-start relative">
+                        <img class="rounded-full w-32 h-32 shadow-2xl border-4 right-30 bottom-30n sm:right-18 sm:top-60 sm:bottom-0 absolute" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' " >
                     </div>
-                    <div class="flex flex w-full h-full justify-between items-end">
-                        <div class="flex flex-col items-end h-full">
-                            <h3 class="pl-5 pt-16 font-bold h-full">
+                    <div class="flex flex-col sm:flex-row w-full h-full justify-between items-center sm:items-end">
+                        <div class="flex flex-col justify-center items-center h-full">
+                            <h3 class="pt-16 font-bold h-full">
                             {{
                                 $auth.user.full_name
                             }}
                             </h3>
-                            <small class="pl-8 pt-1">
+                            <small class="flex w-full justify-center items-center pt-1">
                                 {{
                                     $auth.user.username
                                 }}
                             </small>
                             <div>
                                 <div class="flex w-full justify-end ">
-                                <button class="flex justify-center items-center text-red text-white font-bold py-2 m-4 ">
+                                <div @click="logout()" class="flex justify-center items-center text-red text-white font-bold py-2 m-4 cursor-pointer">
                                     خروج
-                                </button>
-                                <button class="flex justify-center items-center text-primary text-white font-bold p-2 my-4">
+                                </div>
+                                <button class="flex justify-center items-center text-primary text-white font-bold p-2 my-4 cursor-pointer">
                                     تغییر رمز عبور
                                 </button>
                                 </div>
@@ -62,6 +62,13 @@
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'profile');
+    },
+    methods: {
+        async logout() {
+        this.isProfOpen = false;
+        await this.$auth.logout('local');
+        this.$router.push('/')
+        }
     },
     data() {
         return {

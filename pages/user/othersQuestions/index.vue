@@ -1,6 +1,6 @@
 <template>
     <div class="user-dash sm:pr-250 h-full sm:h-full flex flex-col">
-        <div class="p-10">
+        <div class="w-full sm:p-10">
             <div class="flex flex-col rounded-md bg-white rouended-md w-full shadow-md">
                 <div class="w-full flex justify-start items-center">
                     <h3 class="p-4">
@@ -92,38 +92,64 @@
                         </table>
                     </div>
                 </div>
+                <hr v-if="pagination.pages > 1" class="w-full">
+                <div v-if="pagination.pages > 1" id="paginator" class="m-2">
+                    <Pagination v-bind:ps="pagination.pages" v-bind:p="pagination.page" v-bind:changePage="changePage" />
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Pagination from '~/components/dashboard/pagination';
+
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'others');
     },
-    async asyncData({ $axios }) {
-        const s_res = await $axios.$get("/api/questions/?others=true")
+    async asyncData({ $axios, $auth }) {
+        const s_res = !$auth.user.is_teacher ?
+        await $axios.get("/api/questions/?others=true") :
+        await $axios.get("/api/questions/?teacher=1");
         return {
-            items: s_res.results,
+            items: s_res.data.results,
+            pagination: {
+                page: 1,
+                pages: Math.floor(s_res.data.count / 25) 
+            }
         }
     },
     data() {
         return {
-            items: []
+            items: [],
+            pagination: {
+                page: 0,
+                pages: 0
+            }
         }
     },
     methods: {
         goToQuestion(id) {
-            this.$toast.info('این پروژه برای شما قابل باز کردن نیست')
-            // this.$router.push(`/user/questions/${id}`)
+            this.$auth.user.is_teacher ?
+            this.$router.push(`/user/othersQuestions/${id}`) :
+            this.$toast.info('این پروژه برای شما قابل دسترسی نیست')
         },
+        async changePage(page) {
+            const s_res = !this.$auth.user.is_teacher ?
+            await this.$axios.get(`/api/questions/?others=true&page=${page}`) :
+            await this.$axios.get(`/api/questions/?teacher=1&page=${page}`);
+            this.items = s_res.data.results,
+            this.pagination = {
+                page: page,
+                pages: Math.floor(s_res.data.count / 25) 
+            }
+        }
+    },
+    components: {
+        Pagination
     },
     auth: true,
     layout: 'dashboard/user',
 }
 </script>
-
-<style>
-
-</style>

@@ -10,6 +10,9 @@ module.exports = {
   separator: ':',
   theme: {
     extend: {
+      fontSize: {
+        'xxs': '0.6rem'
+      },
       minWidth: {
         '32': '10rem'
       },
@@ -24,7 +27,12 @@ module.exports = {
         '1-5': '1.5rem',
         '2':'2rem',
         '4': '4rem',
-        '5': '5rem'
+        '5': '5rem',
+        '8': '8rem',
+        '60': '60px',
+        '18': '18px',
+        '30': '30%',
+        '30n': '-30%'
       },
       padding: {
         '250': '250px'

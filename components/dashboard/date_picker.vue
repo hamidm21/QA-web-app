@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <input @click="opener(5)" type="text" v-bind:placeholder="init" v-bind:value="displayDate" name="" id="" class="pr-4 pl-10 form-input unselecting">
+        <input @click="opener(5)" type="text" v-bind:placeholder="init" v-bind:value="displayDate" name="" id="" class="w-full pr-4 form-input unselecting">
         <div class="absolute top-0 left-0 px-3 py-2">
             <svg class="h-6 w-6 text-gray-400"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -14,7 +14,7 @@
         leave-class="transform opacity-100 scale-100"
         leave-to-class="transform opacity-0 scale-95"
         >
-            <div v-show="ddOpen === 5" class="bg-white mt-12 rounded-lg shadow-lg p-4 absolute top-0 left-0" style="width: 17rem" >
+            <div v-show="ddOpen === 5" class="bg-white rounded-lg shadow-lg p-4" style="width: 17rem; z-index:100" >
                 <div class="flex justify-between items-center mb-2">
                     <div class="">
                         <span class="text-lg font-bold text-gray-800">{{month}}</span>
@@ -71,11 +71,31 @@ export default {
         this.moment = m;
         this.today = m;
         this.init = m.format('dddd jD jMMMM jYYYY');
-        this.year = m.jYear();
-        this.month = m.format('jMMMM');
-        this.generateCalender()
+        if (this.$props.current) {
+            const d = moment(new Date(this.$props.current))
+                this.year = d.jYear();
+                this.month = d.format('jMMMM');
+                this.setDate(d.jDate())
+        } else {
+            this.year = m.jYear();
+            this.month = m.format('jMMMM');
+        }
+        this.generateCalender();
     },
     methods: {
+        formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        },
         generateCalender() {
             const firstDay = this.days.filter(x => x.name === this.moment.format('dd'))
             let blankdaysArray = []
@@ -122,12 +142,17 @@ export default {
             const m = moment(`${this.year}/${this.month}/${day}`, 'jYYYY/jMMMM/jD');
             this.selectedDate = m;
             this.displayDate = m.format('dddd jD jMMMM jYYYY')
-            this.$store.commit("setFormDate", new Date(m))
+            this.$props.entry ?
+            this.$store.commit("setOfferDate", this.formatDate(new Date(m))):
+            this.$store.commit("setFormDate", this.formatDate(new Date(m)));
+            this.$props.ddOpen = 0;
         }
     },
     props: [
         'ddOpen',
-        'opener'
+        'opener',
+        'entry',
+        'current'
     ],
     data() {
         return {

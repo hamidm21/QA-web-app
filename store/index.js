@@ -14,8 +14,18 @@ export const state = () => ({
   },
   question: {
     add: {
-      selectedDate: new Date()
+      selectedDate: '',
+      Files: []
     }
+  },
+  others: {
+    offer: {
+      selectedDate: ''
+    }
+  },
+  dashboard: {
+    notifs: [],
+    unReads: 0
   }
 })
 
@@ -35,5 +45,26 @@ export const mutations = {
   },
   setFormDate (state, date) {
     state.question.add.selectedDate = date;
+  },
+  setOfferDate (state, date) {
+    state.others.offer.selectedDate = date;
+  },
+  addToFiles(state, file) {
+    state.question.add.Files.push(file);
+  },
+  removeFromFiles(state, id) {
+    state.question.add.Files = state.question.add.Files.filter(x => x.id !== id);
+  },
+  removeAllFiles(state) {
+    state.question.add.Files = [];
+  },
+  setNotifs(state, notifs) {
+    state.dashboard.notifs = notifs;
+  },
+  unSetNotifs(state, notif) {
+    state.dashboard.notifs = state.dashboard.notifs.filter(x => x.id !== notif);
+  }
+  ,setUnReadNotifs(state, unReads) {
+    state.dashboard.unReads = unReads;
   }
 }
