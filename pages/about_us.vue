@@ -1,19 +1,17 @@
 <template>
   <div class="home">
-    <Hero />
-    <About_us />
+    <AboutUs />
     <Footer />
   </div>
 </template>
 
 <script>
-import Hero from '~/components/landing/hero_section.vue'
-import About_us from '~/components/web/about_us.vue'
+import AboutUs from '~/components/web/about_us.vue'
 import Footer from '~/components/landing/footer.vue'
 
 export default {
   components: {
-    About_us,
+    AboutUs,
     Footer
   },
   auth: false,
