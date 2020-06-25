@@ -5,80 +5,82 @@
             <div class="flex flex-col rounded-md bg-white rouended-md w-full shadow-md">
                 <div class="w-full flex justify-between items-center">
                     <h3 class="p-4">
-                        پروژه های من
+                        پروژه های دیگران
                     </h3>
                 </div>
                 <hr class="w-full">
                 <div class="p-2 flex w-full justify-evenly">
-                    <table class="w-full">
-                        <thead v-show="items.length !== 0" class="w-full ">
-                                <tr class="w-full border-b">
-                                    <th class="pb-2">
-                                        وضعیت
-                                    </th>
-                                    <th class="pb-2">
-                                        نام پروژه
-                                    </th>
-                                    <th class="pb-2">
-                                        مقطع
-                                    </th>
-                                    <th class="pb-2">
-                                        مهلت 
-                                    </th>
-                                    <th class="pb-2">
-                                        سقف هزینه
-                                    </th>
-                                    <th class="pb-2">
-                                        پیشنهاد
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="item in items" v-bind:key="item.id" >
-                                    <td class="p-4">
-                                        <div class="flex justify-start items-center">
-                                            <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-green' : item['state_name'] === 'wait_for_response' ? 'bg-secondary' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full p-2"/>
-                                            <p class="flex justify-center w-full px-2">
+                    <div class="responsive-table mt-2">
+                        <table class="w-full">
+                            <thead v-show="items.length !== 0" class="w-full ">
+                                    <tr class="w-full border-b">
+                                        <th class="pb-2">
+                                            وضعیت
+                                        </th>
+                                        <th class="pb-2">
+                                            نام پروژه
+                                        </th>
+                                        <th class="pb-2">
+                                            مقطع
+                                        </th>
+                                        <th class="pb-2">
+                                            مهلت 
+                                        </th>
+                                        <th class="pb-2">
+                                            سقف هزینه
+                                        </th>
+                                        <th class="pb-2">
+                                            پیشنهاد
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in items" v-bind:key="item.id" >
+                                        <td class="p-4">
+                                            <div class="flex justify-start items-center">
+                                                <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-green' : item['state_name'] === 'wait_for_response' ? 'bg-secondary' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full p-2"/>
+                                                <p class="flex justify-center w-full px-2">
+                                                    {{
+                                                        item['state_name'] === 'is_active' ? 'در انتظار پاسخ' : item['state_name'] === 'is_finished' ? 'پاسخ داده شده' : item['state_name'] === 'wait_for_response' ? 'پذیرفته شده توسط استاد' : item['state_name'] === 'question_solved_request' ? 'سوال حل شده' : 'نامشخص'
+                                                    }}
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <div class="flex justify-center items-center">
                                                 {{
-                                                    item['state_name'] === 'is_active' ? 'در انتظار پاسخ' : item['state_name'] === 'is_finished' ? 'پاسخ داده شده' : item['state_name'] === 'wait_for_response' ? 'پذیرفته شده توسط استاد' : item['state_name'] === 'question_solved_request' ? 'سوال حل شده' : 'نامشخص'
+                                                    item['subject'].length >= 50 ? item['subject'].substr(0,50) + ' ...' : item['subject']
                                                 }}
-                                            </p>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex justify-center items-center">
-                                            {{
-                                                item['subject'].length >= 50 ? item['subject'].substr(0,50) + ' ...' : item['subject']
-                                            }}
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex justify-center items-center">
-                                            {{
-                                                item['grade_name']
-                                            }}
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex justify-center items-center">
-                                            {{
-                                                item['literal_exp_date']
-                                            }}
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex justify-center items-center">
-                                            {{item['max_cost']}} تومان
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex justify-center items-center">
-                                            {{item['num_offers']}} پیشنهاد
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <div class="flex justify-center items-center">
+                                                {{
+                                                    item['grade_name']
+                                                }}
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <div class="flex justify-center items-center">
+                                                {{
+                                                    item['literal_exp_date']
+                                                }}
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <div class="flex justify-center items-center">
+                                                {{item['max_cost']}} تومان
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <div class="flex justify-center items-center">
+                                                {{item['num_offers']}} پیشنهاد
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
                 </div>
                 <hr v-if="pages > 1" class="w-full">
                 <div v-if="pages > 1" id="paginator" class="m-2">
