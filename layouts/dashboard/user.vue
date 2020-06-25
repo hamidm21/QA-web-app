@@ -38,22 +38,22 @@
                             </div>
                           </div>
                           <hr>
-                          <nuxt-link to="/user/dashboard" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                          <div @click="profSelect('/user/dashboard')" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
                             <img class="pl-2 w-6" src="~/assets/icons/icon-home.svg" alt="پیشخوان" style="filter: invert(0.6);" >
                             پیشخوان
-                          </nuxt-link>
-                          <nuxt-link to="/user/profile" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                          </div>
+                          <div @click="profSelect('/user/profile')" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
                             <img class="pl-2 w-6" src="~/assets/icons/icon-user.svg" alt="پروفایل" style="filter: invert(0.6);">
                             حساب کاربری
-                          </nuxt-link>
-                          <nuxt-link to="/user/questions" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                          </div>
+                          <div @click="profSelect('/user/questions')" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
                             <img class="pl-2 w-6" src="~/assets/icons/icon-file-plus.svg" alt="پروژه های من" style="filter: invert(0.6);">
                             پروژه های من 
-                          </nuxt-link>
-                          <nuxt-link to="/user/finance" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                          </div>
+                          <div @click="profSelect('/user/finance')" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
                             <img class="pl-2 w-6" src="~/assets/icons/icon-refresh.svg" alt="افزایش اعتبار" style="filter: invert(0.6);">
                             افزایش اعتبار 
-                          </nuxt-link>
+                          </div>
                           <hr>
                             <div @click="logout()" class="flex text-red items-center justify-start w-full text-right px-4 py-2 text-sm leading-5 hover:bg-gray-200 focus:outline-none focus:bg-gray-100">
                               <img class="pl-2 w-1/6" src="~/assets/icons/logout.svg" alt="خروج" >
@@ -141,6 +141,12 @@
                                 </div>
                               </div>
                                 <hr class="w-full">
+                              <div v-show="$auth.user.is_teacher" @click="menuSelect('/user/myTasks')">
+                                <div>
+                                  وظایف من
+                                </div>
+                              </div>
+                                <hr v-show="$auth.user.is_teacher" class="w-full">
                               <div @click="menuSelect('/user/othersQuestions')">
                                 <div>
                                   پروژه های دیگران
@@ -159,13 +165,13 @@
                                 </div>
                               </div>
                                 <hr class="w-full">
-                                <div to="/user/dashboard">
+                              <div @click="menuSelect('/contact_us')">
                                 <div>
                                   تماس با ما
                                 </div>
                               </div>
                                 <hr class="w-full">
-                                <div to="/user/dashboard">
+                              <div @click="menuSelect('/about_us')">
                                 <div>
                                   درباره ما
                                 </div>
@@ -187,7 +193,7 @@
               <ul>
                 <nuxt-link to="/user/dashboard">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'dashboard' ? 'bg-primedark rounded-md' : '' ">
-                    <img class="w-4 mx-2" src="~/assets/icons/icon-home.svg" alt="پیشخوان">
+                    <img class="w-4 mx-2" src="~/assets/icons/icon-home.svg" alt="پیشخوان" style="filter: invert(0.3)">
                       پیشخوان
                   </li>
                 </nuxt-link>
@@ -197,9 +203,15 @@
                       پروژه های من
                   </li>
                 </nuxt-link>
+                <nuxt-link v-show="$auth.user.is_teacher" to="/user/myTasks">
+                  <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'myTasks' ? 'bg-primedark rounded-md' : '' ">
+                    <img class="w-5 mx-2" src="~/assets/icons/icon-briefcase.svg" alt="وظایف من" style="filter: invert(0.7)">
+                      وظایف من
+                  </li>
+                </nuxt-link>
                 <nuxt-link to="/user/othersQuestions">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'others' ? 'bg-primedark rounded-md' : '' ">
-                    <img class="w-4 mx-2" src="~/assets/icons/icon-file-plus.svg" alt="پروژهای دیگران">
+                    <img class="w-5 mx-2" src="~/assets/icons/icon-group.svg" alt="پروژهای دیگران" style="filter: invert(0.7)">
                       پروژه های دیگران
                   </li>
                 </nuxt-link>
@@ -215,13 +227,15 @@
                       گردش حساب
                   </li>
                 </nuxt-link>
+                <nuxt-link to="/contact_us">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'contactUs' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-chat.svg" alt="تماس با ما">
                       تماس با ما
                   </li>
-                  <nuxt-link to="aboutus">
+                </nuxt-link>
+                  <nuxt-link to="/about_us">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'aboutUs' ? 'bg-primedark rounded-md' : '' ">
-                    <img class="w-4 mx-2" src="~/assets/icons/icon-exclamation.svg" alt="تماس با ما">
+                    <img class="w-4 mx-2" src="~/assets/icons/icon-exclamation.svg" alt="درباره ما">
                       درباره ما
                   </li>
                   </nuxt-link>
@@ -245,6 +259,7 @@ export default {
     },
     async viewNotif(notif) {
       await this.$axios.get(`/api/notifications/${notif.id}/setread`);
+      this.isNotifOpen = false
       this.$store.commit("unSetNotifs", notif.id)
       this.$store.commit("setUnReadNotifs", this.$store.state.dashboard.unReads - 1)
       this.$router.push(`/user/questions/${notif.question.id}`)
@@ -257,11 +272,14 @@ export default {
     menuSelect(to) {
       this.openMenu = false;
       this.$router.push(to)
+    },
+    profSelect(to) {
+      this.isProfOpen = false;
+      this.$router.push(to)
     }
   },
   async asyncData({ $axios }) {
-      const n_res = await $axios.$get("/api/notifications");
-      console.log({n_res})
+      const n_res = await $axios.get("/api/notifications");
       return {
         notifNum: 0
       }

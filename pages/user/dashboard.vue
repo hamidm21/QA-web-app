@@ -29,18 +29,19 @@ export default {
     this.$store.commit("setUserDashPage", 'dashboard');
   },
     async asyncData({ $axios, store }) {
-    const f_res = await $axios.$get("/api/questions?others=true")
-    const s_res = await $axios.$get("/api/questions")
-    const t_res = await $axios.$get("/api/transactions")
-    const n_res = await $axios.$get("/api/notifications")
-    const notifs = n_res.results.filter(x => x.view_time === null);
-    const unReads = n_res.num_unreads
+    const f_res = await $axios.get("/api/questions?others=true")
+    const s_res = await $axios.get("/api/questions")
+    const t_res = await $axios.get("/api/transactions")
+    const n_res = await $axios.get("/api/notifications")
+    
+    const notifs = n_res.data.results.filter(x => x.view_time === null);
+    const unReads = n_res.data.num_unreads
     store.commit("setNotifs", notifs.slice(0,4))
     store.commit("setUnReadNotifs", unReads)
 return {
-      others_items: f_res.results.slice(0,4),
-      my_items: s_res.results.slice(0,4),
-      transactions: t_res.results.slice(0,3)
+      others_items: f_res.data.results.slice(0,4),
+      my_items: s_res.data.results.slice(0,4),
+      transactions: t_res.data.results.slice(0,3)
     }
   },
   data() {

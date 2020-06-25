@@ -1,20 +1,29 @@
 <template>
-  <div class="home">
-    <Hero />
-    <Join_us_form />
+  <div>
+    <JoinUsForm v-bind:catId="catId" />
     <Footer />
   </div>
 </template>
 
 <script>
-import Hero from '~/components/landing/hero_section.vue'
-import Join_us_form from '~/components/web/join_us_form.vue'
+import JoinUsForm from '~/components/web/join_us_form.vue'
 import Footer from '~/components/landing/footer.vue'
 
 export default {
+  async asyncData({$axios}) {
+    const res = await $axios.get("/api/cuscats/");
+    return {
+      catId: res.data.results.filter(x => x.name == "درخواست همکاری")[0].id
+    }
+  },
+  data() {
+    return {
+      catId: ''
+    }
+  },
   components: {
-    Join_us_form,
-    Footer
+    JoinUsForm,
+    Footer,
   },
   auth: false,
   layout: "landing"

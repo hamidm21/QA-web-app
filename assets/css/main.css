@@ -12,7 +12,7 @@
   font-family: IRANSans;
   font-style: normal;
   font-weight: 500;
-  src: url('/IRANSansWeb_Medium.woff') format('woff');  /* All Major Browsers */
+  src: url('/fonts/IRANSansWeb_Medium.woff') format('woff');  /* All Major Browsers */
 }
 @font-face {
   font-family: IRANSans;

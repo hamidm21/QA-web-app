@@ -277,13 +277,13 @@ export default {
     },
     async asyncData({ $axios, params }) {
         const id = params.id
-        const s_res = await $axios.$get("/api/initdata");
+        const s_res = await $axios.get("/api/initdata");
         const q_res = await $axios.get(`/api/questions/${id}`);
         return {
-            categories: s_res.categories,
-            catless: s_res.catless_sub_cats,
-            dd1: s_res.question_types,
-            dd2: s_res.halyab_grades,
+            categories: s_res.data.categories,
+            catless: s_res.data.catless_sub_cats,
+            dd1: s_res.data.question_types,
+            dd2: s_res.data.halyab_grades,
             item: q_res.data,
             dd1Selected: q_res.data.question_type_name,
             subject: q_res.data.subject,
@@ -345,7 +345,7 @@ export default {
                 max_cost: this.max_cost !== 0 ? this.max_cost : errors.push('لطفا عنوان درس را مشخص کنید'),
                 max_allowed_time: this.$store.state.question.add.selectedDate ? this.$store.state.question.add.selectedDate : errors.push('لطفا تاریخ پایان پرسش را مشخص کنید')
             }
-            if (errors.length > 1) {
+            if (errors.length >= 1) {
                 errors.map(x => this.showError(x));
                 return ''
             }

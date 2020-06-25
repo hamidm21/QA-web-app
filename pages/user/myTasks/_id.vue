@@ -1,6 +1,6 @@
 <template>
     <div class="user-dash sm:pr-250 h-full sm:h-full flex flex-col" style="direction: rtl;">
-        <div class="px-10 pt-10 pb-2">
+        <div class="w-full p-0 sm:px-10 sm:pt-10 pb-2">
             <div class="flex flex-col rounded-md bg-white rouended-md w-full shadow-md">
                 <div class="w-full flex justify-start items-center">
                     <h3 class="p-4 font-bold">
@@ -8,14 +8,14 @@
                     </h3>
                 </div>
                 <hr class="w-full">
-                <div class="flex w-full">
-                    <div class="flex w-1/2 flex-col justify-between">
+                <div class="flex flex-col sm:flex-row w-full">
+                    <div class="flex w-full sm:w-1/2 flex-col justify-between">
                         <div class="flex flex-col w-full py-6 px-10">
                             <img v-bind:src="image" class="w-full rounded-md" style="height: 280px;">
                             <div class="w-full py-4">
                                 <ul id="gallery" class="flex flex-1 flex-wrap -m-1">
                                     <li v-for="image of images" v-bind:key="image" class="block p-1 w-1/4 h-24 min-w-32">
-                                        <article tabindex="0" class="group hasImage w-full h-full rounded-md focus:outline-none focus:shadow-outline cursor-pointer relative text-transparent hover:text-white shadow-sm">
+                                        <article tabindex="0" class="group hasImage w-full h-full rounded-md focus:outline-none focus:shadow-outline bg-gray-100 cursor-pointer relative text-transparent hover:text-white shadow-sm">
                                         <img v-bind:alt="image" class="img-preview w-full h-full sticky object-cover rounded-md bg-fixed" v-bind:src="image" />
                                         <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
                                             <h1 class="flex-1">{{ image.substr(0, 60) }}</h1>
@@ -54,113 +54,13 @@
                             </div>
                         </div>
                         <div class="flex w-full py-8 px-10">
-                            <div @click="triggerModal()" class="flex justify-center items-center border border-primary bg-white w-3/5 text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer">
-                                ارسال پیشنهاد
-                                <img class="px-2" src="~/assets/icons/icon-offer.svg" alt="edit">
-                            </div>
-
-                            <!--
-                                Background overlay, show/hide based on modal state.
-
-                            -->
-                            <transition
-                                enter-class="ease-out duration-300"
-                                enter-active-class="opacity-0"
-                                enter-to-class="opacity-100"
-                                leave-class="ease-in duration-200"
-                                leave-active-class="opacity-100"
-                                leave-to-class="opacity-0"
-                            >
-                                <div v-if="openModal" class="fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center" style="direction: rtl; z-index:99;">
-                                <div class="fixed inset-0 transition-opacity">
-                                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                                </div>
-                                <!--
-                                    Modal panel, show/hide based on modal state.
-
-                                    Entering: "ease-out duration-300"
-                                    From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                    To: "opacity-100 translate-y-0 sm:scale-100"
-                                    Leaving: "ease-in duration-200"
-                                    From: "opacity-100 translate-y-0 sm:scale-100"
-                                    To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                -->
-                                    <transition
-                                    enter-class="ease-out duration-300"
-                                    enter-active-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                    enter-to-class="opacity-100 translate-y-0 sm:scale-100"
-                                    leave-class="ease-in duration-200"
-                                    leave-active-class="opacity-100 translate-y-0 sm:scale-100"
-                                    leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                    >
-                                        <div v-show="openModal" class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                            <div class="sm:flex sm:items-start">
-                                                <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-right">
-                                                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                                                    ارسال پیشنهاد
-                                                </h3>
-                                                <div class="w-full flex flex-col mt-4">
-                                                    <div class="w-full flex flex-col sm:flex-row justify-between items-start p-2">
-                                                        <div class="relative right-0 m-2">
-                                                            <h3>
-                                                                قیمت پیشنهادی
-                                                            </h3>
-                                                        </div>
-                                                        <div>
-                                                            <input v-model="offered_cost" type="number" id="price" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="عدد را به تومان وارد کنید" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-full flex flex-col sm:flex-row justify-between items-start p-2">
-                                                        <div class="relative right-0 m-2">
-                                                            <h3>
-                                                                تاریخ پایان پرسش
-                                                            </h3>
-                                                        </div>
-                                                        <div>
-                                                            <Picker v-bind:ddOpen="this.ddOpen" v-bind:opener="this.opener" v-bind:entry="'offer'" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-full flex flex-col sm:flex-row justify-between items-start p-2">
-                                                        <div class="relative right-0 m-2">
-                                                            <h3>
-                                                                توضیحات (اختیاری)
-                                                            </h3>
-                                                        </div>
-                                                        <div>
-                                                            <textarea v-model="desc" class="form-input" name="desc" id="desc" cols="20" rows="3">
-
-                                                            </textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
-                                            <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                                <div @click="sendOffer()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-red-600 text-primary leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                                                تایید
-                                                </div>
-                                            </span>
-                                            <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                                                <div @click="triggerModal()" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                                                انصراف
-                                                </div>
-                                            </span>
-                                            </div>
-                                        </div>
-                                    </transition>
-                                </div>
-                            </transition>
-                            <hr class="w-1">
-                            <div @click="cancel()" class="flex justify-center items-center border border-red bg-white w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer">
-                                گزارش تخلف
-                                <img class="px-2" src="~/assets/icons/icon-report.svg" alt="cancel">
+                            <div @click="finish()" class="flex justify-center items-center border border-primary bg-white w-full text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer">
+                                پایان پروژه
+                                <!-- <img class="px-2" src="~/assets/icons/icon-delete.svg" alt="edit"> -->
                             </div>
                         </div>
                     </div>
-                    <div class="w-1/2">
+                    <div class="w-full sm:w-1/2">
                         <div class="flex flex-col py-6 px-10">
                             <h3 class="text-xl font-bold my-2">
                                 {{item.subject}}
@@ -211,20 +111,27 @@
                 </div>
             </div>
         </div>
-        <div class="px-10 pb-10">
+        <div class="w-full sm:px-10 pb-10">
             <div class="flex flex-col rounded-md bg-white rouended-md w-full shadow-md">
                 <div class="w-full flex justify-start items-center">
-                    <div class="flex flex-col w-full pt-2 sm:p-10">
+                    <div class="flex flex-col w-full p-10">
                         <div class="flex w-full">
-                            <div v-bind:class="openTab === 2 ? 'text-primary border-b border-primary' : '' " class="p-3 px-6 font-bold cursor-pointer">
+                            <div @click="tabOpener(2)" v-bind:class="openTab === 2 ? 'text-primary border-b border-primary' : '' " class="p-3 px-6 font-bold cursor-pointer">
                                 نظرات
+                            </div>
+                            <div @click="tabOpener(3)" v-bind:class="openTab === 3 ? 'text-primary border-b border-primary' : '' " class="p-3 px-6 font-bold cursor-pointer">
+                                پاسخ ها
                             </div>
                         </div>
                         <hr>
-                        <div class="flex w-full">
-                            <div class="flex w-full pt-2 sm:p-10">
+                            <div class="flex w-full sm:p-10" v-if="openTab === 2">
                                 <div class="flex w-full justify-center">
-                                    <Chat v-bind:messages="comments" v-bind:type="'comments'" v-bind:question="this.$route.params.id" v-bind:active="true"/>
+                                    <Chat v-bind:messages="comments" v-bind:type="'comments'" v-bind:question="this.$route.params.id" v-bind:active="answers.length < 1" />
+                                </div>
+                            </div>
+                            <div class="flex w-full sm:py-10" v-else-if="openTab === 3">
+                                <div class="flex w-full justify-center">
+                                    <Chat v-bind:messages="answers" v-bind:type="'answers'" v-bind:question="this.$route.params.id" v-bind:active="true"/>
                                 </div>
                             </div>
                         </div>
@@ -232,13 +139,10 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
 import Chat from "~/components/dashboard/chat.vue";
-import Picker from '~/components/dashboard/date_picker';
-
 // local function
 function diff(a1, a2) {
             var a = [], diff = [];
@@ -260,20 +164,31 @@ function diff(a1, a2) {
 
 export default {
     mounted: function () {
-        this.$store.commit("setUserDashPage", 'others');
+        this.$store.commit("setUserDashPage", 'myTasks');
     },
     async asyncData({ $axios, params, $auth }) {
         const id = params.id
-        const q_res = await $axios.get(`/api/questions/${id}/?teacher=1`);
+        const q_res = await $axios.get(`/api/questions/${id}`);
         const c_res = await $axios.get(`/api/comments/?q=${id}`);
+        const a_res = await $axios.get(`/api/answers/?q=${id}`);
         const cMsgs = c_res.data.results;
+        const aMsgs = a_res.data.results;
         const comments = [];
+        const answers = [];
         let cStart = 0;
+        let aStart = 0;
         for (let i = 0; i < cMsgs.length; i++) {
             let nextCom = cMsgs[i + 1] ? cMsgs[i + 1].owner : '';
             if (cMsgs[i].owner !== nextCom) {
                 comments.push(cMsgs.slice(cStart, i + 1).reverse());
                 cStart = i + 1;
+            }
+        }
+        for (let j = 0; j < aMsgs.length; j++) {
+            let nextAns = aMsgs[j + 1] ? aMsgs[j + 1].owner : '';
+            if (aMsgs[j].owner !== nextAns) {
+                answers.push(aMsgs.slice(aStart, j + 1).reverse());
+                aStart = j + 1;
             }
         }
         const FILES = [
@@ -292,114 +207,34 @@ export default {
             images,
             image: images[0],
             comments: comments.reverse(),
+            answers: answers.reverse()
         }
     },
     methods: {
         tabOpener(id) {
             this.openTab = id;
         },
-        async cancel() {
-            const res = await this.$axios.get(`/api/questions/${this.$route.params.id}/cancel`);
-            console.log({res})
+        async finish() {
+            const res = await this.$axios.get(`/api/questions/${this.$route.params.id}/solvedrequest`);
+            this.$router.push("/user/myTasks");
         },
-        opener(id) {
-            this.ddOpen === id ? this.ddOpen = 0 : this.ddOpen = id;
-        },
-        triggerModal() {
-            this.openModal = !this.openModal
-        },
-        showError(str) {
-         this.$toast.error(str)
-        },
-        sendOffer() {
-            const offer_time = this.$store.state.others.offer.selectedDate;
-            let errors = []
-            const obj = {
-                question: this.$route.params.id,
-                offered_cost: this.offered_cost ? this.offered_cost : errors.push('لطفا قیمت پیشنهادی را وارد کنید'),
-                offer_time: offer_time ? offer_time : errors.push('لطفا زمان پیشنهادی را وارد کنید'),
-                desc: this.desc
-            }
-            if (errors.length >= 1) {
-               errors.map(x => this.showError(x));
-               return ''
-            }
-            this.$axios.post('/api/offers/', obj).then((res) => {
-                this.triggerModal()
-                this.$toast.success('پیشنهاد ارسال شد')
-            })
-        }
     },
     data() {
         return {
-            openModal: false,
-            openTab: 2,
-            ddOpen: 0,
-            desc: '',
-            offered_cost: '',
+            openTab: 3,
             files: [],
             images: [],
             image: '',
             question: '',
             item: {},
             comments: [],
+            answers: []
         }
     },
     components: {
-        Chat,
-        Picker
+        Chat
     },
     auth: true,
     layout: 'dashboard/user'
 }
 </script>
-
-<style>
-
-.form-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: #fff;
-    border-color: #d2d6dc;
-    border-width: 1px;
-    border-radius: .375rem;
-    padding: .5rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.top-100 {
-    top: 100%
-}
-
-.bottom-100 {
-    bottom: 100%
-}
-
-.max-h-select {
-    max-height: 300px;
-}
-
-.unselecting {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.unselecting::selection {
-    background-color:transparent;
-}
-
-.unselecting::-moz-selection {
-    background-color:transparent;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
-</style>

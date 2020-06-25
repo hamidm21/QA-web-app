@@ -11,19 +11,26 @@
          <form class="rounded flex-auto max-w-sm bg-gray-100 p-10 pb-20 shadow-2xl">
             <div class="w-full">
                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><span class="text-red-400 mr-1">*</span> نام شما</div>
-               <div class="my-2 bg-white p-1 flex border border-gray-200 rounded">  <input placeholder="نام" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">  </div>
+               <div class="my-2 bg-white p-1 flex border border-gray-200 rounded">
+                  <input placeholder="نام" v-model="name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+               </div>
             </div>
             <div class="w-full">
                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><span class="text-red-400 mr-1">*</span> مدرک شما </div>
-               <div class="my-2 bg-white p-1 flex border border-gray-200 rounded">  <input placeholder="مدرک" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">  </div>
+               <div class="my-2 bg-white p-1 flex border border-gray-200 rounded">
+                  <input placeholder="مدرک" v-model="degree" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+               </div>
             </div>
             <div class="w-full">
                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><span class="text-red-400 mr-1">*</span> ایمیل شما</div>
-               <div class="my-2 bg-white p-1 flex border border-gray-200 rounded">  <input placeholder="ایمیل" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">  </div>
+               <div class="my-2 bg-white p-1 flex border border-gray-200 rounded">
+                  <input placeholder="ایمیل" v-model="email" class="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+               </div>
             </div>
             <div class="mt-6 relative">
-               <button class="shadow-md font-medium py-2 px-4 text-green-100 text-white text-bold text-2xl
-                  cursor-pointer bg-blue-600 rounded text-lg tr-mt   text-center w-full">ارسال</button>
+               <div @click="send()" class="shadow-md font-medium py-2 px-4 text-green-100 text-white text-bold text-2xl cursor-pointer bg-blue-600 rounded text-lg tr-mt   text-center w-full">
+                  ارسال
+               </div>
             </div>
          </form>
       </div>
@@ -32,6 +39,52 @@
 </div>
 </template>
 
+<script>
+export default {
+   data() {
+      return {
+         name: '',
+         email: '',
+         degree: ''
+      }
+   },
+   methods: {
+      showError(str) {
+         this.$toast.error(str)
+      },
+      send() {
+         const errors = []
+         let obj = {
+               name: this.name ? this.name : errors.push('نام خود را وارد کنید'),
+               degree: this.degree ? this.degree : errors.push('مدرک خود را وارد کنید'),
+               email: this.email ? this.email : errors.push('ایمیل خود را وارد کنید'),
+         }
+         if (errors.length >= 1) {
+               errors.map(x => this.showError(x));
+               return ''
+         }
+         this.$axios.post("/api/cusmsgs/", {
+            category: this.$props.catId,
+            message: ` ** ارسال رزومه اساتید **
+            نام : ${this.name}
+            مدرک‌ : ${this.degree}
+            ایمیل : ${this.email}
+            `
+         }).then((res) => {
+            this.$toast.success("پیام شما ارسال شد.")
+            this.name = ''
+            this.degree = ''
+            this.email = ''
+         }).catch((e) => {
+            this.$toast.error("پیام با موفقیت ارسال نشد.")
+         })
+      }
+   },
+   props: [
+      "catId"
+   ]
+}
+</script>
 <style>
 
 .app-sec {

@@ -5,17 +5,14 @@
                 <h2>
                     {{ title }}
                 </h2>
-                <!-- <button v-if="title === 'پروژه های من'" class="bg-white text-sm text-secondary font-bold p-1 rounded focus:outline-none focus:shadow-outline">
-                مشاهده همه
-                </button> -->
             </div>
-            <button v-if="title !== 'پروژه های من'" class="bg-white text-sm text-secondary font-bold p-1 rounded focus:outline-none focus:shadow-outline">
+            <nuxt-link to="/user/othersQuestions" v-if="title !== 'پروژه های من'" class="bg-white text-sm text-secondary font-bold p-1 rounded focus:outline-none focus:shadow-outline">
                 مشاهده همه
-            </button>
-            <button v-else class="flex justify-center items-center bg-green text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
+            </nuxt-link>
+            <nuxt-link to="/user/questions/add" v-else class="flex justify-center items-center bg-green text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
                 ثبت پروژه
                 <img class="w-4 mx-2" src="~/assets/icons/plus.svg"/>
-            </button>
+            </nuxt-link>
         </div>
         <hr class="w-full">
         <div class="responsive-table mt-2">
@@ -38,24 +35,14 @@
                     <tr class="border-b" v-for="item in items" v-bind:key="item.id">
                         <td class="p-4" v-for="head in heads" v-bind:key="head.id">
                             <div v-if="head.english !== 'state' && head.english !== 'state_name'">
-                                {{ item[head.english] }}
+                                {{ head.english !== 'subject' ? item[head.english] : item[head.english].substr(0, 30) }}
                             </div>
                             <div v-else-if="head.english === 'state_name'" class="flex justify-start items-center">
-                                <!-- <div v-bind:class="item[head.english] === 'is_active' ? 'bg-orange' : item[head.english] === 'is_finished' ? 'bg-gray-700' : item[head.english] === 'wait_for_response' ? 'bg-secondary' : item[head.english] === 'question_solved_request' ? 'bg-green' : 'bg-gray-700' " class="w-3 h-3 rounded-full mx-2">
-                                </div> -->
                                 {{ item[head.english] === 'is_active' ? 'در انتظار پاسخ' : item[head.english] === 'is_finished' ? 'پاسخ داده شده' : item[head.english] === 'wait_for_response' ? 'پذیرفته شده توسط استاد' : item[head.english] === 'question_solved_request' ? 'سوال حل شده' : 'نامشخص' }}
                             </div>
                             <div class="flex justify-start items-center" v-else>
-                                <!-- <div v-bind:class="item[head.english] === 'در انتظار پاسخ' ? 'bg-orange': 'bg-gray-700' " class="w-3 h-3 rounded-full mx-2">
-                                </div> -->
                                 {{ item[head.english] }}
                             </div>
-                            <!-- <p v-if="head.english == 'state' || 'state_name' ">
-                                {{ item[head.english] }}
-                            </p>
-                            <div v-else>
-                                hamid
-                            </div> -->
                         </td>
                     </tr>
                 </tbody>

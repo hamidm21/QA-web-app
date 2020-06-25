@@ -53,13 +53,13 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="flex w-full py-8 px-10">
-                            <div @click="edit()" class="flex justify-center items-center border border-primary bg-white w-3/5 text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer">
+                        <div class="flex flex-col sm:flex-row w-full py-8 px-10">
+                            <div @click="edit()" class="flex justify-center items-center border border-primary bg-white w-full sm:w-3/5 text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0">
                                 ویرایش پروژه
                                 <img class="px-2" src="~/assets/icons/icon-edit.svg" alt="edit">
                             </div>
                             <hr class="w-1">
-                            <div @click="cancel()" class="flex justify-center items-center border border-red bg-white w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer">
+                            <div @click="cancel()" class="flex justify-center items-center border border-red bg-white w-full sm:w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0">
                                 لغو پروژه
                                 <img class="px-2" src="~/assets/icons/icon-delete.svg" alt="cancel">
                             </div>
@@ -135,9 +135,9 @@
                         <div class="flex w-full">
                             <div class="flex w-full py-10" v-if="openTab === 1">
                                 <ul v-if="offers.length !== 0" class="w-full">
-                                    <li v-for="offer in offers" v-bind:key="offer.id" class="flex items-center justify-evenly w-full py-3 px-2 mb-2 rounded-md shadow-sm border">
+                                    <li v-for="offer in offers" v-bind:key="offer.id" class="flex flex-col sm:flex-row items-center justify-evenly w-full py-3 px-2 mb-2 rounded-md shadow-sm border">
                                         <img class="rounded-full w-12" v-bind:src="offer.owner_profile_pic" alt="">
-                                        <div class="flex flex-col justify-center px-3">
+                                        <div class="flex flex-col justify-center items-center px-3 py-2 sm:py-0">
                                             <p class="text-sm font-bold">
                                                 {{offer.owner_full_name}}
                                             </p>
@@ -145,7 +145,7 @@
                                                 {{offer.owner_current_grade}} - {{offer.owner_current_category}} 
                                             </p>
                                         </div>
-                                        <div class="flex px-3">
+                                        <div class="flex px-3 py-2 sm:py-0">
                                             <p>
                                                 قیمت پیشنهادی : &nbsp;
                                             </p>
@@ -153,7 +153,7 @@
                                              {{offer.offered_cost_comma}} - تومان
                                             </p>
                                         </div>
-                                        <div class="flex px-3">
+                                        <div class="flex px-3 py-2 sm:py-0 text-sm">
                                             <p>
                                                 زمان تحویل : &nbsp;
                                             </p>
@@ -161,7 +161,7 @@
                                              {{offer.jexpire_time}}
                                             </p>
                                         </div>
-                                        <div class="flex px-3">
+                                        <div class="flex px-3 py-2 sm:py-0 text-sm">
                                             <p>
                                                 زمان ثبت پیشنهاد : &nbsp;
                                             </p>
@@ -170,7 +170,7 @@
                                             </p>
                                         </div>
                                         <div class="px-3">
-                                            <div class="rounded-md bg-primary text-white p-3 cursor-pointer">
+                                            <div @click="triggerModal(offer)" class="rounded-md bg-primary text-white p-3 cursor-pointer">
                                                 پذیرش پیشنهاد
                                             </div>
                                         </div>
@@ -188,12 +188,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex w-full p-10" v-else-if="openTab === 2">
+                            <div class="flex w-full pt-2 sm:p-10" v-else-if="openTab === 2">
                                 <div class="flex w-full justify-center">
                                     <Chat v-bind:messages="comments" v-bind:type="'comments'" v-bind:question="this.$route.params.id" v-bind:active="answers.length < 1" />
                                 </div>
                             </div>
-                            <div class="flex w-full py-10" v-else-if="openTab === 3">
+                            <div class="flex w-full pt-2 sm:py-10" v-else-if="openTab === 3">
                                 <div class="flex w-full justify-center">
                                     <Chat v-bind:messages="answers" v-bind:type="'answers'" v-bind:question="this.$route.params.id" v-bind:active="true"/>
                                 </div>
@@ -203,6 +203,72 @@
                 </div>
             </div>
         </div>
+                                                <!--
+                                            Background overlay, show/hide based on modal state.
+
+                                        -->
+                                        <transition
+                                            enter-class="ease-out duration-300"
+                                            enter-active-class="opacity-0"
+                                            enter-to-class="opacity-100"
+                                            leave-class="ease-in duration-200"
+                                            leave-active-class="opacity-100"
+                                            leave-to-class="opacity-0"
+                                        >
+                                            <div v-if="openModal" class="fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center" style="direction: rtl; z-index:99;">
+                                            <div class="fixed inset-0 transition-opacity">
+                                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                            </div>
+                                            <!--
+                                                Modal panel, show/hide based on modal state.
+
+                                                Entering: "ease-out duration-300"
+                                                From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                To: "opacity-100 translate-y-0 sm:scale-100"
+                                                Leaving: "ease-in duration-200"
+                                                From: "opacity-100 translate-y-0 sm:scale-100"
+                                                To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                            -->
+                                                <transition
+                                                enter-class="ease-out duration-300"
+                                                enter-active-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                enter-to-class="opacity-100 translate-y-0 sm:scale-100"
+                                                leave-class="ease-in duration-200"
+                                                leave-active-class="opacity-100 translate-y-0 sm:scale-100"
+                                                leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                >
+                                                    <div v-show="openModal" class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                                                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                                        <div class="sm:flex sm:items-start">
+                                                            <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-right">
+                                                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                                                پرداخت هزینه
+                                                            </h3>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
+                                                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                                            <div @click="paymentByWallet()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-red-600 text-primary leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
+                                                            پرداخت با کیف پول
+                                                            </div>
+                                                        </span>
+                                                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:ml-3 sm:mt-0 sm:w-auto">
+                                                            <div @click="paymentByGate()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-white text-primary leading-6 font-medium shadow-sm focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
+                                                            پرداخت اینترنتی
+                                                            </div>
+                                                        </span>
+                                                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                                            <div @click="openModal = false" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
+                                                            انصراف
+                                                            </div>
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </transition>
+                                            </div>
+                                        </transition>
+
     </div>
 </template>
 
@@ -279,6 +345,31 @@ export default {
         }
     },
     methods: {
+        triggerModal(id) {
+            this.openModal = true;
+            this.selectedOffer = id;
+        },
+        paymentByWallet() {
+            this.$axios.get(`/api/offers/${this.selectedOffer.id}/accept`).then((res) => {
+                this.openModal = false
+                this.$toast.success("پرداخت با موفقیت انجام شد")
+            }).catch((e) => {
+                console.log({e})
+                this.openModal = false
+                this.$toast.error("پرداخت از طریق کیف پول انجام نشد")
+            });
+        },
+        paymentByGate() {
+            this.$axios.post("/api/transactions/", {
+                amount: this.selectedOffer.offered_cost,
+                offer: this.selectedOffer.id
+            }).then((res) => {
+                this.$router.replace(`/api/gpg/${res.data.id}`)
+            }).catch((e) => {
+                this.openModal = false
+                this.$toast.error("پرداخت از طریق کیف پول انجام نشد")
+            });
+        },
         tabOpener(id) {
             this.openTab = id;
         },
@@ -292,6 +383,8 @@ export default {
     },
     data() {
         return {
+            openModal: false,
+            selectedOffer: '',
             openTab: 1,
             files: [],
             images: [],

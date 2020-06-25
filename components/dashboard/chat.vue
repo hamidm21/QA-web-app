@@ -1,9 +1,9 @@
 <template>
-    <div class="flex w-4/5 h-128 bg-bluebg rounded-md shadow-md relative">
+    <div class="flex w-full sm:w-4/5 h-128 bg-bluebg rounded-md shadow-md relative">
         <div v-if="messages.length !== 0" class="flex flex-col w-full mb-20 overflow-y-scroll">
             <div id="message" v-for="message in messages" v-bind:key="message[0].id + 100000" v-bind:class=" message[0].owner === $auth.user.username ? 'items-start' : 'items-end'" class="flex flex-col w-full justify-center p-4 h-fit relative">
                 <div v-if="message[0].owner === $auth.user.username">
-                    <div v-for="msg in message" v-bind:key="msg.id" v-bind:class="(msg === message[0] && message.length > 2) ? 'rounded-t-md' : (msg === message[message.length - 1] && message.length > 2) ? 'rounded-b-md' : 'rounded-md' " class="flex flex-col bg-blue-400 text-white max-w-xl w-64 p-2 my-1 mx-12">
+                    <div v-for="msg in message" v-bind:key="msg.id" v-bind:class="(msg === message[0] && message.length > 2) ? 'rounded-t-md' : (msg === message[message.length - 1] && message.length > 2) ? 'rounded-b-md' : 'rounded-md' " class="flex flex-col bg-blue-400 text-white max-w-xl w-50 sm:w-64 p-2 my-1 mr-12">
                         <p v-if="msg.desc">
                             {{ msg.desc }}
                         </p>
@@ -32,7 +32,7 @@
                     <div class="rounded-full bg-blue-400 w-3 h-3 mr-10 absolute" style="right:16px; bottom: 3px;"></div>
                 </div>
                 <div v-else>
-                    <div v-for="msg in message" v-bind:key="msg.id" v-bind:class="(msg === message[0] && message.length > 2) ? 'rounded-t-md' : (msg === message[message.length - 1] && message.length > 2) ? 'rounded-b-md' : 'rounded-md' " class="flex flex-col bg-gray-500 text-white max-w-xl w-64 p-2 my-1 mx-12">
+                    <div v-for="msg in message" v-bind:key="msg.id" v-bind:class="(msg === message[0] && message.length > 2) ? 'rounded-t-md' : (msg === message[message.length - 1] && message.length > 2) ? 'rounded-b-md' : 'rounded-md' " class="flex flex-col bg-gray-500 text-white max-w-xl w-50 sm:w-64 p-2 my-1 ml-12">
                         <p v-if="msg.desc">
                             {{ msg.desc }}
                         </p>
@@ -84,7 +84,8 @@
             </div>
             <div class="flex justify-end items-center w-full bg-white shadow-lg rounded-full mx-1 h-10">
                 <input @click="active ? '' : showDisableMsg()" v-on:keyup.enter="sendMsg()" v-model="message" class="w-full m-6 outline-none" placeholder="متن پیام" type="text" name="" id="">
-                <div @click="sendMsg" class="bg-gray-300 p-2 m-2 w-8 h-8 rounded-full hover:shadow-md cursor-pointer">
+                <div v-show="type !== 'comments'" @click="UBHandler()" class="bg-gray-300 p-2 m-2 w-8 h-8 rounded-full hover:shadow-md cursor-pointer">
+                    <input @change="hiddenChange($event)" id="hidden-input" type="file" class="hidden" />
                     <img src="~/assets/icons/icon-clip.svg" alt="">
                 </div>
             </div>
@@ -98,6 +99,44 @@ export default {
         console.log(this.$props.messages)
     },
     methods: {
+        toBase64(file) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+          })
+        },
+        async addFile(file) {
+            const base = await this.toBase64(file);
+            this.$axios.post(`api/${this.$props.type}/`, {
+                desc: '',
+                pic: base,
+                question: this.$props.question
+            }).then((res) => {
+                this.message = '';
+                if (this.newMsgs.length > 0) {
+                    this.newMsgs.push(res.data)
+                    this.$props.messages.pop();
+                    this.$props.messages.push(this.newMsgs)
+                } else {
+                    this.newMsgs.push(res.data)
+                    this.$props.messages.push(this.newMsgs)
+                }
+            }).catch((e) => {
+                this.$toast.error("مشکلی در ارسال فایل پیش آمد.")
+            })
+        },
+        UBHandler() {
+            console.log(this.$props.messages)
+            if (process.client) {
+                console.log("this.$props.messages")
+                document.getElementById('hidden-input').click();
+            }
+        },
+        hiddenChange(e) {
+            this.addFile(e.target.files[0]);
+        },
         isImage(file) {
             const regEx = /\.(gif|jpe?g|tiff|png|webp|bmp)$/i
             return file.match(regEx);
@@ -109,7 +148,7 @@ export default {
             this.$toast.error('نظرات این سوال به دلیل وجود پاسخ غیر فعال است')
         },
         async sendMsg() {
-            const res = await this.$axios.post( `api/${this.$props.type}/`, {
+            const res = await this.$axios.post(`api/${this.$props.type}/`, {
                 desc: this.message,
                 question: this.$props.question
             })

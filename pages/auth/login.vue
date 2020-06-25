@@ -39,7 +39,7 @@
                 </nuxt-link>
               </div>
                 <div class="block items-center justify-center p-4">
-                <nuxt-link to="/auth/forgotPass" class="text-gray-600">
+                <nuxt-link to="/auth/forgot" class="text-gray-600">
                     رمزت رو فراموشی کردی ؟
                 </nuxt-link>
               </div>
@@ -65,18 +65,6 @@
 <script>
 
 export default {
-
-  // async asyncData({ $axios, $auth }) {
-  //     // const response = await $axios.$post("/accounts/", {
-  //     //   username: "09011887171",
-  //     //   password: "12345"
-  //     // });
-  //     const resp = await $auth.loginWith('local', {data: {
-  //       username: '09011887171',
-  //       password: '12345'
-  //     }})
-  //     console.log($auth.loggedIn)
-  // },
   auth: false,
   data() {
     return {
@@ -87,13 +75,23 @@ export default {
     }
   },
   methods: {
+    showError(str) {
+         this.$toast.error(str)
+    },
     authLogin() {
+      const errors = []
+        this.login.username ? '' : errors.push('شماره خود را وارد کنید');
+        this.login.password ? '' : errors.push('رمز عبور خود را وارد کنید');
+         if (errors.length >= 1) {
+               errors.map(x => this.showError(x));
+               return ''
+         }
       this.$auth.loginWith('local', {data: this.login})
       .then((res) => {
         this.$router.push("/user/dashboard")
       })
       .catch((e) => {
-        console.log(e);
+        this.showError("ورود با موفقیت انجام نشد")
       })
     }
   },

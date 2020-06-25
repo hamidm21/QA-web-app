@@ -13,8 +13,8 @@
                         همین الان با اپلیکیشن حل یاب به راحتی بر روی تلفن همراه <br class="hidden sm:block"> سوال یا پروژه خود را به اساتید مجرب حل یاب بسپارید 
                     </h2>
                     <div class="flex flex-col sm:flex-row flex-wrap justify-start items-center">
-                        <img class="w-full sm:w-2/5 p-1" style="object-fit: contain;" src="~/assets/img/bazzar.png" alt="کافه بازار">
-                        <img class="w-full sm:w-2/5 p-1" style="object-fit: contain;" src="~/assets/img/google-play.png" alt="گوگل پلی">
+                        <img class="w-full sm:w-2/5 p-1 cursor-pointer" style="object-fit: contain;" src="~/assets/img/bazzar.png" alt="کافه بازار">
+                        <img class="w-full sm:w-2/5 p-1 cursor-pointer" style="object-fit: contain;" src="~/assets/img/google-play.png" alt="گوگل پلی">
                     </div>
                 </div>
                 <div class="hidden sm:flex justify-end items-center pl-16" style="width: 50%;">

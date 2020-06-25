@@ -264,12 +264,12 @@ export default {
         this.$store.commit("setUserDashPage", 'questions');
     },
     async asyncData({ $axios }) {
-        const s_res = await $axios.$get("/api/initdata")
+        const s_res = await $axios.get("/api/initdata")
         return {
-            categories: s_res.categories,
-            catless: s_res.catless_sub_cats,
-            dd1: s_res.question_types,
-            dd2: s_res.halyab_grades,
+            categories: s_res.data.categories,
+            catless: s_res.data.catless_sub_cats,
+            dd1: s_res.data.question_types,
+            dd2: s_res.data.halyab_grades,
         }
     },
     methods: {
@@ -322,7 +322,7 @@ export default {
                 max_cost: this.max_cost !== 0 ? this.max_cost : errors.push('لطفا عنوان درس را مشخص کنید'),
                 max_allowed_time: this.$store.state.question.add.selectedDate ? this.$store.state.question.add.selectedDate : errors.push('لطفا تاریخ پایان پرسش را مشخص کنید')
             }
-            if (errors.length > 1) {
+            if (errors.length >= 1) {
                 errors.map(x => this.showError(x));
                 return ''
             }
@@ -333,12 +333,10 @@ export default {
                     counter = counter + 1;
                 }
             }
-            console.log({obj})
             this.$axios.post('/api/questions/', obj).then((res) => {
-                console.log(res);
                 this.$router.push("/user/questions")
             }).catch((e) => {
-                console.log({e});
+                this.$toast.error("مشکلی در ثبت پروژه پیش آمده است.")
             });
         }
     },

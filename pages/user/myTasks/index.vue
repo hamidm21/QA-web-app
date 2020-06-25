@@ -2,16 +2,10 @@
     <div class="user-dash sm:pr-250 h-full sm:h-full flex flex-col">
         <div class="w-full sm:p-10">
             <div class="flex flex-col rounded-md bg-white rouended-md w-full shadow-md">
-                <div class="w-full flex justify-between items-center">
+                <div class="w-full flex justify-start items-center">
                     <h3 class="p-4">
-                        پروژه های من
+                        وظایف من
                     </h3>
-                    <nuxt-link to='questions/add'>
-                        <button class="flex justify-center items-center bg-green text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
-                            ثبت پروژه
-                            <img class="w-4 mx-2" src="~/assets/icons/plus.svg"/>
-                        </button>
-                    </nuxt-link>
                 </div>
                 <hr class="w-full">
                 <div class="p-2 flex w-full justify-evenly">
@@ -41,7 +35,7 @@
                         </thead>
                         <tbody v-if="items.length !== 0">
                             <tr @click="goToQuestion(item.id)" v-for="item in items" v-bind:key="item.id" class="cursor-pointer" >
-                                <td class="p-4">
+                                <td class="py-4 px-2">
                                     <div class="flex justify-start items-center">
                                         <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-green' : item['state_name'] === 'wait_for_response' ? 'bg-secondary' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full p-2"/>
                                         <p class="flex justify-center w-full px-2">
@@ -51,33 +45,33 @@
                                         </p>
                                     </div>
                                 </td>
-                                <td class="p-4">
+                                <td class="py-4 px-2">
                                     <div class="flex justify-center items-center">
                                         {{
                                             item['subject'].length >= 50 ? item['subject'].substr(0,50) + ' ...' : item['subject']
                                         }}
                                     </div>
                                 </td>
-                                <td class="p-4">
+                                <td class="py-4 px-2">
                                     <div class="flex justify-center items-center">
                                         {{
                                             item['grade_name']
                                         }}
                                     </div>
                                 </td>
-                                <td class="p-4">
+                                <td class="py-4 px-2">
                                     <div class="flex justify-center items-center">
                                         {{
                                             item['literal_exp_date']
                                         }}
                                     </div>
                                 </td>
-                                <td class="p-4">
+                                <td class="py-4 px-2">
                                     <div class="flex justify-center items-center">
                                         {{item['max_cost']}} تومان
                                     </div>
                                 </td>
-                                <td class="p-4">
+                                <td class="py-4 px-2">
                                     <div class="flex justify-center items-center">
                                         {{item['num_offers']}} پیشنهاد
                                     </div>
@@ -112,16 +106,15 @@ import Pagination from '~/components/dashboard/pagination';
 
 export default {
     mounted: function () {
-        this.$store.commit("setUserDashPage", 'questions');
+        this.$store.commit("setUserDashPage", 'myTasks');
     },
     async asyncData({ $axios, $auth }) {
-        const s_res = await $axios.get("/api/questions?page=1");
-        const items = s_res.data.results.filter(x => x.owner === $auth.user.username)
+        const s_res = await $axios.get("/api/questions/?mytasks=1");
         return {
-            items,
+            items: s_res.data.results,
             pagination: {
                 page: 1,
-                pages: Math.floor(s_res.data.count / 25)
+                pages: Math.floor(s_res.data.count / 25) 
             }
         }
     },
@@ -136,14 +129,14 @@ export default {
     },
     methods: {
         goToQuestion(id) {
-            this.$router.push(`/user/questions/${id}`)
+            this.$router.push(`/user/myTasks/${id}`)
         },
         async changePage(page) {
-            const s_res = await this.$axios.get(`/api/questions?page=${page}`);
+            const s_res =  await this.$axios.get(`/api/questions/?mytasks=1&page=${page}`);
             this.items = s_res.data.results,
             this.pagination = {
                 page: page,
-                pages: Math.floor(s_res.count / 25) 
+                pages: Math.floor(s_res.data.count / 25) 
             }
         }
     },
@@ -154,7 +147,3 @@ export default {
     layout: 'dashboard/user',
 }
 </script>
-
-<style>
-
-</style>

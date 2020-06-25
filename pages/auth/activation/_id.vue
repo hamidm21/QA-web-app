@@ -1,7 +1,7 @@
 <template>
   <div class="activation w-full sm:w-auto">
         <div class="sm:w-auto w-full">
-        <form @keydown.enter="login" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
+        <form @keydown.enter="authActivation" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
             <div class="px-8 pt-6 mb-4">
               <div>
                 <nuxt-link to="/">
@@ -77,8 +77,17 @@ export default {
     }
   },
   methods: {
+    showError(str) {
+         this.$toast.error(str)
+    },
     authActivation() {
-        this.$axios.$post("/api/auth/activate/", {
+      const errors = []
+        this.activation.activation_code ? '' : errors.push('کد فعالسازی خود را وارد کنید');
+         if (errors.length >= 1) {
+               errors.map(x => this.showError(x));
+               return ''
+         }
+        this.$axios.post("/api/auth/activate/", {
             cell_phone: this.$route.params.id,
             activation_code: this.activation.activation_code
         })
@@ -97,7 +106,7 @@ export default {
         })
     },
     authResend() {
-        this.$axios.$post("/api/auth/activate/resend/", {
+        this.$axios.post("/api/auth/activate/resend/", {
             cell_phone: this.$route.params.id,
         })
         .then((res) => {

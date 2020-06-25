@@ -65,7 +65,7 @@
 
 export default {
   async asyncData({ $axios }) {
-    //   const response = await $axios.$post("http://rest.3tour.ir/trips/getRecent");
+    //   const response = await $axios.post("http://rest.3tour.ir/trips/getRecent");
     //   return {trip: response.data.trips[0]}
   },
   components: {
@@ -80,9 +80,20 @@ export default {
     }
   },
   methods: {
+    showError(str) {
+      this.$toast.error(str)
+    },
     authRegister() {
+      const errors = []
+        this.register.cell_phone ? '' : errors.push('شماره خود را وارد کنید');
+        this.register.password ? '' : errors.push('رمز عبور خود را وارد کنید');
+        this.register.retyped ? '' : errors.push('تکرار رمز عبور خود را وارد کنید');
+         if (errors.length >= 1) {
+               errors.map(x => this.showError(x));
+               return ''
+         }
       if (this.register.retyped === this.register.password) {
-        this.$axios.$post("/api/auth/register/", this.register)
+        this.$axios.post("/api/auth/register/", this.register)
         .then((res) => {
           this.$store.commit("setRegisterInfo", this.register);
           this.$router.push("/auth/activation/" + this.register.cell_phone)
