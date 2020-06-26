@@ -16,7 +16,7 @@
                         برای مشارکت در حل مسائل و پروژه های کاربران حل یاب ، <br> می توانید رزومه ی خود را برای ما ارسال فرمایید
                 </h2>
                 <div class="flex justify-start items-center w-full py-6 h-full sm:h-2/5">
-                    <div class="flex justify-center items-center bg-secondary rounded text-white sm:my-8 w-40 h-16 sm:w-56 sm:h-20">
+                    <div class="flex justify-center items-center bg-primary font-bold rounded text-white sm:my-8 w-40 h-16 sm:w-56 sm:h-20">
                         <nuxt-link class="font-bold" to="/join_us">
                         ارسال رزومه
                         </nuxt-link>

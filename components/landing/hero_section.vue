@@ -18,14 +18,14 @@
                 </h3>
                 <div class="flex flex-row align-center justify-center" style="padding-top: 15%">
                     <nuxt-link to="/auth/register">
-                        <button class="bg-secondary rounded m-2 mt-6 sm:m-8 w-40 h-16 sm:w-56 sm:h-20">
+                        <div class="flex justify-center items-center bg-primary border border-white font-bold rounded m-2 mt-6 sm:m-8 w-40 h-16 sm:w-56 sm:h-20">
                             ثبت نام در حل یاب
-                        </button>
+                        </div>
                     </nuxt-link>
                     <nuxt-link to="/auth/login">
-                        <button class="bg-white rounded text-primary m-2 mt-6 sm:m-8 w-40 h-16 sm:w-56 sm:h-20">
+                        <div class="flex justify-center items-center bg-white rounded text-primary font-bold m-2 mt-6 sm:m-8 w-40 h-16 sm:w-56 sm:h-20">
                             ورود به حساب کاربری
-                        </button>
+                        </div>
                     </nuxt-link>
                 </div>
             </div>
