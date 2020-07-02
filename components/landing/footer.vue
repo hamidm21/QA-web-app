@@ -37,8 +37,8 @@
                 <div class="flex flex-col justify-center items-center p-4 w-full sm:w-1/2">
                     <img class="pb-4 hidden sm:block" src="~/assets/icons/full_white.png" alt="لوگو حل یاب" style="width: 60% ">
                     <div class="flex justify-center">
-                        <img class="pt-2" style="width: 80%;" src="~/assets/icons/sabt.png" alt="نشان ملی ثبت">
-                        <img class="pt-2" style="width: 80%;" src="~/assets/icons/enamad.png" alt="نماد الکترونیک">
+                        <img src="https://trustseal.enamad.ir/logo.aspx?id=70629&amp;p=G3Tz1TPWkTN1kxJq" alt="لوگو ی ای نماد" @click="goEnamad()" class="cursor-pointer" id="G3Tz1TPWkTN1kxJq">
+                        <img id='jxlzesgtrgvjwlaoapfurgvjapfu' class="cursor-pointer" @click="goSaman()" alt='logo-samandehi' src='https://logo.samandehi.ir/logo.aspx?id=1034535&p=nbpdlymaqftishwlujynqftiujyn'/>
                     </div>
                 </div>
             </div>
@@ -54,6 +54,23 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        goEnamad() {
+            if (process.client) {
+                window.open("https://trustseal.enamad.ir/Verify.aspx?id=70629&p=G3Tz1TPWkTN1kxJq", 'Popup', "toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")
+            }
+        },
+        goSaman() {
+            if (process.client) {
+                window.open("https://logo.samandehi.ir/Verify.aspx?id=1034535&p=rfthobpdxlaoaodsdshwxlaodshw", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
+            }
+        }
+    }
+}
+</script>
 
 <style>
 
