@@ -1,0 +1,8 @@
+version: "3"
+services:
+  halyab-web:
+    container_name: halyab-web
+    build: ./
+    restart: always
+    ports:
+      - "127.0.0.1:8989:2121" 
