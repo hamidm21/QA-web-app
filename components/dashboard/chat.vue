@@ -78,12 +78,12 @@
                 هیچ پیامی پیدا نشد !
             </div>
         </div>
-        <div class="flex justify-between items-center h-16 absolute inset-x-0 bottom-0 p-2">
+        <div v-if="active" class="flex justify-between items-center h-16 absolute inset-x-0 bottom-0 p-2">
             <div class="flex justify-center items-center bg-primary shadow-sm hover:shadow-lg p-2 w-10 h-10 rounded-full cursor-pointer">
                 <img src="~/assets/icons/send.svg" style="filter: invert(1);" alt="">
             </div>
             <div class="flex justify-end items-center w-full bg-white shadow-lg rounded-full mx-1 h-10">
-                <input @click="active ? '' : showDisableMsg()" v-on:keyup.enter="sendMsg()" v-model="message" class="w-full m-6 outline-none" placeholder="متن پیام" type="text" name="" id="">
+                <input v-on:keyup.enter="sendMsg()" v-model="message" class="w-full m-6 outline-none" placeholder="متن پیام" type="text" name="" id="">
                 <div v-show="type !== 'comments'" @click="UBHandler()" class="bg-gray-300 p-2 m-2 w-8 h-8 rounded-full hover:shadow-md cursor-pointer">
                     <input @change="hiddenChange($event)" id="hidden-input" type="file" class="hidden" />
                     <img src="~/assets/icons/icon-clip.svg" alt="">

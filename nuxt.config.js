@@ -31,6 +31,7 @@ module.exports = {
   */
   plugins: [
     '~/plugins/axios',
+    '~/plugins/directives.js'
   ],
   /*
   ** Nuxt.js dev-modules

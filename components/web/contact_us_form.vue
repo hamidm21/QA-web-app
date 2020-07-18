@@ -39,7 +39,7 @@ export default {
          let obj = {
             name: this.name ? this.name : errors.push('نام خود را وارد کنید'),
             subject: this.subject ? this.subject : errors.push('موضوع پیام را وارد کنید'),
-            desc: this.message ? this.message : errors.push('توضیحات خود را وارد کنید'),
+            desc: this.desc ? this.desc : errors.push('توضیحات خود را وارد کنید'),
             email: this.email ? this.email : errors.push('ایمیل خود را وارد کنید'),
          }
          if (errors.length >= 1) {
