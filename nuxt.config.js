@@ -98,17 +98,14 @@ module.exports = {
     },
     strategies: {
       local: {
+        scheme: 'refresh',
+        tokenType: 'Bearer',
         endpoints: {
+          user: { url: '/accounts/users/', method: 'get', propertyName: 'user_info'},
+          refresh: { url: '/accounts/refresh', method: 'post', propertyName: 'refresh' },
           login: { url: '/accounts/', method: 'post', propertyName: 'access'},
           logout: false,
-          user: { url: '/accounts/users/', method: 'get', propertyName: 'user_info'}
         },
-        // set true for cookie based auth
-        // tokenRequired: true,
-        // // header name
-        // tokenName: 'Authorization',
-        tokenType: 'Bearer',
-        // autoFetchUser: false,
       }
     }
   }

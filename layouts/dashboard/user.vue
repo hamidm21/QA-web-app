@@ -1,5 +1,5 @@
 <template>
-  <div @click="hamid($event)" class="user-layout">
+  <div @click="hamid($event)" class="user-layout mb-10">
     <div class="user-head flex shadow-md fixed">
         <div class="w-full sm:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm sm:py-0 py-2 relative">
             <div class="flex flex justify-between items-center py-2">
@@ -300,13 +300,13 @@ export default {
       this.$router.push(to)
     },
     hamid(ev) {
-      console.log(ev.target.id)
+      console.log(ev.target.id !== 'notification' && ev.target.id !== 'notif')
       if (ev.target.id !== 'prof' && this.isProfOpen) {
         this.isProfOpen = false
-      } else if (ev.target.id !== 'notification' && this.isNotifOpen) {
+      } else if (ev.target.id !== 'notification' && ev.target.id !== 'notif' && this.isNotifOpen) {
         this.isNotifOpen = false
-      } else if (ev.target.id !== 'notif' && this.isNotifOpen) {
-        this.isNotifOpen = false
+      } else {
+        return ''
       }
     }
   },
