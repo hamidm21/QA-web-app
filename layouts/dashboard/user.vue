@@ -1,15 +1,15 @@
 <template>
   <div @click="hamid($event)" class="user-layout">
-    <div class="user-head flex shadow-md">
+    <div class="user-head flex shadow-md fixed">
         <div class="w-full sm:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm sm:py-0 py-2 relative">
             <div class="flex flex justify-between items-center py-2">
                 <div class="flex justify-center items-center relative">
                     <img @click="isProfOpen = !isProfOpen; isNotifOpen = false" id="prof" class="rounded-full w-12 border-2 border-transparent hover:border-primary mx-1 cursor-pointer" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' ">
-                    <div @click="isNotifOpen = !isNotifOpen; isProfOpen = false" class="flex justify-center items-center hover:shadow-md rounded-full w-12 h-12 border-transparent mx-1 cursor-pointer relative">
+                    <div @click="isNotifOpen = !isNotifOpen; isProfOpen = false" id="notification" class="flex justify-center items-center hover:shadow-md rounded-full w-12 h-12 border-transparent mx-1 cursor-pointer relative">
                       <div v-if="this.$store.state.dashboard.unReads >= 1" class="flex justify-center items-center bg-red absolute top-0 right-0 w-4 h-4 rounded-full text-white text-center text-xxs">
                         {{ this.$store.state.dashboard.unReads }}
                       </div>
-                      <img id="notification" class="w-6 mx-4" src="~/assets/icons/bell-regular.svg" alt="نوتیفیکیشن">
+                      <img id="notif" class="w-6 mx-4" src="~/assets/icons/bell-regular.svg" alt="نوتیفیکیشن">
                     </div>
                 </div>
                 <transition
@@ -304,6 +304,8 @@ export default {
       if (ev.target.id !== 'prof' && this.isProfOpen) {
         this.isProfOpen = false
       } else if (ev.target.id !== 'notification' && this.isNotifOpen) {
+        this.isNotifOpen = false
+      } else if (ev.target.id !== 'notif' && this.isNotifOpen) {
         this.isNotifOpen = false
       }
     }

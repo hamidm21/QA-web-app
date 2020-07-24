@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="landing-head">
+    <div class="landing-head fixed" >
       <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm lg:py-0 py-2">
         <div class="flex-1 flex justify-between items-center">
           <div v-if="!$auth.loggedIn">
