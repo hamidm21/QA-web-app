@@ -13,7 +13,7 @@
                                 $auth.user.full_name
                             }}
                             </h3>
-                            <small class="flex w-full justify-center items-center pt-1">
+                            <small class="flex w-full justify-center items-center pt-1 number">
                                 {{
                                     $auth.user.username
                                 }}
@@ -34,7 +34,7 @@
                                 <h3 class="p-4">
                                     اعتبار فعلی :
                                 </h3>
-                                <h3 class="p-4">
+                                <h3 class="p-4 number">
                                     {{
                                         $auth.user.current_balance
                                     }} تومان
@@ -145,6 +145,14 @@
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'profile');
+            var replaceDigits = function() {
+        var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
+        var elements = document.getElementsByClassName("number");
+        for (const e of elements) {
+          e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+        }
+      }
+    replaceDigits()
     },
     methods: {
         async logout() {

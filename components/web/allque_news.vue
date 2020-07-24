@@ -61,19 +61,19 @@
                                             </div>
                                         </td>
                                         <td class="p-4">
-                                            <div class="flex justify-center items-center">
+                                            <div class="flex justify-center items-center number">
                                                 {{
                                                     item['literal_exp_date']
                                                 }}
                                             </div>
                                         </td>
                                         <td class="p-4">
-                                            <div class="flex justify-center items-center">
+                                            <div class="flex justify-center items-center number">
                                                 {{item['max_cost']}} تومان
                                             </div>
                                         </td>
                                         <td class="p-4">
-                                            <div class="flex justify-center items-center">
+                                            <div class="flex justify-center items-center number">
                                                 {{item['num_offers']}} پیشنهاد
                                             </div>
                                         </td>
@@ -96,6 +96,17 @@
 import Pagination from '~/components/dashboard/pagination';
 
 export default {
+    mounted: function () {
+        this.$store.commit("setUserDashPage", 'questions');
+        var replaceDigits = function() {
+            var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
+            var elements = document.getElementsByClassName("number");
+            for (const e of elements) {
+            e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+            }
+        }
+        replaceDigits()
+    },
     components: {
         Pagination
     },

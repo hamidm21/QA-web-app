@@ -1,6 +1,7 @@
 <template>
   <div class="user-dash sm:pr-250 h-full flex flex-col">
       <!-- <Title title="پیشخوان" /> -->
+      <!-- <vue-record-audio @result="onResult" /> -->
       <div class="p-4 flex sm:flex-row flex-col w-full">
         <div class="sm:w-2/3 w-full sm:pl-4">
           <List v-bind:heads="this.others_heads" v-bind:items="this.others_items" title="پروژه های دیگران" />
@@ -27,7 +28,15 @@ import Finance from '~/components/dashboard/finance_card.vue';
 export default {
   mounted: function () {
     this.$store.commit("setUserDashPage", 'dashboard');
-  },
+    var replaceDigits = function() {
+        var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
+        var elements = document.getElementsByClassName("number");
+        for (const e of elements) {
+          e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+        }
+      }
+    replaceDigits()
+},
     async asyncData({ $axios, store }) {
     const f_res = await $axios.get("/api/questions?others=true")
     const s_res = await $axios.get("/api/questions")

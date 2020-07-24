@@ -31,7 +31,8 @@ module.exports = {
   */
   plugins: [
     '~/plugins/axios',
-    '~/plugins/directives.js'
+    '~/plugins/directives.js',
+    '~/plugins/recorder.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -99,7 +100,15 @@ module.exports = {
     strategies: {
       local: {
         scheme: 'refresh',
-        tokenType: 'Bearer',
+        // tokenType: 'Bearer',
+        token: {
+          property: 'data.access',
+          maxAge: 10000
+        },
+        refreshToken: {
+          property: 'data.refresh',
+          maxAge: false
+        },
         endpoints: {
           user: { url: '/accounts/users/', method: 'get', propertyName: 'user_info'},
           refresh: { url: '/accounts/refresh', method: 'post', propertyName: 'refresh' },

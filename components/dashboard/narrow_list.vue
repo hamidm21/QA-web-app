@@ -34,7 +34,7 @@
                 <tbody v-if="items.length !== 0">
                     <tr class="border-b" v-for="item in items" v-bind:key="item.id">
                         <td class="p-4" v-for="head in heads" v-bind:key="head.id">
-                            <div v-if="head.english !== 'state' && head.english !== 'state_name'">
+                            <div class="number" v-if="head.english !== 'state' && head.english !== 'state_name'">
                                 {{ head.english !== 'subject' ? item[head.english] : item[head.english].substr(0, 30) }}
                             </div>
                             <div v-else-if="head.english === 'state_name'" class="flex justify-start items-center">

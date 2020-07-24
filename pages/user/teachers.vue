@@ -58,7 +58,7 @@
                                     </div>
                                 </td>
                                 <td class="p-4">
-                                    <div class="flex justify-center items-center">
+                                    <div class="flex justify-center items-center number">
                                         {{
                                             item["num_solved_questions_teacher"]
                                         }}
@@ -66,7 +66,7 @@
                                 </td>
                                 <td class="p-4">
                                     <div class="flex justify-start items-center">
-                                        <p class="flex justify-center w-full px-2">
+                                        <p class="flex justify-center w-full px-2 number">
                                             {{
                                                 item["teacher_rate"]
                                             }}
@@ -105,6 +105,14 @@ import Pagination from '~/components/dashboard/pagination';
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'teachers');
+        var replaceDigits = function() {
+        var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
+        var elements = document.getElementsByClassName("number");
+        for (const e of elements) {
+          e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+        }
+      }
+    replaceDigits()
     },
     async asyncData({ $axios, $auth }) {
         const res = await $axios.get("/api/initdata");

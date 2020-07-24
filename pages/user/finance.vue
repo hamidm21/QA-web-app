@@ -64,19 +64,19 @@
                                     </div>
                                 </td>
                                 <td class="p-4">
-                                    <div class="flex justify-center items-center">
+                                    <div class="flex justify-center items-center number">
                                         {{
                                             item['literal_exp_date']
                                         }}
                                     </div>
                                 </td>
                                 <td class="p-4">
-                                    <div class="flex justify-center items-center">
+                                    <div class="flex justify-center items-center number">
                                         {{item['max_cost']}} تومان
                                     </div>
                                 </td>
                                 <td class="p-4">
-                                    <div class="flex justify-center items-center">
+                                    <div class="flex justify-center items-center number">
                                         {{item['num_offers']}} پیشنهاد
                                     </div>
                                 </td>

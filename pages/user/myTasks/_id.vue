@@ -91,19 +91,19 @@
                                 </div>
                                 <div class="flex w-full p-4 justify-between bg-gray-300">
                                     <p>مهلت دریافت پاسخ</p>
-                                    <p>{{item.literal_exp_date}}</p>
+                                    <p class="number">{{item.literal_exp_date}}</p>
                                 </div>
                                 <div class="flex w-full p-4 justify-between">
                                     <p>سقف هزینه</p>
-                                    <p>{{item.max_cost_comma}} تومان</p>
+                                    <p class="number">{{item.max_cost_comma}} تومان</p>
                                 </div>
                                 <div class="flex w-full p-4 justify-between bg-gray-300">
                                     <p>تعداد پیشنهاد</p>
-                                    <p>{{item.num_offers}} پیشنهاد</p>
+                                    <p class="number">{{item.num_offers}} پیشنهاد</p>
                                 </div>
                                 <div class="flex w-full p-4 justify-between">
                                     <p>زمان ثبت</p>
-                                    <p>{{item.jcreate_time}}</p>
+                                    <p class="number">{{item.jcreate_time}}</p>
                                 </div>
                             </div>
                         </div>
@@ -165,6 +165,14 @@ function diff(a1, a2) {
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'myTasks');
+        var replaceDigits = function() {
+            var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
+            var elements = document.getElementsByClassName("number");
+            for (const e of elements) {
+            e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+            }
+        }
+        replaceDigits()
     },
     async asyncData({ $axios, params, $auth }) {
         const id = params.id

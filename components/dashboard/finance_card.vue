@@ -53,6 +53,34 @@
                                         <div class="w-full flex flex-col sm:flex-row justify-between items-start p-2">
                                             <div class="relative right-0 m-2">
                                                 <h3>
+                                                    اعتبار فعلی شما
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                <input disabled class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5 number" v-bind:value="this.$auth.user.current_balance + ' تومان'" />
+                                            </div>
+                                        </div>
+                                        <div class="w-full flex flex-col sm:flex-row justify-between items-start p-2">
+                                            <div class="relative right-0 m-2">
+                                            <h3>
+                                                مبالغ پیشنهادی
+                                            </h3>
+                                            </div>
+                                            <div class="flex w-full sm:justify-end">
+                                                <div @click="amount=50000" class="sm:w-1/4 w-1/3 cursor-pointer border rounded-md flex justify-center py-2 m-1 hover:bg-primary hover:text-white">
+                                                    ۵۰,۰۰۰
+                                                </div>
+                                                <div @click="amount=20000" class="sm:w-1/4 w-1/3 cursor-pointer border rounded-md flex justify-center py-2 m-1 hover:bg-primary hover:text-white">
+                                                    ۲۰,۰۰۰
+                                                </div>
+                                                <div @click="amount=10000" class="sm:w-1/4 w-1/3 cursor-pointer border rounded-md flex justify-center py-2 m-1 hover:bg-primary hover:text-white">
+                                                    ۱۰,۰۰۰
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full flex flex-col sm:flex-row justify-between items-start p-2">
+                                            <div class="relative right-0 m-2">
+                                                <h3>
                                                     مبلغ
                                                 </h3>
                                             </div>
@@ -66,12 +94,12 @@
                                 </div>
                                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <div @click="payment()" class="inline-flex justify-center w-full rounded-md border border-green px-4 py-2 bg-red-600 text-green leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    <div @click="payment()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-red-600 text-primary leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
                                     تایید
                                     </div>
                                 </span>
                                 <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                                    <div @click="openModal = false" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    <div @click="openModal = false" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
                                     انصراف
                                     </div>
                                 </span>
@@ -81,7 +109,7 @@
                     </div>
                 </transition>
 
-                <small class="pt-1">
+                <small class="pt-1 number">
                     اعتبار شما: {{ this.$auth.user.current_balance }} تومان
                 </small>
             </div>
@@ -106,13 +134,13 @@
                     </div>
                 </div>
                 <div class="px-2 flex flex-col justify-evenly">
-                    <small>
+                    <small class="number">
                         {{ tsa.transaction_type === 'increase' ? "+" : "-" }} {{tsa.amount_comma}} تومان
                     </small>
                     <small>
                         {{ tsa.state_name }}
                     </small>
-                    <small>
+                    <small class="number">
                         {{ tsa.jcreate_time }}
                     </small>
                 </div>

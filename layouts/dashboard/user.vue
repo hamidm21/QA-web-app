@@ -1,6 +1,6 @@
 <template>
-  <div @click="hamid($event)" class="user-layout mb-10">
-    <div class="user-head flex shadow-md fixed">
+  <div @click="hamid($event)" class="user-layout">
+    <div class="user-head flex shadow-md">
         <div class="w-full sm:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm sm:py-0 py-2 relative">
             <div class="flex flex justify-between items-center py-2">
                 <div class="flex justify-center items-center relative">
@@ -49,7 +49,7 @@
                             <img class="pl-2 w-6" src="~/assets/icons/icon-file-plus.svg" alt="پروژه های من" style="filter: invert(0.6);">
                             پروژه های من 
                           </div>
-                          <div @click="profSelect('/user/finance')" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                          <div @click="profSelect('/user/trx')" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
                             <img class="pl-2 w-6" src="~/assets/icons/icon-refresh.svg" alt="افزایش اعتبار" style="filter: invert(0.6);">
                             افزایش اعتبار 
                           </div>
@@ -272,6 +272,16 @@
 
 <script>
 export default {
+  mounted() {
+      var replaceDigits = function() {
+        var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
+        var elements = document.getElementsByClassName("number");
+        for (const e of elements) {
+          e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+        }
+      }
+      replaceDigits()
+    },
   middleware: 'auth',
   methods: {
     async logout() {
