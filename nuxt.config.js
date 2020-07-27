@@ -32,7 +32,7 @@ module.exports = {
   plugins: [
     '~/plugins/axios',
     '~/plugins/directives.js',
-    '~/plugins/recorder.js'
+    '~/plugins/recorder.client.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -57,6 +57,13 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      })
     }
   },
   axios: {

@@ -45,7 +45,7 @@ module.exports = {
       width: {
         fit: 'fit-content',
         r35: '35rem',
-        50: '12rem'
+        50: '13rem'
       },
       colors: {
         primary: '#1251a4',
