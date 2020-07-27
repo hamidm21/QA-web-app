@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="landing-head fixed" >
+  <div @click="closer($event)">
+    <div class="landing-head fixed" style="z-index: 100;" >
       <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm lg:py-0 py-2">
         <div class="flex-1 flex justify-between items-center">
           <div v-if="!$auth.loggedIn">
@@ -16,7 +16,7 @@
           </nuxt-link>
           </div>
           <div v-else class="flex justify-center items-center">
-            <img @click="isProfOpen = !isProfOpen" class="rounded-full w-10 h-10 border-2 border-transparent hover:border-primary" v-bind:src="$auth.user ? $auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic : '' " v-bind:alt="$auth.user ? $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' : '' ">
+            <img id="prof" @click="isProfOpen = !isProfOpen" class="rounded-full w-10 h-10 border-2 border-transparent hover:border-primary" v-bind:src="$auth.user ? $auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic : '' " v-bind:alt="$auth.user ? $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' : '' ">
           </div>
                 <transition
                   enter-active-class="transition ease-out duration-100"
@@ -169,6 +169,13 @@ export default {
     menuSelect(to) {
       this.openMenu = false;
       this.$router.push(to)
+    },
+    closer(ev) {
+      if (ev.target.id !== 'prof' && this.isProfOpen) {
+        this.isProfOpen = false
+      } else {
+        return ''
+      }
     }
   },
   data() {
