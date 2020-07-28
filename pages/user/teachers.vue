@@ -134,9 +134,6 @@ export default {
         }
     },
     methods: {
-        // goToQuestion(id) {
-        //     this.$router.push(`/user/questions/${id}`)
-        // },
         async changePage(page) {
             const s_res = await this.$axios.get(`/api/initdata?page=${page}`);
             this.items = s_res.data.teachers.results,
