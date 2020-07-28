@@ -71,7 +71,7 @@
                                                 item["teacher_rate"]
                                             }}
                                         </p>
-                                        <img src="~/assets/icons/icon-star.svg" alt="">
+                                        <img class="w-8" src="~/assets/icons/icon-star.svg" alt="">
                                     </div>
                                 </td>
                             </tr>
