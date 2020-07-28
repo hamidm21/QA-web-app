@@ -99,7 +99,7 @@ export default {
         generateCalender() {
             const firstDay = this.days.filter(x => x.name === this.moment.format('dd'))
             let blankdaysArray = []
-            for ( var i=1; i <= firstDay[0].id - 1; i++) {
+            for (var i = 0 ; i <= firstDay[0].id - 1; i++) {
                 blankdaysArray.push(i);
             }
             this.blankdays = blankdaysArray;

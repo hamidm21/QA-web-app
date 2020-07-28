@@ -1,7 +1,7 @@
 <template>
   <div class="login w-full sm:w-auto">
         <div class="sm:w-auto w-full">
-        <form @keydown.enter="authLogin" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
+        <form @keydown.enter="authLogin()" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
             <div class="px-8 pt-6 mb-4">
               <div>
                 <nuxt-link to="/">

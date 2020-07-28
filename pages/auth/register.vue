@@ -1,7 +1,7 @@
 <template>
   <div class="register w-full sm:w-auto">
     <div class="sm:w-auto w-full sm:h-auto h-full">
-      <form @keydown.enter="authRegister" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
+      <form @keydown.enter="authRegister()" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
           <div class="px-8 pt-6 mb-4">
             <nuxt-link to="/">
               <img src="~/assets/icons/arrow-right-solid.svg" alt="back" class="w-4">
