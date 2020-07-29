@@ -37,10 +37,10 @@
                             <tr @click="goToQuestion(item.id)" v-for="item in items" v-bind:key="item.id" class="cursor-pointer" >
                                 <td class="py-4 px-2">
                                     <div class="flex justify-start items-center">
-                                        <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-green' : item['state_name'] === 'wait_for_response' ? 'bg-secondary' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full p-2"/>
+                                        <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-gray-700' : item['state_name'] === 'wait_for_response' ? 'bg-green' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : item['state_name'] === 'is_referred_to_judge' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full p-2"/>
                                         <p class="flex justify-center w-full px-2">
                                             {{
-                                                item['state_name'] === 'is_active' ? 'در انتظار پاسخ' : item['state_name'] === 'is_finished' ? 'پاسخ داده شده' : item['state_name'] === 'wait_for_response' ? 'پذیرفته شده توسط استاد' : item['state_name'] === 'question_solved_request' ? 'سوال حل شده' : 'نامشخص'
+                                                item['state']
                                             }}
                                         </p>
                                     </div>

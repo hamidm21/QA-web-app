@@ -35,7 +35,7 @@
                                 <td class="p-4">
                                     <div class="flex justify-start items-center">
                                         <img class="rounded-full w-12 border-2 border-transparent mx-1 cursor-pointer" v-bind:src="item.profile_pic_thumb " v-bind:alt="item.full_name">
-                                        <!-- <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-green' : item['state_name'] === 'wait_for_response' ? 'bg-secondary' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full p-2"/> -->
+                                        <!-- <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-gray-700' : item['state_name'] === 'wait_for_response' ? 'bg-green' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full p-2"/> -->
                                         <p class="flex justify-center w-full px-2">
                                             {{
                                                 item["full_name"]

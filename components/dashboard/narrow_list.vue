@@ -38,7 +38,7 @@
                                 {{ head.english !== 'subject' ? item[head.english] : item[head.english].substr(0, 30) }}
                             </div>
                             <div v-else-if="head.english === 'state_name'" class="flex justify-start items-center">
-                                {{ item[head.english] === 'is_active' ? 'در انتظار پاسخ' : item[head.english] === 'is_finished' ? 'پاسخ داده شده' : item[head.english] === 'wait_for_response' ? 'پذیرفته شده توسط استاد' : item[head.english] === 'question_solved_request' ? 'سوال حل شده' : 'نامشخص' }}
+                                {{ item[head.english] === 'is_active' ? 'در انتظار پاسخ' : item[head.english] === 'is_finished' ? 'انجام شده' : item[head.english] === 'wait_for_response' ? 'در انتظار پاسخ' : item[head.english] === 'question_solved_request' ? 'سوال حل شده' : 'نامشخص' }}
                             </div>
                             <div class="flex justify-start items-center" v-else>
                                 {{ item[head.english] }}

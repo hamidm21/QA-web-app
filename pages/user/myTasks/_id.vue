@@ -31,7 +31,6 @@
                                         </section>
                                         </article>
                                     </li>
-
                                     <li v-for="file in files" v-bind:key="file" class="block p-1 w-1/4 h-24">
                                         <article tabindex="0" class="group hasImage w-full h-full rounded-md focus:outline-none focus:shadow-outline bg-gray-300 cursor-pointer relative text-transparent hover:text-white shadow-sm">
                                         <img v-bind:alt="file" class="img-preview hidden w-full h-full sticky object-cover rounded-md bg-fixed" />
@@ -53,7 +52,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="flex w-full py-8 px-10">
+                        <div v-if="item.state_name !== 'question_solved_request'" class="flex w-full py-8 px-10">
                             <div @click="finish()" class="flex justify-center items-center border border-primary bg-white w-full text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer">
                                 پایان پروژه
                                 <!-- <img class="px-2" src="~/assets/icons/icon-delete.svg" alt="edit"> -->
@@ -183,6 +182,7 @@ export default {
         const aMsgs = a_res.data.results;
         const comments = [];
         const answers = [];
+        console.log({q_res})
         let cStart = 0;
         let aStart = 0;
         for (let i = 0; i < cMsgs.length; i++) {

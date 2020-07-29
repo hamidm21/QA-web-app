@@ -162,7 +162,7 @@ export default {
             const res = await this.$axios.post(`/api/transactions/`, {
                 amount: this.amount
             });
-            this.$router.replace(`/api/gpg/${res.data.id}`)
+            window.location.replace(`https://halyab.com/api/gpg/${res.data.id}`)
         }
     },
     props: [

@@ -38,7 +38,6 @@ export default {
         },
         async changePage(page) {
             const s_res = await this.$axios.get(`/api/questionsUnAuth?page=${page}`);
-            console.log({s_res})
             this.items = s_res.data.results,
             this.pagination = {
                 page: page,

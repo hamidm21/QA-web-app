@@ -53,7 +53,84 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="flex flex-col sm:flex-row w-full py-8 px-10">
+                                        <transition
+                                            enter-class="ease-out duration-300"
+                                            enter-active-class="opacity-0"
+                                            enter-to-class="opacity-100"
+                                            leave-class="ease-in duration-200"
+                                            leave-active-class="opacity-100"
+                                            leave-to-class="opacity-0"
+                                        >
+                                            <div v-if="openModalAccept" class="fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center" style="direction: rtl; z-index:99;">
+                                            <div class="fixed inset-0 transition-opacity">
+                                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                            </div>
+                                                <transition
+                                                enter-class="ease-out duration-300"
+                                                enter-active-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                enter-to-class="opacity-100 translate-y-0 sm:scale-100"
+                                                leave-class="ease-in duration-200"
+                                                leave-active-class="opacity-100 translate-y-0 sm:scale-100"
+                                                leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                >
+                                                    <div v-show="openModalAccept" class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                                                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                                            <div class="sm:flex sm:items-start">
+                                                                <div class="w-full my-3 text-center sm:mt-0 sm:ml-4">
+                                                                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-2" id="modal-headline">
+                                                                    تایید حل پرسش
+                                                                </h3>
+                                                                <small>
+                                                                    آیا از پاسخ سوال خود راضی هستید؟
+                                                                    <br>
+                                                                    لطفا به پاسخ داده شده امتیاز دهید.
+                                                                </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row justify-center items-center">
+                                                            <div @click="rate = 5" v-bind:class="rate > 4 ? 'text-primary' : ''" class="text-4xl text-gray-400 cursor-pointer">
+                                                                ★
+                                                            </div>
+                                                            <div @click="rate = 4" v-bind:class="rate > 3 ? 'text-primary' : ''" class="text-4xl text-gray-400 cursor-pointer">
+                                                                ★
+                                                            </div>
+                                                            <div @click="rate = 3" v-bind:class="rate > 2 ? 'text-primary' : ''" class="text-4xl text-gray-400 cursor-pointer">
+                                                                ★
+                                                            </div>
+                                                            <div @click="rate = 2" v-bind:class="rate > 1 ? 'text-primary' : ''" class="text-4xl text-gray-400 cursor-pointer">
+                                                                ★
+                                                            </div>
+                                                            <div @click="rate = 1" v-bind:class="rate > 0 ? 'text-primary' : ''" class="text-4xl text-gray-400 cursor-pointer">
+                                                                ★
+                                                            </div>
+                                                        </div>
+                                                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
+                                                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                                            <div @click="accept()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-red-600 text-primary leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
+                                                            تایید
+                                                            </div>
+                                                        </span>
+                                                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                                            <div @click="openModalAccept = false" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
+                                                            انصراف
+                                                            </div>
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </transition>
+                                            </div>
+                                        </transition>
+                        <div v-if="item.state_name === 'question_solved_request'" class="flex flex-col sm:flex-row w-full py-8 px-10">
+                            <div @click="openModalAccept = true" class="flex justify-center items-center border border-primary bg-white w-full sm:w-1/2 text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0">
+                                تایید حل پرسش
+                            </div>
+                            <hr class="w-1">
+                            <div @click="judgement()" class="flex justify-center items-center border border-primary bg-white w-full sm:w-1/2 text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0">
+                                درخواست داوری
+                            </div>
+                        </div>
+                        <div v-else-if="item.state_name !== 'is_referred_to_judge' " class="flex flex-col sm:flex-row w-full py-8 px-10">
                             <div @click="edit()" class="flex justify-center items-center border border-primary bg-white w-full sm:w-3/5 text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0">
                                 ویرایش پروژه
                                 <img class="px-2" src="~/assets/icons/icon-edit.svg" alt="edit">
@@ -315,6 +392,7 @@ export default {
         const aMsgs = a_res.data.results;
         const comments = [];
         const answers = [];
+        console.log({q_res})
         let cStart = 0;
         let aStart = 0;
         for (let i = 0; i < cMsgs.length; i++) {
@@ -362,7 +440,6 @@ export default {
                 this.openModal = false
                 this.$toast.success("پرداخت با موفقیت انجام شد")
             }).catch((e) => {
-                console.log({e})
                 this.openModal = false
                 this.$toast.error("پرداخت از طریق کیف پول انجام نشد")
             });
@@ -372,7 +449,7 @@ export default {
                 amount: this.selectedOffer.offered_cost,
                 offer: this.selectedOffer.id
             }).then((res) => {
-                this.$router.replace(`/api/gpg/${res.data.id}`)
+                window.location.replace(`https://halyab.com/api/gpg/${res.data.id}`)
             }).catch((e) => {
                 this.openModal = false
                 this.$toast.error("پرداخت از طریق کیف پول انجام نشد")
@@ -387,13 +464,31 @@ export default {
         },
         edit() {
             this.$router.push(`/user/questions/edit/${this.$route.params.id}`);
+        },
+        async accept() {
+            const errors = []
+            this.rate ? '' : errors.push('امتیاز را وارد کنید');
+            if (errors.length >= 1) {
+                errors.map(x => this.showError(x));
+                return ''
+            }
+            const res = await this.$axios.post(`/api/questions/${this.$route.params.id}/acceptsolved/`, {
+                rating: this.rate
+            });
+            this.$router.push("/user/questions");
+        },
+        async judgement() {
+            const res = await this.$axios.get(`/api/questions/${this.$route.params.id}/judgereq/`);
+            this.$router.push("/user/questions");
         }
     },
     data() {
         return {
             openModal: false,
+            openModalAccept: false,
             selectedOffer: '',
             openTab: 1,
+            rate: 0,
             files: [],
             images: [],
             image: '',

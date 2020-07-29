@@ -4,7 +4,7 @@
             <div class="flex flex-col rounded-md bg-white rouended-md w-full h-full shadow-md ">
                 <div class="flex justify-between items-center">
                   <div class="p-4 text-center">
-                          گردش های مالی من
+                    گردش های مالی من
                   </div>
                     <div @click="openModal = true" class="flex justify-center items-center bg-green text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
                         افزایش اعتبار
@@ -170,9 +170,7 @@ export default {
     replaceDigits()
   },
     async asyncData({ $axios }) {
-      console.log("started")
     const t_res = await $axios.get("/api/transactions")
-    console.log({t_res})
     return {
       transactions: t_res.data.results,
       pagination: {
@@ -194,7 +192,7 @@ export default {
       const res = await this.$axios.post(`/api/transactions/`, {
           amount: this.amount
       });
-      this.$router.replace(`/api/gpg/${res.data.id}`)
+      window.location.replace(`https://halyab.com/api/gpg/${res.data.id}`)
     }
   },
   data() {

@@ -308,7 +308,6 @@ export default {
         },
         async cancel() {
             const res = await this.$axios.get(`/api/questions/${this.$route.params.id}/cancel`);
-            console.log({res})
         },
         opener(id) {
             this.ddOpen === id ? this.ddOpen = 0 : this.ddOpen = id;

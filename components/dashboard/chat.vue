@@ -1,6 +1,6 @@
 <template>
     <div class="flex w-full sm:w-4/5 h-128 bg-bluebg rounded-md shadow-md relative">
-        <div v-if="messages.length !== 0" class="flex flex-col w-full mb-20 overflow-y-scroll">
+        <div id="scroll" v-if="messages.length !== 0" class="flex flex-col w-full mb-20 overflow-y-scroll">
             <div id="message" v-for="message in messages" v-bind:key="message[0].id + 100000" v-bind:class=" message[0].owner === $auth.user.username ? 'items-start' : 'items-end'" class="flex flex-col w-full justify-center p-4 h-fit relative">
                 <div v-if="message[0].owner === $auth.user.username">
                     <div v-for="msg in message" v-bind:key="msg.id" v-bind:class="(msg === message[0] && message.length > 2) ? 'rounded-t-md' : (msg === message[message.length - 1] && message.length > 2) ? 'rounded-b-md' : 'rounded-md' " class="flex flex-col bg-blue-400 text-white max-w-xl w-50 sm:w-64 p-2 my-1 mr-12">
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div v-if="active" class="flex justify-between items-center h-16 absolute inset-x-0 bottom-0 p-2">
-            <div class="flex justify-center items-center bg-primary shadow-sm hover:shadow-lg p-2 w-10 h-10 rounded-full cursor-pointer">
+            <div @click="sendMsg()" class="flex justify-center items-center bg-primary shadow-sm hover:shadow-lg p-2 w-10 h-10 rounded-full cursor-pointer">
                 <img src="~/assets/icons/send.svg" style="filter: invert(1);" alt="">
             </div>
         <div v-show="type !== 'comments'" class="flex justify-center items-center cursor-pointer">
@@ -94,7 +94,8 @@
 <script>
 export default {
     mounted() {
-        console.log(this.$props.messages)
+        let element = document.getElementById("scroll");
+        element.scrollTop = element.scrollHeight - element.clientHeight;
     },
     methods: {
         toBase64(file) {
@@ -114,7 +115,6 @@ export default {
         },
         async addFile(file) {
             const base = await this.toBase64(file);
-            console.log(base.replace("data", `ext:${file.type.split("/")[1]}#data`))
             const obj = {
                 desc: '',
                 question: this.$props.question
@@ -136,9 +136,7 @@ export default {
             })
         },
         UBHandler() {
-            console.log(this.$props.messages)
             if (process.client) {
-                console.log("this.$props.messages")
                 document.getElementById('hidden-input').click();
             }
         },
@@ -175,13 +173,18 @@ export default {
             }
         }
     },
-    // async asyncData() {
-
-    // },
     data() {
         return {
             message: '',
             newMsgs: [],
+        }
+    },
+    watch: {
+        messages: function() {
+            setTimeout(() => {
+                let element = document.getElementById("scroll");
+                element.scrollTop = element.scrollHeight - element.clientHeight;
+            }, 500)
         }
     },
     props: [

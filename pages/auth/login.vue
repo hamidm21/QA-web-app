@@ -88,10 +88,8 @@ export default {
          }
       this.$auth.loginWith('local', {data: this.login})
       .then((res) => {
-        // this.$auth.refreshTokens()
         this.$auth.setToken('local', 'Bearer ' + res.data.access)
         this.$auth.setRefreshToken('local', res.data.refresh)
-        // console.log({res: this.$auth.token})
         this.$router.push("/user/dashboard")
       })
       .catch((e) => {

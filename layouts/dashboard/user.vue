@@ -310,7 +310,6 @@ export default {
       this.$router.push(to)
     },
     closer(ev) {
-      console.log(ev.target.id !== 'notification' && ev.target.id !== 'notif')
       if (ev.target.id !== 'prof' && this.isProfOpen) {
         this.isProfOpen = false
       } else if (ev.target.id !== 'notification' && ev.target.id !== 'notif' && this.isNotifOpen) {
