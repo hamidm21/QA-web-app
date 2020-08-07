@@ -97,9 +97,9 @@ export default {
             return [year, month, day].join('-');
         },
         generateCalender() {
-            const firstDay = this.days.filter(x => x.name === this.moment.format('dd'))
+            const firstDay = this.days.filter(x => x.name === moment(this.moment.startOf('jMonth')).format('dd'))
             let blankdaysArray = []
-            for (var i = 0 ; i <= firstDay[0].id - 1; i++) {
+            for (var i = 1 ; i < firstDay[0].id; i++) {
                 blankdaysArray.push(i);
             }
             this.blankdays = blankdaysArray;

@@ -1,7 +1,7 @@
 <template>
   <div class="activation w-full sm:w-auto">
         <div class="sm:w-auto w-full">
-        <form @keydown.enter="forgotSend" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
+        <form @keydown.enter="forgotSend()" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
             <div class="px-8 pt-6 mb-4">
               <div>
                 <nuxt-link to="/">
@@ -26,7 +26,7 @@
               <input v-model="forgot.cell_phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="activation" type="number" placeholder="شماره شما" required/>
               </div>
               <div class="flex items-center justify-center">
-              <button @click="forgotSend" type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
+              <button @click="forgotSend()" type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
                   ارسال
               </button>
               </div>
@@ -72,7 +72,7 @@ export default {
                return ''
          }
         this.$axios.post("/api/auth/forgot/", {
-            cell_phone: this.cell_phone,
+            cell_phone: this.forgot.cell_phone,
         })
         .then((res) => {
             this.$toast.success("رمز به شماره شما ارسال شد.")

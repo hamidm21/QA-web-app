@@ -66,7 +66,7 @@
 export default {
   auth: false,
   mounted: function() {
-      this.startTimer(5)
+      this.startTimer(2 * 60)
   },
   data: function() {
     return {
@@ -92,10 +92,8 @@ export default {
             activation_code: this.activation.activation_code
         })
         .then((res) => {
-            this.$auth.setUserToken(res.access) 
-            .then((res) => {
-                this.$router.push("/user/dashboard")
-            });
+          this.$router.push("/user/dashboard")
+          this.$toast.success("اکانت شما فعال شد لطفا وارد شوید.")
         })
         .catch((e) => {
             if (e.response.data.wrong_code) {
