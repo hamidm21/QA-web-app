@@ -1,21 +1,22 @@
 <template>
     <div class="user-dash sm:pr-250 h-full sm:h-full flex flex-col">
-        <div class="p-10 w-full h-full flex justify-center items-center">
+        <div class="p-1 sm:p-10 w-full flex justify-center items-center">
             <div class="flex flex-col rounded-lg bg-white rouended-md w-r35 shadow-lg">
                 <div class="w-full flex flex-col justify-start items-end" >
-                    <div class="bg-primary w-full h-32 rounded rounded-b-none flex justify-start relative">
-                        <img class="rounded-full w-32 h-32 shadow-2xl border-4 right-30 bottom-30n sm:right-18 sm:top-60 sm:bottom-0 absolute" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' " >
+                    <input @change="hiddenChange($event)" id="hidden-input" type="file" class="hidden" />
+                    <div @click="ProfHandler($event)" class="bg-primary w-full h-32 rounded rounded-b-none flex justify-start relative">
+                        <img id="prof-thumb" class="rounded-full w-32 h-32 shadow-2xl border-4 right-30 bottom-30n bg-white sm:right-18 sm:top-60 sm:bottom-0 absolute hover:border-secondary" v-bind:src="profile_pic_thumb ? profile_pic_thumb : default_profile_pic " v-bind:alt="full_name ? full_name : 'کاربر بدون نام' " >
                     </div>
                     <div class="flex flex-col sm:flex-row w-full h-full justify-between items-center sm:items-end">
                         <div class="flex flex-col justify-center items-center h-full">
                             <h3 class="pt-16 font-bold h-full">
                             {{
-                                $auth.user.full_name
+                                full_name
                             }}
                             </h3>
                             <small class="flex w-full justify-center items-center pt-1 number">
                                 {{
-                                    $auth.user.username
+                                    username
                                 }}
                             </small>
                             <div>
@@ -53,6 +54,161 @@
                         </div>
                     </div>
                 </div>
+                    <hr>
+                    <div class="flex-col sm:flex sm:flex-row">
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for="first_name"><small>نام</small></label>
+                            <div class="flex justify-center items-center">
+                                <input v-model="first_name" id="first_name" name="first_name" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="نام" />
+                            </div>
+                        </div>
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for="last_name"><small>نام خانوادگی</small></label>
+                            <div class="flex justify-center items-center">
+                                <input v-model="last_name" id="last_name" name="last_name" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="نام خانوادگی" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-col sm:flex sm:flex-row">
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for="username"><small>نام کاربری</small></label>
+                            <div class="flex justify-center items-center">
+                                <input v-model="username" id="username" name="username" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="نام کاربری" />
+                            </div>
+                        </div>
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for="email"><small>ایمیل</small></label>
+                            <div class="flex justify-center items-center">
+                                <input v-model="email" id="email" name="email" type="email" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="ایمیل" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-col sm:flex sm:flex-row relative">
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for=""><small>مقطع تحصیلی</small></label>
+                            <div @click="opener(1)" class="bg-white justify-center items-center flex border rounded" style="border-color: #d2d6dc;">
+                                <input v-bind:value="dd1Selected ? dd1Selected.name : ''" placeholder="مقطع تحصیلی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
+                                    <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 2 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <transition
+                                enter-active-class="transition ease-out duration-100"
+                                enter-class="transform opacity-0 scale-95"
+                                enter-to-class="transform opacity-100 scale-100"
+                                leave-active-class="transition ease-in duration-75"
+                                leave-class="transform opacity-100 scale-100"
+                                leave-to-class="transform opacity-0 scale-95"
+                                >
+                                <div v-show="ddOpen === 1" class="absolute shadow-md z-40 w-full sm:top-100 rounded overflow-y-auto" style="height: 12rem;">
+                                    <div class="flex flex-col w-full">
+                                        <div @click="dd1Handler(item);" v-for="item in grades" v-bind:key="item.id" class="cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100">
+                                            <div class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-primary hover:text-teal-100" v-bind:class="dd2Selected ? dd2Selected.id === item.id ? 'border-primary': '' : '' ">
+                                                <div class="w-full items-center flex">
+                                                    <div class="mx-2 leading-6  "> {{item.name}} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </transition>
+                        </div>
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for="current_category"><small>رشته تحصیلی</small></label>
+                            <div class="flex justify-center items-center">
+                                <input v-model="current_category" id="current_category" name="current_category" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="رشته تحصیلی" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-col sm:flex sm:flex-row relative">
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for=""><small>استان</small></label>
+                            <div @click="opener(2)" class="bg-white justify-center items-center flex border rounded" style="border-color: #d2d6dc;">
+                                <input v-bind:value="dd2Selected" placeholder="استان" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
+                                    <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 2 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <transition
+                                enter-active-class="transition ease-out duration-100"
+                                enter-class="transform opacity-0 scale-95"
+                                enter-to-class="transform opacity-100 scale-100"
+                                leave-active-class="transition ease-in duration-75"
+                                leave-class="transform opacity-100 scale-100"
+                                leave-to-class="transform opacity-0 scale-95"
+                                >
+                                <div v-show="ddOpen === 2" class="absolute shadow-md z-40 w-full sm:top-100 rounded overflow-y-auto" style="height: 12rem;">
+                                    <div class="flex flex-col w-full">
+                                        <div @click="dd2Handler(item);" v-for="item in provinces" v-bind:key="item.name" class="cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100">
+                                            <div class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-primary hover:text-teal-100" v-bind:class="dd2Selected === item.name ? 'border-primary': ''">
+                                                <div class="w-full items-center flex">
+                                                    <div class="mx-2 leading-6  "> {{item.name}} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </transition>
+                        <div class="flex-col w-full sm:w-1/2 justify-center items-center p-3">
+                            <label for=""><small>شهر</small></label>
+                            <div @click="opener(3)" class="bg-white justify-center items-center flex border rounded" style="border-color: #d2d6dc;">
+                                <input v-bind:value="dd3Selected" placeholder="شهر" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
+                                    <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 2 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <transition
+                                enter-active-class="transition ease-out duration-100"
+                                enter-class="transform opacity-0 scale-95"
+                                enter-to-class="transform opacity-100 scale-100"
+                                leave-active-class="transition ease-in duration-75"
+                                leave-class="transform opacity-100 scale-100"
+                                leave-to-class="transform opacity-0 scale-95"
+                                >
+                                <div v-show="ddOpen === 3" class="absolute shadow-md z-40 w-full sm:top-100 rounded overflow-y-auto" style="height: 12rem;">
+                                    <div class="flex flex-col w-full">
+                                        <div @click="dd3Handler(item);" v-for="item in cities" v-bind:key="item.name" class="cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100">
+                                            <div class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-primary hover:text-teal-100" v-bind:class="dd2Selected === item.name ? 'border-primary': ''">
+                                                <div class="w-full items-center flex">
+                                                    <div class="mx-2 leading-6  "> {{item.name}} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </transition>
+                        </div>
+                    </div>
+                    <div class="flex-col sm:flex sm:flex-row">
+                        <div class="flex-col w-full justify-center items-center p-3">
+                            <label for=""><small>شماره شبا</small></label>
+                            <div class="flex justify-center items-center">
+                                <input v-model="shaba_num" id="shaba_num" name="shaba_num" type="number" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="شماره شبا" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-col sm:flex sm:flex-row">
+                        <div class="flex-col w-full justify-center items-center p-3">
+                            <div class="flex justify-center items-center">
+                                <div @click="sendChanges()" class="p-2 bg-primary text-white flex justify-center items-center rounded-md w-full sm:w-1/3 cursor-pointer">
+                                    ذخیره
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
                                     <!--
@@ -123,12 +279,12 @@
                                             </div>
                                             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
                                             <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                                <div @click="renewPass()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-red-600 text-primary leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                                <div @click="renewPass()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-red-600 text-primary leading-6 font-medium text-white shadow-sm transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
                                                 تایید
                                                 </div>
                                             </span>
                                             <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                                                <div @click="openModal = false" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                                <div @click="openModal = false" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
                                                 انصراف
                                                 </div>
                                             </span>
@@ -143,16 +299,40 @@
 
 <script>
 export default {
-    mounted: function () {
+    mounted: async function () {
         this.$store.commit("setUserDashPage", 'profile');
-            var replaceDigits = function() {
-        var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
-        var elements = document.getElementsByClassName("number");
-        for (const e of elements) {
-          e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+        var replaceDigits = function() {
+            var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
+            var elements = document.getElementsByClassName("number");
+            for (const e of elements) {
+            e.innerHTML = e.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { return map[$0]});
+            }
         }
-      }
-    replaceDigits()
+        replaceDigits();
+        // get data
+        const cities = (await this.$axios.get('/cities.json')).data;
+        const data = (await this.$axios.get('/api/auth/users')).data.user_info;
+        const grades = (await this.$axios.get('/api/grades')).data;
+        const provinces = []
+        for (let i = 0; i < cities.length; i++) {
+            provinces.push(Object.assign({}, {id: i, name: cities[i].name, cities: cities[i].cities }))
+        }
+        this.grades = grades;
+        this.provinces = provinces;
+        this.dd1Selected = (grades.filter(x => x.id === data.current_grade))[0]
+        this.first_name = data.first_name;
+        this.last_name = data.last_name;
+        this.full_name = data.full_name;
+        this.username = data.username;
+        this.email = data.email;
+        this.shaba_num = data.shaba_num;
+        this.dd2Selected = data.province;
+        data.province ? this.cities = (provinces.filter(x => x.name === data.province ))[0].cities: '';
+        this.dd3Selected = data.city;
+        this.profile_pic = '';
+        this.profile_pic_thumb = data.profile_pic_thumb;
+        this.default_profile_pic = data.default_profile_pic;
+        this.current_category = data.current_category;
     },
     methods: {
         async logout() {
@@ -163,6 +343,54 @@ export default {
         showError(str) {
          this.$toast.error(str)
         },
+        opener(id) {
+            if (id === 3 && !this.dd2Selected) {
+                this.$toast.info(" ابتدا استان را انتخاب کنید ")
+            } else {
+                this.ddOpen === id ? this.ddOpen = 0 : this.ddOpen = id;
+            }
+        },
+        toBase64(file) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+          })
+        },
+        async hiddenChange(e) {
+            var output = document.getElementById('prof-thumb');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+            const base = await this.toBase64(e.target.files[0]);
+            this.profile_pic = base.replace("data", "ext:mp3#data")
+        },
+        ProfHandler(e) {
+            e.preventDefault();
+            if (process.client) {
+                document.getElementById('hidden-input').click();
+            }
+        },
+        dd1Handler(item) {
+            this.dd1Selected = item;
+            this.ddOpen = 0;
+        },
+        dd2Handler(item) {
+            this.dd3Selected = '';
+            this.dd2Selected = item.name;
+            this.ddOpen = 0;
+            const cities = [];
+            for (let i = 0; i < item.cities.length; i++) {
+                cities.push(Object.assign({}, {id: i, name: item.cities[i].name}))
+            }
+            this.cities = cities;
+        },
+        dd3Handler(item) {
+            this.dd3Selected = item.name;
+            this.ddOpen = 0;
+        },
         renewPass() {
             let errors = []
             this.old_password ? this.old_password : errors.push('لطفا رمز فعلی را وارد کنید');
@@ -171,7 +399,7 @@ export default {
                 errors.map(x => this.showError(x));
                 return ''
             }
-            this.$axios.post(`/api/auth/users/${this.$auth.user.id}/setpassword`, {
+            this.$axios.post(`/api/auth/users/${this.$auth.user.id}/setpassword/`, {
                 old_password: this.old_password,
                 new_password: this.new_password
             }).then((res) => {
@@ -181,6 +409,31 @@ export default {
                 this.openModal = false
                 this.showError("تغییر رمز با موفقیت انجام نشد.")
             })
+        },
+        sendChanges() {
+            const obj = {
+                first_name: this.first_name,
+                last_name: this.last_name,
+                full_name: this.first_name + ' ' + this.last_name,
+                shaba_num: this.shaba_num,
+                username: this.username,
+                email: this.email,
+                current_category: this.current_category,
+                province: this.dd2Selected,
+                city: this.dd3Selected
+            }
+            this.current_grade ? Object.assign(obj, {current_grade: this.dd1Selected.id}) : '';
+            this.profile_pic ? Object.assign(obj, {profile_pic: this.profile_pic}) : '';
+            this.$axios.put(`/api/auth/users/${this.$auth.user.id}`, obj).then((res) => {
+                this.$toast.success("حساب کاربری شما به روز رسانی شد")
+                this.first_name= res.data.first_name;
+                this.last_name= res.data.last_name;
+                this.full_name= res.data.first_name + ' ' + res.data.last_name;
+                this.current_category= res.data.current_category;
+                this.current_grade= res.data.current_grade;
+                }).catch((e) => {
+                this.showError('مشکلی پیش آمده است')
+            })
         }
     },
     data() {
@@ -189,6 +442,22 @@ export default {
             openModal: false,
             new_password: '',
             old_password: '',
+            shaba_num: '',
+            first_name: '',
+            last_name: '',
+            full_name: '',
+            username: '',
+            profile_pic_thumb: '',
+            default_profile_pic: '',
+            email: '',
+            current_category: '',
+            grades: [],
+            provinces: [],
+            cities: [],
+            ddOpen: 0,
+            dd1Selected: '',
+            dd2Selected: '',
+            dd3Selected: ''
         }
     },
     auth: true,
@@ -216,9 +485,9 @@ export default {
     line-height: 1.5;
 }
 
-.top-100 {
+/* .top-100 {
     top: 100%
-}
+} */
 
 .bottom-100 {
     bottom: 100%
