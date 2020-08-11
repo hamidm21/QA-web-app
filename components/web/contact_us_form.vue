@@ -46,13 +46,13 @@ export default {
                errors.map(x => this.showError(x));
                return ''
          }
-         this.$axios.post("/api/cusmsgs/", {
+         this.$axios.post("/api/UnAuthcusmsgs/", {
             category: this.$props.catId,
-            message: ` ** ارسال تماس با ما **
-            نام : ${this.name}
-            موضوع : ${this.subject}
-            توضیحات : ${this.desc}
-            ایمیل : ${this.email}
+            message: ` ** ارسال تماس با ما **\n
+            نام : ${this.name}\n
+            موضوع : ${this.subject}\n
+            توضیحات : ${this.desc}\n
+            ایمیل : ${this.email}\n
             `
          }).then((res) => {
             this.$toast.success("پیام شما ارسال شد.")

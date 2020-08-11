@@ -68,12 +68,12 @@ export default {
                errors.map(x => this.showError(x));
                return ''
          }
-         this.$axios.post("/api/cusmsgs/", {
+         this.$axios.post("/api/UnAuthcusmsgs/", {
             category: this.$props.catId,
-            message: ` ** ارسال رزومه اساتید **
-            نام : ${this.name}
-            مدرک‌ : ${this.degree}
-            ایمیل : ${this.email}
+            message: ` ** ارسال رزومه اساتید **\n
+            نام : ${this.name}\n
+            مدرک‌ : ${this.degree}\n
+            ایمیل : ${this.email}\n
             `,
             pic: obj.pic
          }).then((res) => {
