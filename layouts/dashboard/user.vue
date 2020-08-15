@@ -81,12 +81,22 @@
                               {{ notif.desc }}
                             </div>
                         </div>
-                        <div class="flex justify-center items-center rounded-full w-8 h-8 cursor-pointer hover:shadow-md">
-                          <img @click="viewAll()" class="w-5 my-2" src="~/assets/icons/icon-view.svg" alt="نوتیفیکیشن">
+                        <div class="flex w-full justify-between items-center">
+                          <div class="flex justify-center items-center rounded-full w-8 h-8 cursor-pointer hover:shadow-md">
+                            <img @click="viewAll()" class="w-5 my-2" src="~/assets/icons/icon-view.svg" alt="نوتیفیکیشن">
+                          </div>
+                          <div class="flex justify-center items-center rounded-full w-8 h-8 cursor-pointer hover:shadow-md">
+                            <img @click="refreshAll()" class="w-5 my-2" src="~/assets/icons/icon-refresh-black.svg" alt="نوتیفیکیشن">
+                          </div>
                         </div>
                       </div>
                       <div class="w-full rounded-md bg-gray-100 shadow-md p-4" v-else>
                         هیچ اطلاعیه جدیدی وجود ندارد !
+                          <div class="flex justify-center w-full">
+                            <div class="flex justify-center items-center rounded-full w-8 h-8 cursor-pointer hover:shadow-md">
+                              <img @click="refreshAll()" class="w-5 my-2" src="~/assets/icons/icon-refresh-black.svg" alt="نوتیفیکیشن">
+                            </div>
+                          </div>
                       </div>
                     </div>
                 </transition>
@@ -301,6 +311,14 @@ export default {
       this.$store.commit("setNotifs", [])
       this.$store.commit("setUnReadNotifs", 0)
     },
+    async refreshAll() {
+      const n_res = await this.$axios.get("/api/notifications")
+      const notifs = n_res.data.results.filter(x => x.view_time === null);
+      const unReads = n_res.data.num_unreads
+      this.$store.commit("setNotifs", notifs.slice(0,4))
+      this.$store.commit("setUnReadNotifs", unReads)
+      this.isNotifOpen = true;
+    },
     menuSelect(to) {
       this.openMenu = false;
       this.$router.push(to)
@@ -319,11 +337,12 @@ export default {
       }
     }
   },
-  async asyncData({ $axios }) {
-      const n_res = await $axios.get("/api/notifications");
-      return {
-        notifNum: 0
-      }
+  async asyncData({ $axios, store }) {
+      const n_res = await $axios.get("/api/notifications")
+      const notifs = n_res.data.results.filter(x => x.view_time === null);
+      const unReads = n_res.data.num_unreads
+      store.commit("setNotifs", notifs.slice(0,4))
+      store.commit("setUnReadNotifs", unReads)
   },
   data() {
     return {

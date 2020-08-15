@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full sm:w-4/5 h-128 bg-bluebg rounded-md shadow-md relative">
+    <div class="flex w-full h-128 bg-bluebg rounded-md shadow-md relative">
         <div id="scroll" v-if="messages.length !== 0" class="flex flex-col w-full mb-20 overflow-y-scroll">
             <div id="message" v-for="message in messages" v-bind:key="message[0].id + 100000" v-bind:class=" message[0].owner === $auth.user.username ? 'items-start' : 'items-end'" class="flex flex-col w-full justify-center p-4 h-fit relative">
                 <div v-if="message[0].owner === $auth.user.username">
@@ -94,8 +94,10 @@
 <script>
 export default {
     mounted() {
-        let element = document.getElementById("scroll");
-        element.scrollTop = element.scrollHeight - element.clientHeight;
+        if (process.client) {
+            let element = document.getElementById("scroll");
+            element ? element.scrollTop = element.scrollHeight - element.clientHeight : '';
+        }
     },
     methods: {
         toBase64(file) {

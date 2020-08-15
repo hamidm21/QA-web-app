@@ -41,7 +41,7 @@
                 <img v-bind:alt="image.name" class="img-preview w-full h-full sticky object-cover rounded-md bg-fixed" v-bind:src="image.id" />
 
                 <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
-                    <h1 class="flex-1">{{ image.name.substr(0, 60) }}</h1>
+                    <h1 class="flex-1">{{ image.name.substr(0, 20) }}</h1>
                     <div class="flex items-center">
                     <div @click="cancelOneImage(image.id)" class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
                         <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@
                   <img class="w-1/4" src="~/assets/icons/file_icon.svg" v-bind:alt="file.name">
                 </div>
                 <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
-                    <h1 class="flex-1"> {{ file.name.substr(0, 60) }} </h1>
+                    <h1 class="flex-1"> {{ file.name.substr(0, 20) }} </h1>
                     <div class="flex items-center">
                     <button @click="cancelOneFile(file.id)" class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
                         <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

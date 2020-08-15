@@ -22,7 +22,7 @@
                                             <div class="flex flex-col items-center relative">
                                                 <div class="w-full">
                                                     <div @click="opener(1)" class="my-2 bg-white p-1 flex border rounded" style="border-color: #d2d6dc;">
-                                                        <input v-bind:value="dd1Selected" placeholder="پروژه درسی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                                        <input v-bind:value="dd1Selected.name" placeholder="پروژه درسی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
                                                         <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
                                                             <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 1 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
@@ -42,8 +42,8 @@
                                                 >
                                                 <div v-show="ddOpen === 1" class="absolute shadow-md top-100 z-40 w-full lef-0 rounded max-h-select overflow-y-auto">
                                                     <div class="flex flex-col w-full">
-                                                        <div @click="dd1Selected = item.name; opener(0)" v-for="item in dd1" v-bind:key="item.id" class="cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100">
-                                                            <div class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-primary hover:text-teal-100" v-bind:class="dd1Selected === item.name ? 'border-primary': ''">
+                                                        <div @click="dd1Handler(item)" v-for="item in dd1" v-bind:key="item.id" class="cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100">
+                                                            <div class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-primary hover:text-teal-100" v-bind:class="dd1Selected === item ? 'border-primary': ''">
                                                                 <div class="w-full items-center flex">
                                                                     <div class="mx-2 leading-6  "> {{item.name}} </div>
                                                                 </div>
@@ -284,6 +284,10 @@ export default {
                 this.ddOpen === id ? this.ddOpen = 0 : this.ddOpen = id;
             }
         },
+        dd1Handler(item) {
+            this.dd1Selected = item;
+            this.ddOpen = 0;
+        },
         dd2Handler(item) {
             this.dd3Selected = '';
             this.dd4Selected = '';
@@ -313,10 +317,11 @@ export default {
             const errors = []
             const Files = this.$store.state.question.add.Files
             let obj = {
+                q_type: this.dd1Selected ? this.dd1Selected.id : errors.push('نوع سوال را مشخص کنید'),
                 subject: this.subject ? this.subject : errors.push('موضوع پروژه باید انتخاب شود'),
                 desc: this.desc ? this.desc : errors.push('توضیحات را وارد کنید'),
                 grade: this.dd2Selected ? this.dd2Selected.id : errors.push('لطفا مقطع را مشخص کنید'),
-                category: this.dd3Selected ? this.dd3Selected.id : errors.push('لطفا رشته را مشخص کنید'),
+                category: this.dd2Selected.category_less ? '' : this.dd3Selected ? this.dd3Selected.id : errors.push('لطفا رشته را مشخص کنید'),
                 sub_category: this.dd4Selected ? this.dd4Selected.id : errors.push('لطفا عنوان درس را مشخص کنید'),
                 pic_1: this.$store.state.question.add.Files[0] ? this.$store.state.question.add.Files[0].base : errors.push('حداقل یک پیوست باید اضافه شود') ,
                 max_cost: this.max_cost !== 0 ? this.max_cost : errors.push('لطفا عنوان درس را مشخص کنید'),

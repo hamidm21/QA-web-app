@@ -66,6 +66,7 @@
 export default {
   auth: false,
   mounted: function() {
+
       this.startTimer(2 * 60)
   },
   data: function() {
@@ -92,8 +93,15 @@ export default {
             activation_code: this.activation.activation_code
         })
         .then((res) => {
-          this.$router.push("/user/dashboard")
-          this.$toast.success("اکانت شما فعال شد لطفا وارد شوید.")
+          this.$auth.loginWith('local', {data: {
+            username: this.$store.state.register_info.cell_phone,
+            password: this.$store.state.register_info.password 
+          }})
+          .then((res) => {
+            this.$auth.setToken('local', 'Bearer ' + res.data.access)
+            this.$auth.setRefreshToken('local', res.data.refresh)
+            this.$router.push("/user/profile")
+          })
         })
         .catch((e) => {
             if (e.response.data.wrong_code) {

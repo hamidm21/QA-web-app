@@ -18,7 +18,7 @@
                                         <article tabindex="0" class="group hasImage w-full h-full rounded-md focus:outline-none focus:shadow-outline bg-gray-100 cursor-pointer relative text-transparent hover:text-white shadow-sm">
                                         <img v-bind:alt="image" class="img-preview w-full h-full sticky object-cover rounded-md bg-fixed" v-bind:src="image" />
                                         <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
-                                            <h1 class="flex-1">{{ image.substr(0, 60) }}</h1>
+                                            <h1 class="flex-1">{{ image.substr(0, 20) }}</h1>
                                             <div class="flex items-center">
                                                 <a v-bind:href="image" v-bind:download="image">
                                                     <div class="ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
@@ -38,7 +38,7 @@
                                         <img class="w-1/4" src="~/assets/icons/file_icon.svg" v-bind:alt="file">
                                         </div>
                                         <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
-                                            <h1 class="flex-1"> {{ file.substr(0, 60) }} </h1>
+                                            <h1 class="flex-1"> {{ file.substr(0, 20) }} </h1>
                                             <div class="flex items-center">
                                             <button @click="cancelOneFile(file.id)" class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
                                                     <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 395.638 395.638" style="enable-background:new 0 0 395.638 395.638;" xml:space="preserve" width="512px" height="512px"><g><g><g><polygon points="254,313.071 206.351,360.721 206.351,138.881 189.285,138.881 189.285,360.721 141.636,313.071 129.56,325.147     197.819,393.406 266.076,325.147   "/></g></g><g><g>
@@ -182,7 +182,6 @@ export default {
         const aMsgs = a_res.data.results;
         const comments = [];
         const answers = [];
-        console.log({q_res})
         let cStart = 0;
         let aStart = 0;
         for (let i = 0; i < cMsgs.length; i++) {
