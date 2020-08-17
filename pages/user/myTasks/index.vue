@@ -55,7 +55,7 @@
                                 <td class="py-4 px-2">
                                     <div class="flex justify-center items-center">
                                         {{
-                                            item['grade_name']
+                                            !item['grade_name'] ? 'تعیین نشده' :  item['grade_name'] 
                                         }}
                                     </div>
                                 </td>

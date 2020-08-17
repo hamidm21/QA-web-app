@@ -161,15 +161,15 @@
                                 </div>
                                 <div class="flex w-full p-4 justify-between">
                                     <p>مقطع</p>
-                                    <p>{{item.grade_name}}</p>
+                                    <p>{{!item.grade_name ? 'تعیین نشده' :  item.grade_name}}</p>
                                 </div>
                                 <div class="flex w-full p-4 justify-between bg-gray-300">
                                     <p>رشته تحصیلی</p>
-                                    <p>{{item.category_name}}</p>
+                                    <p>{{!item.category_name ? 'تعیین نشده' :  item.category_name}}</p>
                                 </div>
                                 <div class="flex w-full p-4 justify-between">
                                     <p>شاخه</p>
-                                    <p>{{item.sub_category_name}}</p>
+                                    <p>{{!item.sub_category_name ? 'تعیین نشده' :  item.sub_category_name}}</p>
                                 </div>
                                 <div class="flex w-full p-4 justify-between bg-gray-300">
                                     <p>مهلت دریافت پاسخ</p>
@@ -266,21 +266,29 @@
                                 </div>
                             </div>
                             <div class="flex w-full pt-2 sm:p-10" v-else-if="openTab === 2">
-                                <div class="flex w-full justify-center items-center">
+                                <div class="flex flex-col w-full justify-center items-center">
                                     <Chat v-bind:messages="comments" v-bind:type="'comments'" v-bind:question="this.$route.params.id" v-bind:active="answers.length < 1" />
-                                    <!-- <div class="flex w-full justify-center items-center">
-                                        <div class="flex justify-center items-center rounded-md w-fit p-2 cursor-pointer hover:shadow-md">
+                                    <div class="flex w-full justify-center items-center mt-2">
+                                        <div @click="refreshAll()" class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl bg-primary text-white">
                                             <p class="m-1">
                                                 به روز رسانی
                                             </p>
-                                            <img @click="refreshAll()" class="w-5" src="~/assets/icons/icon-refresh-black.svg" alt="نوتیفیکیشن">
+                                            <img class="w-5" src="~/assets/icons/icon-refresh-black.svg" alt="نوتیفیکیشن" style="filter: invert(1);">
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="flex w-full pt-2 sm:py-10" v-else-if="openTab === 3">
-                                <div class="flex w-full justify-center">
+                                <div class="flex flex-col w-full justify-center">
                                     <Chat v-bind:messages="answers" v-bind:type="'answers'" v-bind:question="this.$route.params.id" v-bind:active="true"/>
+                                    <div class="flex w-full justify-center items-center mt-2">
+                                        <div @click="refreshAll()" class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl bg-primary text-white">
+                                            <p class="m-1">
+                                                به روز رسانی
+                                            </p>
+                                            <img class="w-5" src="~/assets/icons/icon-refresh-black.svg" alt="نوتیفیکیشن" style="filter: invert(1);">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -438,6 +446,34 @@ export default {
         }
     },
     methods: {
+        async refreshAll() {
+            const id = this.$route.params.id
+            const c_res = await this.$axios.get(`/api/comments/?q=${id}`);
+            const a_res = await this.$axios.get(`/api/answers/?q=${id}`);
+            const cMsgs = c_res.data.results;
+            const aMsgs = a_res.data.results;
+            const comments = [];
+            const answers = [];
+            let cStart = 0;
+            let aStart = 0;
+            for (let i = 0; i < cMsgs.length; i++) {
+                let nextCom = cMsgs[i + 1] ? cMsgs[i + 1].owner : '';
+                if (cMsgs[i].owner !== nextCom) {
+                    comments.push(cMsgs.slice(cStart, i + 1).reverse());
+                    cStart = i + 1;
+                }
+            }
+            for (let j = 0; j < aMsgs.length; j++) {
+                let nextAns = aMsgs[j + 1] ? aMsgs[j + 1].owner : '';
+                if (aMsgs[j].owner !== nextAns) {
+                    answers.push(aMsgs.slice(aStart, j + 1).reverse());
+                    aStart = j + 1;
+                }
+            }
+            // refresh messages
+            this.comments= comments.reverse()
+            this.answers= answers.reverse()
+        },
         triggerModal(id) {
             this.openModal = true;
             this.selectedOffer = id;

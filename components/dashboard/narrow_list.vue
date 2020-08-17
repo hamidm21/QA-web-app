@@ -35,7 +35,7 @@
                     <tr class="border-b" v-for="item in items" v-bind:key="item.id">
                         <td class="p-4" v-for="head in heads" v-bind:key="head.id">
                             <div class="number" v-if="head.english !== 'state' && head.english !== 'state_name'">
-                                {{ head.english !== 'subject' ? item[head.english] : item[head.english].substr(0, 30) }}
+                                {{ head.english !== 'subject' ? head.english === 'grade_name' &&    !item[head.english] ? 'تعیین نشده' : item[head.english] : item[head.english].substr(0, 30) }}
                             </div>
                             <div v-else-if="head.english === 'state_name'" class="flex justify-start items-center">
                                 {{ item[head.english] === 'is_active' ? 'در انتظار پاسخ' : item[head.english] === 'is_finished' ? 'انجام شده' : item[head.english] === 'wait_for_response' ? 'در انتظار پاسخ' : item[head.english] === 'question_solved_request' ? 'سوال حل شده' : 'نامشخص' }}

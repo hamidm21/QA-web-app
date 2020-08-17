@@ -117,7 +117,7 @@
                                         </div>
                                         <div class="flex flex-col pt-4 pb-2 w-full">
                                             <div class="flex flex-wrap w-full justify-between items-center">
-                                            <div class="flex-col items-center">
+                                            <div v-show="dd2Active" class="flex-col items-center">
                                                 <small>مقطع تحصیلی</small>
                                                 <div class="flex flex-col items-center relative">
                                                     <div class="w-full">
@@ -193,7 +193,7 @@
                                         </div>
                                             </div>
                                             <div class="flex flex-wrap w-full justify-between items-center">
-                                            <div class="flex-col items-center">
+                                            <div v-show="dd4Active" class="flex-col items-center">
                                                 <small>عنوان درس</small>
                                                 <div class="flex flex-col items-center relative">
                                                     <div class="w-full">
@@ -286,6 +286,16 @@ export default {
         },
         dd1Handler(item) {
             this.dd1Selected = item;
+            console.log(item.name === 'تایپ' || item.name === 'ترجمه')
+            if (item.name === 'تایپ' || item.name === 'ترجمه') {
+                this.dd2Active = false;
+                this.dd3Active = false;
+                this.dd4Active = false;
+            } else {
+                this.dd2Active = true;
+                this.dd3Active = true;
+                this.dd4Active = true;
+            }
             this.ddOpen = 0;
         },
         dd2Handler(item) {
@@ -320,13 +330,13 @@ export default {
                 q_type: this.dd1Selected ? this.dd1Selected.id : errors.push('نوع سوال را مشخص کنید'),
                 subject: this.subject ? this.subject : errors.push('موضوع پروژه باید انتخاب شود'),
                 desc: this.desc ? this.desc : errors.push('توضیحات را وارد کنید'),
-                grade: this.dd2Selected ? this.dd2Selected.id : errors.push('لطفا مقطع را مشخص کنید'),
-                category: this.dd2Selected.category_less ? '' : this.dd3Selected ? this.dd3Selected.id : errors.push('لطفا رشته را مشخص کنید'),
-                sub_category: this.dd4Selected ? this.dd4Selected.id : errors.push('لطفا عنوان درس را مشخص کنید'),
                 pic_1: this.$store.state.question.add.Files[0] ? this.$store.state.question.add.Files[0].base : errors.push('حداقل یک پیوست باید اضافه شود') ,
                 max_cost: this.max_cost !== 0 ? this.max_cost : errors.push('لطفا عنوان درس را مشخص کنید'),
                 max_allowed_time: this.$store.state.question.add.selectedDate ? this.$store.state.question.add.selectedDate : errors.push('لطفا تاریخ پایان پرسش را مشخص کنید')
             }
+            this.dd2Active ? Object.assign(obj, {grade: this.dd2Selected ? this.dd2Selected.id : errors.push('لطفا مقطع را مشخص کنید')}) : '';
+            this.dd3Active ? Object.assign(obj, {category: this.dd2Selected.category_less ? '' : this.dd3Selected ? this.dd3Selected.id : errors.push('لطفا رشته را مشخص کنید')}) : '';
+            this.dd4Active ? Object.assign(obj, {sub_category: this.dd4Selected ? this.dd4Selected.id : errors.push('لطفا عنوان درس را مشخص کنید')}) : '';
             if (errors.length >= 1) {
                 errors.map(x => this.showError(x));
                 return ''
@@ -355,11 +365,13 @@ export default {
             ddOpen: 0,
             dd1: [],
             dd1Selected: '',
+            dd2Active: true,
             dd2: [],
             dd2Selected: '',
             dd3Active: true,
             dd3: [],
             dd3Selected: '',
+            dd4Active: true,
             dd4Enable: false,
             dd4: [],
             dd4Selected: '',
