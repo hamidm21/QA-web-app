@@ -25,7 +25,7 @@
         <h1 class="div1 bg-transparent bg-red font-semibold text-white  py-2 px-4 border-b-2 border-red shadow">راهنمای دانش آموزان</h1>
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
           <div class="flex sm:w-1/2 justify-center items-center">
-            <img src="../assets/img/daneshjoo/1.jpg" />
+            <img src="../assets/img/ostad/1.jpg" />
           </div>
           <div class="sm:w-1/2">
             <h4
@@ -69,13 +69,13 @@
             </p>
           </div>
           <div class="flex sm:w-1/2 justify-center">
-            <img src="../assets/img/daneshjoo/2.jpg" />
+            <img src="../assets/img/ostad/2.jpg" />
           </div>
         </div>
 
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
           <div class="flex sm:w-1/2 justify-center">
-            <img src="../assets/img/daneshjoo/3.jpg" />
+            <img src="../assets/img/ostad/3.jpg" />
           </div>
           <div class="sm:w-1/2">
             <h6
@@ -122,7 +122,7 @@
             </p>
           </div>
           <div class="flex sm:w-1/2 justify-center">
-            <img src="../assets/img/daneshjoo/4.jpg" />
+            <img src="../assets/img/ostad/4.jpg" />
           </div>
         </div>
       </div>
@@ -132,7 +132,7 @@
         <h1 class="div1 bg-transparent btn1 bg-black text-white font-semibold  py-2 px-4 border-b-2 border-black shadow">راهنمای اساتید </h1>
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
           <div class="flex sm:w-1/2 justify-center items-center">
-            <img src="../assets/img/ostad/1.jpg" />
+            <img src="../assets/img/daneshjoo/1.jpg" />
           </div>
           <div class="sm:w-1/2">
             <h4
@@ -170,13 +170,13 @@
             </p>
           </div>
           <div class="flex sm:w-1/2 justify-center">
-            <img src="../assets/img/ostad/2.jpg" />
+            <img src="../assets/img/daneshjoo/2.jpg" />
           </div>
         </div>
 
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
           <div class="flex sm:w-1/2 justify-center">
-            <img src="../assets/img/ostad/3.jpg" />
+            <img src="../assets/img/daneshjoo/3.jpg" />
           </div>
           <div class="sm:w-1/2">
             <h6
@@ -212,12 +212,12 @@
             </p>
           </div>
           <div class="flex sm:w-1/2 justify-center">
-            <img src="../assets/img/ostad/4.jpg" />
+            <img src="../assets/img/daneshjoo/4.jpg" />
           </div>
         </div>
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
           <div class="flex sm:w-1/2 justify-center items-center">
-            <img src="../assets/img/ostad/5.jpg" />
+            <img src="../assets/img/daneshjoo/5.jpg" />
           </div>
           <div class="sm:w-1/2">
             <h4
