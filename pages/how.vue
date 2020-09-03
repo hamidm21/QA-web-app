@@ -68,13 +68,13 @@
               لغو کنید
             </p>
           </div>
-          <div class="flex sm:w-1/2 justify-center">
+          <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/ostad/2.jpg" />
           </div>
         </div>
 
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
-          <div class="flex sm:w-1/2 justify-center">
+          <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/ostad/3.jpg" />
           </div>
           <div class="sm:w-1/2">
@@ -121,7 +121,7 @@
               را لغو کنید
             </p>
           </div>
-          <div class="flex sm:w-1/2 justify-center">
+          <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/ostad/4.jpg" />
           </div>
         </div>
@@ -169,13 +169,13 @@
               <br />در این مرحله ، می توانید پروژه هایی که در انجام آن ها مسلط هستید را از لیست پروژه های موجود انتخاب کنید و پیشنهاد خود برای انجام آن ها را ارسال کنید
             </p>
           </div>
-          <div class="flex sm:w-1/2 justify-center">
+          <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/daneshjoo/2.jpg" />
           </div>
         </div>
 
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
-          <div class="flex sm:w-1/2 justify-center">
+          <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/daneshjoo/3.jpg" />
           </div>
           <div class="sm:w-1/2">
@@ -211,7 +211,7 @@
               <br />در این مرحله ، پس از رفتن به قسمت وظایف من ، می بایست بر روی پروژه ای که می بایست انجام دهید کلیک کرد و صفحه ی پروژه ی مد نظر برای شما باز خواهد شد
             </p>
           </div>
-          <div class="flex sm:w-1/2 justify-center">
+          <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/daneshjoo/4.jpg" />
           </div>
         </div>
