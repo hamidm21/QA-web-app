@@ -8,7 +8,7 @@
        <div class="sm:w-2/3 " style="marginTop:-100px">
         <h6
           style="direction: rtl;"
-          class="flex justify-center font-bold items-center text-center text-xl"
+          class="flex justify-center mt-3 font-bold items-center text-center text-xl"
           href="#"
         >کیفیت بالا ، مدیریت زمان ، هزینه کمتر!!</h6>
         <p style="direction: rtl;" class="text-center mt- w-75 ml-auto mr-auto">

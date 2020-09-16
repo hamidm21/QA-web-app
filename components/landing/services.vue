@@ -18,7 +18,7 @@
         <div class="column">
           <div class="card">
             <img class="ml-auto mr-auto pt-8 w-1/3" src="../../assets/newLanding/icons-08.png" alt />
-            <h3 class="pb-5 pt-5">درخواسن کلاس آنلاین</h3>
+            <h3 class="pb-5 pt-5">درخواست کلاس آنلاین</h3>
           </div>
         </div>
 
@@ -101,6 +101,5 @@
   border-radius: 8px;
   text-align: center;
   background-color: #fff;
-  height: 100%;
 }
 </style>

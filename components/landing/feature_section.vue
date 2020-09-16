@@ -9,7 +9,7 @@
       </div>
       <div
         class="flex flex-row flex-wrap justify-center align-center text-center"
-        style="height: 60%; overflow:hidden;"
+        style="height: 60%;    overflow: scroll;"
       >
         <div class="flex flex-col justify-start items-center px-6">
           <img src="../../assets/newLanding/001-1.png" class="w-40 mt-6" alt="پرداخت آسان" />
@@ -63,5 +63,6 @@
   min-height: 100vh;
   width: 100vw;
   max-width: 100%;
+  overflow: scroll;
 }
 </style>
