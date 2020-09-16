@@ -9,7 +9,7 @@
       </div>
       <div
         class="flex flex-row flex-wrap justify-center align-center text-center"
-        style="height: 60%;    sm:overflow: scroll;"
+        style="height: 60%;    overflow: scroll;"
       >
         <div class="flex flex-col justify-start items-center px-6">
           <img src="../../assets/newLanding/001-1.png" class="w-40 mt-6" alt="پرداخت آسان" />
