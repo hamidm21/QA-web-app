@@ -9,11 +9,11 @@
       </div>
       <div
         class="flex flex-row flex-wrap justify-center align-center text-center"
-        style="height: 60%;    overflow: scroll;"
+        style="height: 60%;    sm:overflow: scroll;"
       >
         <div class="flex flex-col justify-start items-center px-6">
           <img src="../../assets/newLanding/001-1.png" class="w-40 mt-6" alt="پرداخت آسان" />
-          <h2 class="text-primary mt--2 text-xl font-bold p-8" style="marginTop:-20px">رفع اشکال آنلاین</h2>
+          <h2 class="text-primary mt--2 text-xl font-bold p-8" style="marginTop:-25px">رفع اشکال آنلاین</h2>
           <p class="p-8">
             حل یاب اولین سرویس ارائه
             <br />خدمات آنلاین رفع اشکال با
@@ -63,6 +63,5 @@
   min-height: 100vh;
   width: 100vw;
   max-width: 100%;
-  overflow: scroll;
 }
 </style>
