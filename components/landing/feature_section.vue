@@ -8,12 +8,15 @@
         <img class="w-1/2" src="~/assets/icons/full-logo.png" alt="لوگوی حل یاب" />
       </div>
       <div
-        class="flex flex-row flex-wrap justify-center align-center text-center"
-        style="height: 60%;    overflow: scroll;"
+        class="flex flex-row flex-wrap justify-center align-center text-center sm:overflow-hidden"
+        style="height: 60%;    overflow: overlay;"
       >
         <div class="flex flex-col justify-start items-center px-6">
           <img src="../../assets/newLanding/001-1.png" class="w-40 mt-6" alt="پرداخت آسان" />
-          <h2 class="text-primary mt--2 text-xl font-bold p-8" style="marginTop:-25px">رفع اشکال آنلاین</h2>
+          <h2
+            class="text-primary mt--2 text-xl font-bold p-8"
+            style="marginTop:-26px"
+          >رفع اشکال آنلاین</h2>
           <p class="p-8">
             حل یاب اولین سرویس ارائه
             <br />خدمات آنلاین رفع اشکال با
@@ -25,7 +28,7 @@
         </div>
         <div class="flex flex-col justify-start items-center px-6">
           <img src="../../assets/newLanding/001-2.png" class="w-40" alt="پرداخت آسان" />
-          <h2 class="text-primary text-xl  font-bold p-8">مجرب ترین اساتید</h2>
+          <h2 class="text-primary text-xl font-bold p-8">مجرب ترین اساتید</h2>
           <p class="p-8">
             اساتید حل یاب از دانش آموخته
             <br />های معتبر ترین دانشگاه های
