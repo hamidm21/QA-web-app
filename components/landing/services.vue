@@ -52,7 +52,7 @@
         </div>
       </div>
       <p
-        class="text-center font-bold mt-5"
+        class="text-center font-bold klas"
       >هـــم اکنـــون ، پـــروژه خود را در حل یـــاب قرار دهیـــــــد</p>
       <div class="text-center mt-5">
         <nuxt-link to="/auth/register">
@@ -99,11 +99,16 @@
   }
 }
 
+.klas{
+  margin-top: 30px;
+}
+
 .card {
   box-shadow: 2px 2px 10px rgba(20, 17, 17, 0.2);
   border-radius: 8px;
   text-align: center;
   background-color: #fff;
   margin: 2%;
+  margin-bottom: 7px;
 }
 </style>
