@@ -28,6 +28,7 @@
             <img src="../assets/img/ostad/1.jpg" />
           </div>
           <div class="sm:w-1/2">
+          <!-- <h1></h1> -->
             <h4
               style="direction: rtl;"
               class="flex justify-center mt-5 items-center text-center text-xl"
