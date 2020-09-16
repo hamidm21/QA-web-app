@@ -1,5 +1,5 @@
 <template>
-    <div class="app-sec bg-white">
+    <div class="app-sec bg-white "  style="marginTop:-20px"   >
         <div class="container flex-col">
             <div class="flex flex-row justify-center items-center text-center" style="height: 20%">
                 <h2 class="text-primary text-xl sm:text-4xl font-bold flex align-center justify-center">

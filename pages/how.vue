@@ -15,14 +15,14 @@
         @mouseenter="showOstad()"
       >استاد</button>
       <button
-        class="bg-transparent hover:bg-red text-red font-semibold hover:text-white py-2 px-4 border-b-2 border-red shadow"
+        class="bg-transparent hover:bg-red text-red font-semibold hover:text-white py-2 px-4 border-b-2 border-red "
         @click="showDaneshjoo()"
         @mouseenter="showDaneshjoo()"
       >دانش آموز</button>
     </div>
     <div class="flex justify-center" v-if="shows === true">
       <div class="w-3/4 flex flex-col mt-5">
-        <h1 class="div1 bg-transparent bg-red font-semibold text-white  py-2 px-4 border-b-2 border-red shadow">راهنمای دانش آموزان</h1>
+        <h1 class="div1 bg-transparent bg-red font-semibold text-white  py-2 px-4 border-b-2 border-red ">راهنمای دانش آموزان</h1>
         <div class="flex flex-col sm:flex-row justify-between items-center w-full my-10">
           <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/ostad/1.jpg" />
