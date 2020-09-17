@@ -10,44 +10,53 @@
       <div class="row">
         <div class="column">
           <div class="card">
-            <img class="ml-auto mr-auto pt-10 w-1/3" src="../../assets/newLanding/icons-07.png" alt />
-            <h6 class="pb-5 pt-5">حل سوال درسی</h6>
+            <img class="ml-auto mr-auto pt-4 w-12" src="../../assets/newLanding/icons-07.png" alt />
+            <h6 class="pb-5 pt-5 text-sm">حل سوال درسی</h6>
           </div>
         </div>
 
         <div class="column">
           <div class="card">
-            <img class="ml-auto mr-auto pt-10 w-1/3" src="../../assets/newLanding/icons-06.png" alt />
-            <h6 class="pb-5 pt-5">درخواست تایپ</h6>
+            <img class="ml-auto mr-auto pt-4 w-12" src="../../assets/newLanding/icons-06.png" alt />
+            <h6 class="pb-5 pt-5 text-sm">درخواست تایپ</h6>
           </div>
         </div>
 
         <div class="column">
           <div class="card">
-            <img class="ml-auto mr-auto pt-10 w-1/3" src="../../assets/newLanding/icons-09.png" alt />
-            <h6 class="pb-5 pt-5">ترجمه متون</h6>
+            <img class="ml-auto mr-auto pt-4 w-12" src="../../assets/newLanding/icons-09.png" alt />
+            <h6 class="pb-5 pt-5 text-sm">ترجمه متون</h6>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="column">
           <div class="card">
-            <img class="ml-auto mr-auto pt-10 w-1/3" src="../../assets/newLanding/icons-08.png" alt />
-            <h6 class="pb-5 pt-5">درخواست کلاس<br> آنلاین</h6>
+            <img class="ml-auto mr-auto pt-4 w-12" src="../../assets/newLanding/icons-08.png" alt />
+            <h6 class="pb-6 w-full pt-5 text-xs">
+              درخواست کلاس
+              آنلاین
+            </h6>
           </div>
         </div>
 
         <div class="column">
           <div class="card">
-            <img class="ml-auto mr-auto pt-10 w-1/3" src="../../assets/newLanding/icons-10.png" alt />
-            <h6 class="pb-5 pt-5">مشاوره مقاله <br/>نویسی</h6>
+            <img class="ml-auto mr-auto pt-4 w-12" src="../../assets/newLanding/icons-10.png" alt />
+            <h6 class="pb-5 w-full pt-5 text-sm">
+              مشاوره مقاله
+              نویسی
+            </h6>
           </div>
         </div>
 
         <div class="column">
           <div class="card">
-            <img class="ml-auto mr-auto pt-4 w-1/3" src="../../assets/newLanding/icons-12.png" alt />
-            <h6 class="pb-5 pt-5">مشاوره پایان <br/>نامه</h6>
+            <img class="ml-auto mr-auto pt-4 w-8" src="../../assets/newLanding/icons-12.png" alt />
+            <h6 class="pb-5 w-full pt-5 text-sm">
+              مشاوره پایان
+              نامه
+            </h6>
           </div>
         </div>
       </div>
@@ -70,7 +79,7 @@
 <style >
 .column {
   float: left;
-  width: 15%;
+  width: 10%;
   padding: 2px 2px;
   margin-bottom: 3%;
 }
@@ -88,10 +97,10 @@
   clear: both;
 }
 
-.nnn{
+.nnn {
   font-size: px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (width: 600px) {
   .column {
     width: 100%;
     display: block;
@@ -99,7 +108,7 @@
   }
 }
 
-.klas{
+.klas {
   margin-top: 30px;
 }
 
