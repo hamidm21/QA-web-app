@@ -6,12 +6,12 @@
           <div v-if="!$auth.loggedIn">
             <nuxt-link to="/auth/login">
               <button
-                class="bg-white border border-gray-500 hover:bg-blue-600 text-primary font-bold py-2 px-4 rounded"
+                class="bg-white border border-black hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded"
               >ورود</button>
             </nuxt-link>
             <nuxt-link to="/auth/register">
               <button
-                class="bg-primary hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                class="bg-black hover:bg-white hover:text-black border hover:border-black text-white font-bold py-2 px-4 rounded"
               >ثبت نام</button>
             </nuxt-link>
           </div>

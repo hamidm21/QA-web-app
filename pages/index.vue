@@ -1,35 +1,33 @@
 <template>
   <div>
-    <Status />
-    <Services />
-    <Feature />
+    <Intro />
+    <Service />
     <App />
-    <Prof />
+    <Fea />
+    <Res />
     <Exp />
     <Footer />
   </div>
 </template>
 
 <script>
-import Status from "../components/landing/status";
-import Hero from "../components/landing/hero_section.vue";
-import Services from "../components/landing/services";
-import Feature from "~/components/landing/feature_section.vue";
-import App from "~/components/landing/app_section.vue";
-import Prof from "~/components/landing/professor_section.vue";
-import Exp from "~/components/landing/examples.vue";
-import Footer from "~/components/landing/footer.vue";
+import Intro from "../components/newLanding/Introduction";
+import Res from "../components/newLanding/Resume";
+import Exp from "../components/newLanding/Example";
+import App from "../components/newLanding/App";
+import Footer from "../components/newLanding/Footer";
+import Service from "../components/newLanding/Services";
+import Fea from "../components/newLanding/Features";
 
 export default {
   components: {
-    Hero,
-    Status,
-    Services,
-    Feature,
-    App,
-    Prof,
+    Intro,
+    Res,
     Exp,
     Footer,
+    Service,
+    App,
+    Fea,
   },
   auth: false,
   layout: "landing",
@@ -37,5 +35,4 @@ export default {
 </script>
 
 <style>
-
 </style>
