@@ -1,9 +1,5 @@
 <template>
   <div class="colDiv">
-    <div class="flex flex-row justify-center items-center mt-3 text-center" style="direction:rtl">
-      <h2 class="text-black text-xl sm:text-4xl font-bold flex align-center justify-center">خدمات</h2>
-      <img class="w-1/3" src="~/assets/icons/full-logo.png" alt="لوگوی حل یاب" />
-    </div>
     <div class="rowDiv w-full">
       <div class="colDiv">
         <img class="w-1/2 ml-auto mr-auto" src="../../assets/halyab/001-4.png" alt />
