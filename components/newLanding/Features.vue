@@ -2,7 +2,7 @@
   <div class="colDiv">
     <div class="rowDiv w-full">
       <div class="colDiv">
-        <img class="w-1/2 ml-auto mr-auto" src="../../assets/halyab/001-4.png" alt />
+        <img class="w-1/4 ml-auto mr-auto" src="../../assets/halyab/001-4.png" alt />
         <p style="color:#00a0bd" class="text-center ml-auto mr-auto">پرداخت آسان</p>
         <p style="direction: rtl;" class="text-center ml-auto mr-auto">
           پرداخت آنلاین از طریق کلیه کارت های عضو شتاب
@@ -10,18 +10,18 @@
         </p>
       </div>
       <div class="colDiv">
-        <img class="w-1/2 ml-auto mr-auto" src="../../assets/halyab/001-3.png" alt />
-        <p style="color:#00a0bd" class="text-center ml-auto mr-auto">امنیت و اعتماد</p>
+        <img class="w-1/5  ml-auto mr-auto " src="../../assets/halyab/001-3.png" alt />
+        <p style="color:#00a0bd" class="text-center  ml-auto mr-auto">امنیت و اعتماد</p>
         <p style="direction: rtl;" class="text-center ml-auto mr-auto">
           حل یاب برای اطمینان و اعتماد سازی در مورد خدمات
           <br />خود برای اولین بار سیستم داوری را درون پلتفرم خود
-          <br />قرار داده است
+          قرار داده است
         </p>
       </div>
     </div>
     <div class="rowDiv w-full">
       <div class="colDiv">
-        <img class="w-1/2 mt-8 ml-auto mr-auto" src="../../assets/halyab/001-2.png" alt />
+        <img class="w-1/4 mt-8 ml-auto mr-auto" src="../../assets/halyab/001-2.png" alt />
         <p style="color:#00a0bd" class="text-center ml-auto mr-auto">رفع اشکال آنلاین</p>
         <p style="direction: rtl;" class="text-center ml-auto mr-auto">
           حل یاب اولین سرویس ارائه خدمات آنلاین رفع اشکال با
@@ -30,7 +30,7 @@
         </p>
       </div>
       <div class="colDiv">
-        <img class="w-1/2 ml-auto mr-auto" src="../../assets/halyab/001-2.png" alt />
+        <img class="w-1/4 ml-auto mr-auto" src="../../assets/halyab/001-2.png" alt />
         <p style="color:#00a0bd" class="text-center ml-auto mr-auto">مجرب ترین اساتید</p>
         <p style="direction: rtl;" class="text-center ml-auto mr-auto">
           اساتید حل یاب از دانش آموختگان معتبرترین دانشگاه های

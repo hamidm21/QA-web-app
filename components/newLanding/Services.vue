@@ -1,9 +1,10 @@
 <template>
-  <div class="div1 bg pb-20">
+  <div class="div1 bg bg-primary pb-20">
+    <div class="mos text-primary"></div>
     <div class="div2" style="width:100%">
       <h2
         style="marginTop:-4%"
-        class="text-xl font-bold text-white pt-5 pb-5 sm:pt-20 text-center w-full"
+        class="text-xl font-bold text-white mt-5 pt-5 pb-5 sm:pt-20 text-center w-full"
       >خدمات حل یاب</h2>
 
       <div class="div1">
@@ -63,7 +64,7 @@
         <nuxt-link to="/auth/register">
           <button
             type="button"
-            class="bg-white rounded-md px-16 py-2 shadow-md mb-4 text-black hover:shadow-xl"
+            class="bg-white rounded-md px-16 py-2 shadow-md mb-4 text-black shadow-xl"
           >+ ثبت پروژه</button>
         </nuxt-link>
       </div>
@@ -85,11 +86,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30%;
+  width: 20%;
   margin-left: 2%;
   margin-right: 2%;
 }
 .bg {
-  background-image: url(../../assets/halyab/bg.png);
+  position: relative;
+}
+.mos {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  border-right: 98.8vmax solid white;
+  border-bottom: 40px solid;
+  border-top: 100% solid transparent;
 }
 </style>
