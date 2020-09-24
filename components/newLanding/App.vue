@@ -10,7 +10,7 @@
         همین الان با اپلیکیشن حل یاب به راحتی بر روی تلفن همراه
         <br />سوال و پروژه خود را به اساتید مجرب حل یاب بسپارید
       </p>
-      <div class="rowdiv2 mt-5">
+      <div class="rowdiv2">
         <div class="rowdiv2 w-1/2 mt-3">
           <div>
             <a href="https://cafebazaar.ir/app/com.halyab.halyab">
@@ -32,10 +32,10 @@
           </div>
         </div>
       </div>
-      <div class="mt-10">
+      <div class="mt-5">
         <a
           href
-          class="py-3 px-10 sm:py-3 hover:bg-black hover:text-white sm:px-18 border border-black rounded-md text-black cursor-pionter"
+          class="py-1 px-10 sm:py-2 hover:bg-black mb-5 hover:text-white sm:px-8 border border-black rounded-md text-black cursor-pionter"
         >دانلود مستقیم</a>
       </div>
     </div>
@@ -61,6 +61,7 @@
   position: absolute;
   width: 0;
   height: 0;
+  border-left: 10vmin solid transparent;
   border-left: 98.8vmax solid transparent;
   border-top: 20px solid #1251a4;
 }
