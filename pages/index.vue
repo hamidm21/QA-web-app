@@ -7,6 +7,12 @@
     <Res />
     <Exp />
     <Footer />
+    <!-- <Service />
+    <App />
+    <Fea />
+    <Res />
+    <Exp />
+    <Footer />-->
   </div>
 </template>
 

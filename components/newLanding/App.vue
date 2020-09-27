@@ -1,8 +1,8 @@
 <template>
-  <div class="rowdiv bg" style="height:40vh">
+  <div class="rowdiv bg1" style="height:34vh">
     <div class="mos1"></div>
-    <div class="imgdiv hidden sm:flex justify-end items-center w-1/3">
-      <img class="mt-20 z-0" src="../../assets/halyab/mobile-07.png" alt="عکس موبایل " />
+    <div class="imgdiv hidden sm:flex justify-end items-center w-1/4">
+      <img class="mt-16 z-0" src="../../assets/halyab/mobile-07.png" alt="عکس موبایل " />
     </div>
 
     <div class="textdiv sm:w-2/3 w-full">
@@ -63,9 +63,10 @@
   height: 0;
   border-left: 10vmin solid transparent;
   border-left: 98.8vmax solid transparent;
-  border-top: 20px solid #1251a4;
+  border-top: 20px solid rgb(65, 75, 160);
 }
-.bg {
+.bg1 {
   position: relative;
+  background-color: rgb(231, 231, 231);
 }
 </style>
