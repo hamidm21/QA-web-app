@@ -1,6 +1,7 @@
 <template>
   <div>
     <Intro />
+    <Cou />
     <Service />
     <App />
     <Fea />
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import Cou from "../components/newLanding/counter";
 import Intro from "../components/newLanding/Introduction";
 import Res from "../components/newLanding/Resume";
 import Exp from "../components/newLanding/Example";
@@ -27,6 +29,7 @@ import Fea from "../components/newLanding/Features";
 
 export default {
   components: {
+    Cou,
     Intro,
     Res,
     Exp,

@@ -1,7 +1,7 @@
 <template>
   <div class="div1">
     <div class="div2">
-      <h2 class="text-lg pt-5 sm:pt-20 text-center w-full">
+      <h2 class="text-lg pt-5 px-10 sm:pt-20 text-center w-full">
         در این قسمت ، می توانید پروژه ها و سوالات دیگران
         را مشاهده فرمایید و
         <br class="hidden sm:block" />روند پاسخگویی به آن ها را بررسی کنید

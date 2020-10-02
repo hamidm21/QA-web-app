@@ -1,7 +1,6 @@
 <template>
-  <div class="rowdiv bg1" style="height:34vh">
-    <div class="mos1"></div>
-    <div class="imgdiv hidden sm:flex justify-end items-center w-1/4">
+  <div class="rowdiv bg1" style="height:40vh">
+    <div class="imgdiv hidden sm:flex justify-end items-center w-1/3">
       <img class="mt-16 z-0" src="../../assets/halyab/mobile-07.png" alt="عکس موبایل " />
     </div>
 
@@ -11,7 +10,7 @@
         <br />سوال و پروژه خود را به اساتید مجرب حل یاب بسپارید
       </p>
       <div class="rowdiv2">
-        <div class="rowdiv2 w-1/2 mt-3">
+        <div class="rowdiv2  w-4/5 sm:w-2/5 mt-3">
           <div>
             <a href="https://cafebazaar.ir/app/com.halyab.halyab">
               <img

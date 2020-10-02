@@ -35,12 +35,74 @@
                           >
                             <input
                               v-bind:value="dd1Selected.name"
-                              placeholder=""
+                              placeholder="پروژه درسی"
                               disabled
                               class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting"
                             />
+                            <div
+                              class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200"
+                            >
+                              <div
+                                class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="100%"
+                                  height="100%"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="feather feather-chevron-up w-4 h-4"
+                                  v-bind:style="
+                                    ddOpen === 1
+                                      ? 'transform: rotate(0deg);'
+                                      : 'transform: rotate(180deg);'
+                                  "
+                                >
+                                  <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                              </div>
+                            </div>
                           </div>
                         </div>
+                        <transition
+                          enter-active-class="transition ease-out duration-100"
+                          enter-class="transform opacity-0 scale-95"
+                          enter-to-class="transform opacity-100 scale-100"
+                          leave-active-class="transition ease-in duration-75"
+                          leave-class="transform opacity-100 scale-100"
+                          leave-to-class="transform opacity-0 scale-95"
+                        >
+                          <div
+                            v-show="ddOpen === 1"
+                            class="absolute shadow-md top-100 z-40 w-full lef-0 rounded max-h-select overflow-y-auto"
+                          >
+                            <div class="flex flex-col w-full">
+                              <div
+                                @click="dd1Handler(item)"
+                                v-for="item in dd1"
+                                v-bind:key="item.id"
+                                class="cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100"
+                              >
+                                <div
+                                  class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-primary hover:text-teal-100"
+                                  v-bind:class="
+                                    dd1Selected === item ? 'border-primary' : ''
+                                  "
+                                >
+                                  <div class="w-full items-center flex">
+                                    <div class="mx-2 leading-6">
+                                      {{ item.name }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </transition>
                       </div>
                     </div>
                   </div>
@@ -419,22 +481,7 @@ import Uploader from "~/components/dashboard/upload_file";
 export default {
   mounted: function () {
     this.$store.commit("setUserDashPage", "questions");
-    const item = this.dd1[this.$route.query.type];
-    this.dd1Selected = item;
-    this.dd1Selected = item;
-    console.log(item.name === "تایپ" || item.name === "ترجمه");
-    if (item.name === "تایپ" || item.name === "ترجمه") {
-      this.dd2Active = false;
-      this.dd3Active = false;
-      this.dd4Active = false;
-    } else {
-      this.dd2Active = true;
-      this.dd3Active = true;
-      this.dd4Active = true;
-    }
-    this.ddOpen = 0;
   },
-
   async asyncData({ $axios }) {
     const s_res = await $axios.get("/api/initdata");
     return {
@@ -463,6 +510,20 @@ export default {
       } else {
         this.ddOpen === id ? (this.ddOpen = 0) : (this.ddOpen = id);
       }
+    },
+    dd1Handler(item) {
+      this.dd1Selected = item;
+      console.log(item.name === "تایپ" || item.name === "ترجمه");
+      if (item.name === "تایپ" || item.name === "ترجمه") {
+        this.dd2Active = false;
+        this.dd3Active = false;
+        this.dd4Active = false;
+      } else {
+        this.dd2Active = true;
+        this.dd3Active = true;
+        this.dd4Active = true;
+      }
+      this.ddOpen = 0;
     },
     dd2Handler(item) {
       this.dd3Selected = "";

@@ -9,7 +9,7 @@
         <div class="flex flex-col flex-1 px-10 py-6 bg-white rounded-lg">
           <div class="flex-1">
             <img class="w-1/4 ml-auto mr-auto" src="../../assets/halyab/001-4.png" alt />
-            <h2 style="color:#00a0bd" class="mt-5 text-center font-bold leading-snug">پرداخت آسان</h2>
+            <h2 style="color:#00a0bd" class="mt-8 text-center font-bold leading-snug">پرداخت آسان</h2>
             <p class="mt-2 text-center">
               پرداخت آنلاین از طریق کلیه کارت های عضو شتاب
               <br />امکان پذیر است
@@ -35,8 +35,8 @@
         <!-- Column contents -->
         <div class="flex flex-col flex-1 px-10 py-6 bg-white rounded-lg">
           <div class="flex-1">
-            <img class="w-1/4 ml-auto mr-auto" src="../../assets/halyab/001-1.png" alt />
-            <h2 style="color:#00a0bd" class="mt-5 text-center font-bold leading-snug">رفع اشکال آنلاین</h2>
+            <img class="w-1/4 ml-auto mt-6 mr-auto" src="../../assets/halyab/001-1.png" alt />
+            <h2 style="color:#00a0bd" class="mt-1 text-center font-bold leading-snug">رفع اشکال آنلاین</h2>
             <p class="mt-2 text-center">
               حل یاب اولین سرویس ارائه خدمات آنلاین رفع اشکال با
               <br />توضیحات کامل متناسب با بودجه دانش آموز می باشد که
@@ -50,7 +50,7 @@
         <div class="flex flex-col flex-1 px-10 py-6 bg-white rounded-lg">
           <div class="flex-1">
             <img class="w-1/4 ml-auto mr-auto" src="../../assets/halyab/001-4.png" alt />
-            <h2 style="color:#00a0bd" class="mt-5 text-center font-bold leading-snug">مجرب ترین اساتید</h2>
+            <h2 style="color:#00a0bd" class="mt-10 text-center font-bold leading-snug">مجرب ترین اساتید</h2>
             <p class="mt-2 text-center">
               اساتید حل یاب از دانش آموختگان معتبرترین دانشگاه های
               <br />کشور و رتبه های برتر کنکور انتخاب می شوند
