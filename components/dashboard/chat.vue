@@ -236,15 +236,18 @@
     >
       <div
         @click="sendMsg()"
-        class="flex justify-center items-center m shadow-sm hover:shadow-lg p-2 w-10 h-10 rounded-full cursor-pointer"
+        class="flex justify-center items-center m shadow-sm hover:shadow-lg  p-2 w-10 h-10 rounded-full cursor-pointer"
+        style="backgroundColor :#67aadf;"
       >
         <img src="~/assets/icons/send.svg" style="filter: invert(1)" alt="" />
       </div>
       <div
         v-show="type !== 'comments'"
         class="flex justify-center items-center cursor-pointer"
+
       >
-        <vue-record-audio @result="onResult" class="m w-10 h-10 pl-2 mr-2" />
+        <vue-record-audio @result="onResult" class="m w-10 h-10 pl-2 mr-2"                 style="backgroundColor :#132a3e;"
+ />
       </div>
       <div
         class="flex justify-end items-center w-full bg-white shadow-lg rounded-full mx-1 h-10"
