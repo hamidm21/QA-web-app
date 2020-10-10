@@ -33,7 +33,7 @@
             <div class="sss">
               <nuxt-link to="/auth/login">
                 <button
-                  style="color: #132a3e"
+                  style="color:#67aadf;"
                   type="button"
                   class="mt-3 px-3 pt-2 font-bold rounded focus:outline-none focus:shadow-outline"
                 >
