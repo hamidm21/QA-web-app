@@ -1,18 +1,26 @@
 <template>
   <div @click="closer($event)">
-    <div class="landing-head fixed" style="z-index: 100;">
-      <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm lg:py-0 py-2">
+    <div class="landing-head fixed" style="z-index: 100">
+      <header
+        class="lg:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm lg:py-0 py-2"
+      >
         <div class="flex-1 flex justify-between items-center">
           <div v-if="!$auth.loggedIn">
             <nuxt-link to="/auth/login">
               <button
-                class="bg-white border border-black hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded"
-              >ورود</button>
+                style="border: solid 1px #4c7fa7; color :#4c7fa7;"
+                class="bg-white border  font-bold py-2 px-4 rounded"
+              >
+                ورود
+              </button>
             </nuxt-link>
             <nuxt-link to="/auth/register">
               <button
-                class="bg-black hover:bg-white hover:text-black border hover:border-black text-white font-bold py-2 px-4 rounded"
-              >ثبت نام</button>
+                style="backgroundColor: #4c7fa7 ;"
+                class=" border  text-white font-bold py-2 px-4 rounded"
+              >
+                ثبت نام
+              </button>
             </nuxt-link>
           </div>
           <div v-else class="flex justify-center items-center">
@@ -20,8 +28,20 @@
               id="prof"
               @click="isProfOpen = !isProfOpen"
               class="rounded-full w-10 h-10 border-2 border-transparent hover:border-primary"
-              v-bind:src="$auth.user ? $auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic : '' "
-              v-bind:alt="$auth.user ? $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' : '' "
+              v-bind:src="
+                $auth.user
+                  ? $auth.user.profile_pic_thumb
+                    ? $auth.user.profile_pic_thumb
+                    : $auth.user.default_profile_pic
+                  : ''
+              "
+              v-bind:alt="
+                $auth.user
+                  ? $auth.user.full_name
+                    ? $auth.user.full_name
+                    : 'کاربر بدون نام'
+                  : ''
+              "
             />
           </div>
           <transition
@@ -35,7 +55,7 @@
             <div
               v-show="isProfOpen"
               class="origin-bottom-right absolute left-1-5 sm:left-4 top-5 sm:top-4 mt-2 w-48 rounded-md shadow-lg"
-              style="direction: rtl; z-index:100"
+              style="direction: rtl; z-index: 100"
             >
               <div class="rounded-md bg-white shadow-xs">
                 <div class="py-1">
@@ -43,16 +63,34 @@
                     <div class="flex">
                       <img
                         class="rounded-full w-10 h-10 border-2 border-transparent"
-                        v-bind:src="$auth.user ? $auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic : '' "
-                        v-bind:alt="$auth.user ? $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' : '' "
+                        v-bind:src="
+                          $auth.user
+                            ? $auth.user.profile_pic_thumb
+                              ? $auth.user.profile_pic_thumb
+                              : $auth.user.default_profile_pic
+                            : ''
+                        "
+                        v-bind:alt="
+                          $auth.user
+                            ? $auth.user.full_name
+                              ? $auth.user.full_name
+                              : 'کاربر بدون نام'
+                            : ''
+                        "
                       />
                       <div class="flex flex-col justify-center items-start">
-                        <p
-                          class="px-2"
-                        >{{ $auth.user ? $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' : '' }}</p>
-                        <p
-                          class="px-2 text-sm text-gray-700"
-                        >{{ $auth.user ? $auth.user.username : ''}}</p>
+                        <p class="px-2">
+                          {{
+                            $auth.user
+                              ? $auth.user.full_name
+                                ? $auth.user.full_name
+                                : "کاربر بدون نام"
+                              : ""
+                          }}
+                        </p>
+                        <p class="px-2 text-sm text-gray-700">
+                          {{ $auth.user ? $auth.user.username : "" }}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -65,7 +103,7 @@
                       class="pl-2 w-6"
                       src="~/assets/icons/icon-home.svg"
                       alt="پیشخوان"
-                      style="filter: invert(0.6);"
+                      style="filter: invert(0.6)"
                     />
                     پیشخوان
                   </nuxt-link>
@@ -77,7 +115,7 @@
                       class="pl-2 w-6"
                       src="~/assets/icons/icon-user.svg"
                       alt="پروفایل"
-                      style="filter: invert(0.6);"
+                      style="filter: invert(0.6)"
                     />
                     حساب کاربری
                   </nuxt-link>
@@ -89,7 +127,7 @@
                       class="pl-2 w-6"
                       src="~/assets/icons/icon-file-plus.svg"
                       alt="پروژه های من"
-                      style="filter: invert(0.6);"
+                      style="filter: invert(0.6)"
                     />
                     پروژه های من
                   </nuxt-link>
@@ -101,7 +139,7 @@
                       class="pl-2 w-6"
                       src="~/assets/icons/icon-refresh.svg"
                       alt="افزایش اعتبار"
-                      style="filter: invert(0.6);"
+                      style="filter: invert(0.6)"
                     />
                     افزایش اعتبار
                   </nuxt-link>
@@ -110,7 +148,11 @@
                     @click="logout()"
                     class="flex text-red items-center justify-start w-full text-right px-4 py-2 text-sm leading-5 cursor-pointer hover:bg-gray-200 focus:outline-none focus:bg-gray-100"
                   >
-                    <img class="pl-2 w-1/6" src="~/assets/icons/logout.svg" alt="خروج" />
+                    <img
+                      class="pl-2 w-1/6"
+                      src="~/assets/icons/logout.svg"
+                      alt="خروج"
+                    />
                     خروج از حساب
                   </div>
                 </div>
@@ -121,7 +163,11 @@
           <img src="~/assets/img/halyab_icon.png" alt="icon" class="w-10" style="border-radius: 50%;">
           </a>-->
         </div>
-        <label @click="openMenu = true" for="menu-toggle" class="pointer-cursor sm:hidden block">
+        <label
+          @click="openMenu = true"
+          for="menu-toggle"
+          class="pointer-cursor sm:hidden block"
+        >
           <svg
             class="fill-current text-gray-900"
             xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +191,7 @@
           <div
             v-if="openMenu"
             class="fixed inset-x-0 px-4 pt-4 top-0 sm:flex"
-            style="direction: rtl; z-index:99;"
+            style="direction: rtl; z-index: 99"
           >
             <div class="fixed inset-0 transition-opacity">
               <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -175,7 +221,11 @@
                         <img src="~/assets/icons/icon-x.svg" alt="خروج" />
                       </div>
                       <div class="flex w-full justify-center items-center">
-                        <img class="w-32" src="~/assets/icons/full-logo.png" alt="icon" />
+                        <img
+                          class="w-32"
+                          src="~/assets/icons/full-logo.png"
+                          alt="icon"
+                        />
                       </div>
                       <hr />
                       <div
@@ -209,33 +259,42 @@
           </div>
         </transition>
         <input class="hidden" type="checkbox" id="menu-toggle" />
-        <div class="hidden justify-end sm:flex sm:items-center sm:w-auto w-full" id="menu">
+        <div
+          class="hidden justify-end sm:flex sm:items-center sm:w-auto w-full"
+          id="menu"
+        >
           <nav>
-            <ul class="sm:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-             <li>
+            <ul
+              class="sm:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0"
+            >
+              <li>
                 <nuxt-link
                   to="/how"
                   class="p-3 py-3 block border-b-2 border-transparent hover:border-primary"
-                >چگونه کار میکند؟</nuxt-link>
+                  >چگونه کار میکند؟</nuxt-link
+                >
               </li>
               <li>
                 <nuxt-link
                   to="/join_us"
                   class="p-3 py-3 block border-b-2 border-transparent hover:border-primary"
-                >پیوستن به ما</nuxt-link>
+                  >پیوستن به ما</nuxt-link
+                >
               </li>
               <li>
                 <nuxt-link
                   to="/about_us"
                   class="p-3 py-3 block border-b-2 border-transparent hover:border-primary"
-                >درباره ما</nuxt-link>
+                  >درباره ما</nuxt-link
+                >
               </li>
 
               <li>
                 <nuxt-link
                   to="/contact_us"
                   class="p-3 py-3 block border-b-2 border-transparent hover:border-primary"
-                >تماس با ما</nuxt-link>
+                  >تماس با ما</nuxt-link
+                >
               </li>
             </ul>
           </nav>

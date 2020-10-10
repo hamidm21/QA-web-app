@@ -9,7 +9,7 @@
             <nuxt-link to="/user/othersQuestions" v-if="title !== 'پروژه های من'" class="bg-white text-sm text-secondary font-bold p-1 rounded focus:outline-none focus:shadow-outline">
                 مشاهده همه
             </nuxt-link>
-            <nuxt-link to="/user/questions/add" v-else class="flex justify-center items-center bg-green text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
+            <nuxt-link to="/user/questions/add" v-else class="flex justify-center items-center  text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);backgroundColor:#4c7fa7;">
                 ثبت پروژه
                 <img class="w-4 mx-2" src="~/assets/icons/plus.svg"/>
             </nuxt-link>

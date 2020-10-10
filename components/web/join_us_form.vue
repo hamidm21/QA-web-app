@@ -1,7 +1,7 @@
 <template>
     <div class="app-sec bg-white flex items-center justify-center">
     <div class="mx-auto max-w-6xl px-6 py-12" style="width: inherit">
-   <div class="flex flex-col md:flex-row shadow justify-center bg-blue-700 rounded">
+   <div class="flex flex-col md:flex-row shadow justify-center rounded" style="backgroundColor:#4c7fa7">
       <div class="xl:w-1/2 max-w-md my-5 mx-5 flex flex-col justify-center ">
          <div class="text-bold md:text-5xl  text-white  ">به ما ملحق شوید !</div>
          <p class="text-xl text-base text-white mt-4 hidden sm:block">سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>

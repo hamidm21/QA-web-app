@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col justify-center m-auto" style="direction: rtl;">
-   <div class="flex md:flex-row flex-col bg-blue-700 justify-center md:text-right text-center">
+   <div class="flex md:flex-row flex-col  justify-center md:text-right text-center" style="backgroundColor:#4c7fa7">
       <div class="flex flex-col justify-center items-center relative">
          <div class="w-56 h-12 md:flex hidden justify-center">
             <div class="h-full  border-b-300 border-dashed"></div>

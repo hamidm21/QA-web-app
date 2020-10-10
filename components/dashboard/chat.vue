@@ -20,12 +20,12 @@
             v-bind:key="msg.id"
             v-bind:class="
               msg === message[0] && message.length > 2
-                ? 'rounded-t-md'
+                ? 'rounded-t-md '
                 : msg === message[message.length - 1] && message.length > 2
                 ? 'rounded-b-md'
                 : 'rounded-md'
             "
-            class="flex flex-col shadow text-black max-w-xl w-50 sm:w-64 p-2 my-1 mr-12"
+            class="flex flex-col  shadow text-black max-w-xl w-50 sm:w-64 p-2 my-1 mr-12"
           >
             <p v-if="msg.desc">
               {{ msg.desc }}
@@ -124,16 +124,17 @@
             v-bind:key="msg.id"
             v-bind:class="
               msg === message[0] && message.length > 2
-                ? 'rounded-t-md'
+                ? 'rounded-t-md bg-red'
                 : msg === message[message.length - 1] && message.length > 2
                 ? 'rounded-b-md'
                 : 'rounded-md'
             "
-            class="flex flex-col bg-gray-500 text-white max-w-xl w-50 sm:w-64 p-2 my-1 ml-12"
+            class="flex flex-col m text-white max-w-xl w-50 sm:w-64 p-2 my-1 ml-12"
           >
             <p v-if="msg.desc">
               {{ msg.desc }}
             </p>
+
             <div v-else>
               <img
                 v-if="msg.pic ? isImage(msg.pic) : false"
@@ -235,7 +236,7 @@
     >
       <div
         @click="sendMsg()"
-        class="flex justify-center items-center bg-primary shadow-sm hover:shadow-lg p-2 w-10 h-10 rounded-full cursor-pointer"
+        class="flex justify-center items-center m shadow-sm hover:shadow-lg p-2 w-10 h-10 rounded-full cursor-pointer"
       >
         <img src="~/assets/icons/send.svg" style="filter: invert(1)" alt="" />
       </div>
@@ -243,10 +244,7 @@
         v-show="type !== 'comments'"
         class="flex justify-center items-center cursor-pointer"
       >
-        <vue-record-audio
-          @result="onResult"
-          class="bg-primary w-10 h-10 pl-2 mr-2"
-        />
+        <vue-record-audio @result="onResult" class="m w-10 h-10 pl-2 mr-2" />
       </div>
       <div
         class="flex justify-end items-center w-full bg-white shadow-lg rounded-full mx-1 h-10"
@@ -281,6 +279,8 @@
 <script>
 export default {
   mounted() {
+    console.log(this.$props);
+    console.log(this.$props.type);
     if (process.client) {
       let element = document.getElementById("scroll");
       element
@@ -400,9 +400,12 @@ export default {
       }, 500);
     },
   },
-  props: ["messages", "type", "question", "active"],
+  props: ["messages", "type", "question", "active", "name"],
 };
 </script>
 
 <style>
+.m {
+  background-color: #4c7fa7;
+}
 </style>

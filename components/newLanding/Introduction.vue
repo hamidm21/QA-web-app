@@ -23,8 +23,9 @@
           <div class="mt-5 statusdiv ml-auto mr-auto">
             <nuxt-link to="/auth/register">
               <button
+                style="backgroundColor:#4c7fa7;"
                 type="button"
-                class="bg-black shadow-lg rounded-lg hover:underline px-4 py-2 text-sm hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
+                class=" shadow-lg rounded-lg hover:underline px-4 py-2 text-sm hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
               >
                 ثبـت نـام در حل یـاب
               </button>
@@ -32,7 +33,7 @@
             <div class="sss">
               <nuxt-link to="/auth/login">
                 <button
-                  style="color: #00a0bd"
+                  style="color: #4c7fa7"
                   type="button"
                   class="mt-3 px-3 pt-2 font-bold rounded focus:outline-none focus:shadow-outline"
                 >

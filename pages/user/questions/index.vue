@@ -8,8 +8,8 @@
           <h3 class="p-4">پروژه های من</h3>
           <nuxt-link to="questions/addProject">
             <button
-              class="flex justify-center items-center bg-green text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline"
-              style="box-shadow: 5px 5px 14px -6px rgba(23, 198, 152, 0.9)"
+              class="flex justify-center items-center  text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline"
+              style="box-shadow: 5px 5px 14px -6px rgba(23, 198, 152, 0.9);backgroundColor:#4c7fa7;"
             >
               ثبت پروژه
               <img class="w-4 mx-2" src="~/assets/icons/plus.svg" />

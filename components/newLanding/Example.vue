@@ -9,8 +9,9 @@
       <div class="mt-5 text-center statusdiv">
         <nuxt-link to="/allque">
           <button
+            style="backgroundColor:#4c7fa7;"
             type="button"
-            class="bg-black shadow px-10 py-2 hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
+            class="shadow px-10 py-2 hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
           > مشــاهده پروژه ها</button>
         </nuxt-link>
       </div>

@@ -1,14 +1,15 @@
 <template>
-  <div
-    class="w-full ml-auto mr-auto text-center pt-3 pb-0 cont"
-  >
+  <div class="w-full ml-auto mr-auto text-center pt-3 pb-0 cont">
     <animated-number
-      class="font-bold m text-4xl"
+      class="font-bold mrc text-4xl"
       :formatValue="formatToPrice"
       :value="value"
       :duration="8000"
+      @click="getCount()"
     />
-    <p class="text-md pb-2">تعداد پروژه های حل شده در حل یاب تا کنون:</p>
+    <p @click="getCount()" class="text-md pb-2">
+      تعداد پروژه های حل شده در حل یاب تا کنون:
+    </p>
   </div>
 </template>
 <script>
@@ -21,7 +22,7 @@ export default {
   },
   data() {
     return {
-      value: 1048,
+      value: 1054,
     };
   },
   methods: {
@@ -31,7 +32,7 @@ export default {
     getCount() {
       return axios.get("https://halyab.com/api/q_done").then((res) => {
         const count = res.data;
-        console.log(count);
+        prompt(count);
       });
     },
   },
@@ -45,7 +46,7 @@ export default {
   justify-content: center;
   direction: rtl;
 }
-.m {
-  color: #6c8aec;
+.mrc {
+  color: #4c7fa7;
 }
 </style>

@@ -8,7 +8,7 @@
         class="flex flex-col rounded-md bg-white rouended-md w-full shadow-md"
       >
         <div class="w-full flex justify-start items-center">
-          <h3 class="p-4 font-bold">مشخصات سوال</h3>
+          <h3 @click="console()" class="p-4 font-bold">مشخصات سوال</h3>
         </div>
         <hr class="w-full" />
         <div class="flex flex-col sm:flex-row w-full">
@@ -269,6 +269,7 @@
                 </transition>
               </div>
             </transition>
+
             <div
               v-if="item.state_name === 'question_solved_request'"
               class="flex flex-col sm:flex-row w-full py-8 px-10"
@@ -287,8 +288,37 @@
                 درخواست داوری
               </div>
             </div>
+
             <div
               v-else-if="item.state_name !== 'is_referred_to_judge'"
+              class="flex flex-col sm:flex-row w-full py-8 px-10"
+            >
+              <div
+                @click="edit()"
+                class="flex justify-center items-center border border-primary bg-white w-full sm:w-3/5 text-primary font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+              >
+                ویرایش پروژه
+                <img
+                  class="px-2"
+                  src="~/assets/icons/icon-edit.svg"
+                  alt="edit"
+                />
+              </div>
+              <hr class="w-1" />
+              <div
+                @click="cancel()"
+                class="flex justify-center items-center border border-red bg-white w-full sm:w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+              >
+                لغو پروژه
+                <img
+                  class="px-2"
+                  src="~/assets/icons/icon-delete.svg"
+                  alt="cancel"
+                />
+              </div>
+            </div>
+            <div
+              v-else-if="item.state_name != 'is_referred_to_judge'"
               class="flex flex-col sm:flex-row w-full py-8 px-10"
             >
               <div
@@ -371,6 +401,48 @@
                   <p>زمان ثبت</p>
                   <p class="number">{{ item.jcreate_time }}</p>
                 </div>
+                <div
+                  v-if="item.question_type_name == `کلاس آنلاین`"
+                  class="flex bg-gray-300 w-full p-4 justify-center  text-red bg-white"
+                >
+                  <p class="text-center ">
+                    کاربر گرامی لطفا توجه داشته باشید مدت زمان کلاس آنلاین
+                    90 دقیقه می باشد.
+                  </p>
+                </div>
+                <div
+                  v-if="
+                    item.meeting_url != `` &
+                    item.question_type_name === `کلاس آنلاین`
+                  "
+                  class="flex w-full p-4 justify-center "
+                >
+                  <button
+                    @click="propmt()"
+                    v-if="
+                      this.description === false &&
+                      item.question_type_name === `کلاس آنلاین`
+                    "
+                    class="flex ml-auto mr-auto justify-center items-center border border-red bg-white w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+                    style="backgroundcolor: #4c7fa7"
+                  >
+                    شروع کلاس
+                  </button>
+                  <div v-if="this.description" class="mys bg-gray-300 pb-2">
+                    <h1 class="text-center text-black mb-2 p-1 bg-white">
+                      لطفا قبل شروع کلاس با استاد یا دانشجو هماهنگ کنید .
+                      دانشجویان توجه داشته باشند فقط در صورتی میتوانند وارد کلاس شوند که استاد کلاس را شروع کرده باشد .
+                    </h1>
+                    <button
+                      @click="newtab()"
+                      v-if="item.question_type_name === `کلاس آنلاین`"
+                    class="flex ml-auto mr-auto justify-center items-center  border border-red bg-white w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+                    >
+                      شروع کلاس
+                    </button>
+                  </div>
+                </div>
+               
               </div>
             </div>
           </div>
@@ -487,8 +559,9 @@
                   />
                   <div class="flex w-full justify-center items-center mt-2">
                     <div
+                      style="backgroundcolor: #4c7fa7"
                       @click="refreshAll()"
-                      class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl bg-primary text-white"
+                      class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl text-white"
                     >
                       <p class="m-1">به روز رسانی</p>
                       <img
@@ -503,16 +576,19 @@
               </div>
               <div class="flex w-full pt-2 sm:py-10" v-else-if="openTab === 3">
                 <div class="flex flex-col w-full justify-center">
+                 
                   <Chat
                     v-bind:messages="answers"
                     v-bind:type="'answers'"
                     v-bind:question="this.$route.params.id"
                     v-bind:active="true"
+                    v-bind:name="this.item.question_type_name"
                   />
                   <div class="flex w-full justify-center items-center mt-2">
                     <div
+                      style="backgroundcolor: #4c7fa7"
                       @click="refreshAll()"
-                      class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl bg-primary text-white"
+                      class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl text-white"
                     >
                       <p class="m-1">به روز رسانی</p>
                       <img
@@ -753,6 +829,14 @@ export default {
       this.openModal = true;
       this.selectedOffer = id;
     },
+    async console() {
+      const q_res = this.item.meeting_url;
+      console.log(q_res);
+    },
+     newtab() {
+      const q_res = this.item.meeting_url;
+      window.open(q_res);
+    },
     paymentByWallet() {
       this.$axios
         .get(`/api/offers/${this.selectedOffer.id}/accept`)
@@ -764,6 +848,9 @@ export default {
           this.openModal = false;
           this.$toast.error("پرداخت از طریق کیف پول انجام نشد");
         });
+    },
+    propmt() {
+      this.description = true;
     },
     paymentByGate() {
       this.$axios
@@ -828,6 +915,7 @@ export default {
       offers: [],
       comments: [],
       answers: [],
+      description: false,
     };
   },
   components: {
@@ -837,3 +925,10 @@ export default {
   layout: "dashboard/user",
 };
 </script>
+<style >
+.mys {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+</style>
