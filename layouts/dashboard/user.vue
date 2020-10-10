@@ -205,7 +205,7 @@
             </div>
         </transition>
       </div>
-      <div class="side-nav sidn hidden sm:flex flex-col" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);backgroundColor:#4c7fa7;">
+      <div class="side-nav sidn hidden sm:flex flex-col" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);backgroundColor:#132a3e;">
           <div class="w-full h-fit flex justify-start items-center">
             <nuxt-link to="/">  <img class="w-4/5 mb-4 mt-1" src="~/assets/icons/full_white.png" alt="لوگو حل یاب"></nuxt-link>
           </div>
@@ -380,7 +380,7 @@ export default {
     max-width: 250px;
     padding-right: 1rem;
     padding-left: 1rem;
-    background-color: #4c7fa7;
+    background-color: #132a3e;
 }
 
 
@@ -400,7 +400,7 @@ body {
   height: 100%;
 }
 .siden{
-  background-color: #4c7fa7;
+  background-color: #132a3e;
 }
 
 </style>

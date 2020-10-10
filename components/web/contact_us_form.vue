@@ -10,7 +10,7 @@
                 </div>
                 <input v-model="email" type="email" placeholder="ایمیل شما" class="border p-2 w-full mt-3">
                 <textarea v-model="desc" name="" id="" cols="10" rows="3" placeholder="متن پیام خود را اینجا وارد نمایید" class="border p-2 mt-3 w-full"></textarea>
-                <div @click="send()" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3">
+                <div @click="send()" style="backgroundColor:#132a3e" class="w-full mt-6   text-white font-semibold p-3">
                     ارسال
                 </div>
 

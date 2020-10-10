@@ -406,6 +406,6 @@ export default {
 
 <style>
 .m {
-  background-color: #4c7fa7;
+  background-color: #132a3e;
 }
 </style>

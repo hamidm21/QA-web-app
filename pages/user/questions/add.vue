@@ -405,8 +405,19 @@
                 </div>
               </div>
             </form>
+               
           </div>
+
+           <div
+                  class=" w-full p-4 justify-center  text-red "
+                >
+                  <p v-if="this.$route.query.type === `0` " class="font-bold text-center ">
+                    کاربر گرامی لطفا توجه داشته باشید مدت زمان کلاس آنلاین
+                    90 دقیقه می باشد.
+                  </p>
+                </div>
         </div>
+        
       </div>
     </div>
   </div>

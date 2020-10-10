@@ -23,7 +23,7 @@
           <div class="mt-5 statusdiv ml-auto mr-auto">
             <nuxt-link to="/auth/register">
               <button
-                style="backgroundColor:#4c7fa7;"
+                style="backgroundColor:#132a3e;"
                 type="button"
                 class=" shadow-lg rounded-lg hover:underline px-4 py-2 text-sm hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
               >
@@ -33,7 +33,7 @@
             <div class="sss">
               <nuxt-link to="/auth/login">
                 <button
-                  style="color: #4c7fa7"
+                  style="color: #132a3e"
                   type="button"
                   class="mt-3 px-3 pt-2 font-bold rounded focus:outline-none focus:shadow-outline"
                 >

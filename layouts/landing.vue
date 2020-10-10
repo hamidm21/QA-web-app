@@ -8,7 +8,7 @@
           <div v-if="!$auth.loggedIn">
             <nuxt-link to="/auth/login">
               <button
-                style="border: solid 1px #4c7fa7; color :#4c7fa7;"
+                style="border: solid 1px #132a3e; color :#132a3e;"
                 class="bg-white border  font-bold py-2 px-4 rounded"
               >
                 ورود
@@ -16,7 +16,7 @@
             </nuxt-link>
             <nuxt-link to="/auth/register">
               <button
-                style="backgroundColor: #4c7fa7 ;"
+                style="backgroundColor: #132a3e ;"
                 class=" border  text-white font-bold py-2 px-4 rounded"
               >
                 ثبت نام

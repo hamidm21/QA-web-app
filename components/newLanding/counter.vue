@@ -47,6 +47,6 @@ export default {
   direction: rtl;
 }
 .mrc {
-  color: #4c7fa7;
+  color: #132a3e;
 }
 </style>

@@ -17,7 +17,7 @@
           <div class="mt-5 mb-20 ml-auto mr-auto ">
             <nuxt-link to="/join_us">
               <button
-                style="backgroundColor:#4c7fa7;"
+                style="backgroundColor:#132a3e;"
                 type="button"
                 class="shadow ml-auto mr-auto px-10 py-2 hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
               >ارســال رزومه</button>

@@ -39,9 +39,11 @@
                               disabled
                               class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting"
                             />
+                            
                             <div
                               class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200"
                             >
+                            
                               <div
                                 class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none"
                               >
@@ -65,6 +67,7 @@
                                   <polyline points="18 15 12 9 6 15"></polyline>
                                 </svg>
                               </div>
+                              
                             </div>
                           </div>
                         </div>
@@ -101,11 +104,21 @@
                                 </div>
                               </div>
                             </div>
+                            
                           </div>
                         </transition>
                       </div>
                     </div>
                   </div>
+                  
+                </div>
+                    <div
+                  class=" w-full p-4 justify-center  text-red "
+                >
+                  <p  v-if="this.dd1Selected.name === 'کلاس آنلاین'"  class="font-bold text-center ">
+                    کاربر گرامی لطفا توجه داشته باشید مدت زمان کلاس آنلاین
+                    90 دقیقه می باشد.
+                  </p>
                 </div>
                 <hr />
               </div>

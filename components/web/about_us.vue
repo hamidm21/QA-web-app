@@ -52,7 +52,7 @@
 </div>
       </div>
    </div>
-   <div class="flex md:flex-row flex-col bg-blue-700 justify-center md:text-right text-center">
+   <div style="backgroundColor:#4c7fa7;" class="flex md:flex-row flex-col justify-center md:text-right text-center">
       <div class="flex flex-col justify-center items-center relative">
          <div class="w-56 h-12 md:flex hidden justify-center">
             <div class="h-full border-r-4 border-indigo-300 border-dashed"></div>
@@ -63,7 +63,7 @@
             <div class="h-full border-r-4 border-indigo-300 border-dashed"></div>
          </div>
       </div>
-      <div class="ml-5 p-10 flex flex-col justify-center max-w-2xl  bg-blue-500">
+      <div class="ml-5 p-10 flex flex-col justify-center max-w-2xl  bg-blue-500" style="backgroundColor:#4c7fa7;">
          <div class="text-xs uppercase font-bold text--900">درخواست واریز</div>
          <div class="md:text-3xl text-xl font-bold text-blue-900">درخواست پرداخت موجودی کیف پول</div>
          <div class="mt-4 text-white">در صورتی که قصد دریافت موجودی پول خود را دارید ابتدا از ثبت شدن شماره شبا خود در بخش حساب کاربری اطمینان حاصل کنید, سپس با مراجعه به بخش ارتباط با ما درخواست پرداخت موجودی خود را ثبت کنید. <br> <br> از صحیح بودن شماره شبا خود اطمینان حاصل کنید تا از مشکلات و تداخلات عادی جلوگیری به عمل آید. <br> <br> پس از ثبت درخواست موجودی کیف پول, موجودی مذکور در بازه های هفتگی به حساب شما واریز می شود. در صورتی که درخواست پرداخت موجودی کیف پول در زمان مذکور انجام نشد, میتوانید از طریق بخش تماس با ما با پشتیبانی سایت در ارتباط باشید.</div>

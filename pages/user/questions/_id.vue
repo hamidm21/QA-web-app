@@ -423,12 +423,12 @@
                       this.description === false &&
                       item.question_type_name === `کلاس آنلاین`
                     "
-                    class="flex ml-auto mr-auto justify-center items-center border border-red bg-white w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
-                    style="backgroundcolor: #4c7fa7"
+                    class="flex ml-auto mr-auto justify-center items-center w-2/5 text-white font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+                    style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);backgroundColor:#17C69B;"
                   >
                     شروع کلاس
                   </button>
-                  <div v-if="this.description" class="mys bg-gray-300 pb-2">
+                  <div v-if="this.description" class="mys  pb-2">
                     <h1 class="text-center text-black mb-2 p-1 bg-white">
                       لطفا قبل شروع کلاس با استاد یا دانشجو هماهنگ کنید .
                       دانشجویان توجه داشته باشند فقط در صورتی میتوانند وارد کلاس شوند که استاد کلاس را شروع کرده باشد .
@@ -436,8 +436,9 @@
                     <button
                       @click="newtab()"
                       v-if="item.question_type_name === `کلاس آنلاین`"
-                    class="flex ml-auto mr-auto justify-center items-center  border border-red bg-white w-2/5 text-red font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
-                    >
+                    class="flex ml-auto mr-auto justify-center items-center w-2/5 text-white font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+                    style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);backgroundColor:#17C69B;"
+                  >
                       شروع کلاس
                     </button>
                   </div>
@@ -559,7 +560,7 @@
                   />
                   <div class="flex w-full justify-center items-center mt-2">
                     <div
-                      style="backgroundcolor: #4c7fa7"
+                      style="backgroundcolor: #132a3e"
                       @click="refreshAll()"
                       class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl text-white"
                     >
@@ -586,7 +587,7 @@
                   />
                   <div class="flex w-full justify-center items-center mt-2">
                     <div
-                      style="backgroundcolor: #4c7fa7"
+                      style="backgroundcolor: #132a3e"
                       @click="refreshAll()"
                       class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl text-white"
                     >

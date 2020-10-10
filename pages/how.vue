@@ -322,7 +322,7 @@
       <nuxt-link to="/auth/register">
         <button
           type="button"
-          style="backgroundColor: #4c7fa7"
+          style="backgroundColor: #17C69B"
           class="rounded-md p-2 shadow-md mb-4 text-white hover:shadow-xl"
         >
           + ثبت پروژه
