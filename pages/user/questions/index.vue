@@ -43,14 +43,14 @@
                       <div
                         v-bind:class="
                           item['state_name'] === 'is_active'
-                            ? 'bg-primary'
+                            ? 'mmm'
                             : item['state_name'] === 'is_finished'
-                            ? 'bg-gray-700'
+                            ? 'bg-primary'
                             : item['state_name'] === 'wait_for_response'
-                            ? 'bg-green'
+                            ? 'mmmm'
                             : item['state_name'] === 'question_solved_request'
-                            ? 'bg-orange'
-                            : 'bg-gray-700'
+                            ? 'bg-gray-700'
+                            : 'bg-primary'
                         "
                         class="w-5 h-5 rounded-full p-2"
                       />
@@ -193,4 +193,10 @@ export default {
 </script>
 
 <style>
+.mmm{
+  background-color: #67aadf;
+}
+.mmmm{
+  background-color: #132a3e;
+}
 </style>
