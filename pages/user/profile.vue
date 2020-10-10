@@ -4,7 +4,7 @@
             <div class="flex flex-col rounded-lg bg-white rouended-md w-r35 shadow-lg">
                 <div class="w-full flex flex-col justify-start items-end" >
                     <input @change="hiddenChange($event)" id="hidden-input" type="file" class="hidden" />
-                    <div @click="ProfHandler($event)" class="bg-primary w-full h-32 rounded rounded-b-none flex justify-start relative">
+                    <div @click="ProfHandler($event)" style="backgroundColor:#132a3e" class=" w-full h-32 rounded rounded-b-none flex justify-start relative">
                         <img id="prof-thumb" class="rounded-full w-32 h-32 shadow-2xl border-4 right-30 bottom-30n bg-white sm:right-18 sm:top-60 sm:bottom-0 absolute hover:border-secondary" v-bind:src="profile_pic_thumb ? profile_pic_thumb : default_profile_pic " v-bind:alt="full_name ? full_name : 'کاربر بدون نام' " >
                     </div>
                     <div class="flex flex-col sm:flex-row w-full h-full justify-between items-center sm:items-end">
@@ -203,7 +203,7 @@
                     <div class="flex-col sm:flex sm:flex-row">
                         <div class="flex-col w-full justify-center items-center p-3">
                             <div class="flex justify-center items-center">
-                                <div @click="sendChanges()" class="p-2 bg-primary text-white flex justify-center items-center rounded-md w-full sm:w-1/3 cursor-pointer">
+                                <div @click="sendChanges()" style="backgroundColor:#67aadf" class="p-2  text-white flex justify-center items-center rounded-md w-full sm:w-1/3 cursor-pointer">
                                     ذخیره
                                 </div>
                             </div>
