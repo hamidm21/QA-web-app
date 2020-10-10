@@ -5,7 +5,7 @@
                 لیست تراکنش ها
             </div>
             <div class="flex flex-col">
-                <div @click="openModal = !openModal" class="bg-white text-sm text-green font-bold p-1 rounded focus:outline-none focus:shadow-outline cursor-pointer">
+                <div @click="openModal = !openModal" class=" text-sm text-green font-bold p-1 rounded focus:outline-none focus:shadow-outline cursor-pointer">
                     افزایش اعتبار
                 </div>
                 <!--
@@ -93,13 +93,13 @@
                                 </div>
                                 </div>
                                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
-                                <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <div @click="payment()" class="inline-flex justify-center w-full rounded-md border border-primary px-4 py-2 bg-red-600 text-primary leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
+                                <span  class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                    <div  style="backgroundColor:#67aadf"  @click="payment()" class="inline-flex justify-center w-full rounded-md  px-4 py-2 text-white leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-primary focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
                                     تایید
                                     </div>
                                 </span>
                                 <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                                    <div @click="openModal = false" class="inline-flex justify-center w-full rounded-md border border-red px-4 py-2 bg-white text-red leading-6 font-medium shadow-sm focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
+                                    <div style="backgroundColor:#132a3e" @click="openModal = false" class="inline-flex justify-center w-full rounded-md  px-4 py-2  text-white leading-6 font-medium shadow-sm focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 cursor-pointer">
                                     انصراف
                                     </div>
                                 </span>
