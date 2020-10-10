@@ -397,18 +397,9 @@
                   <p>تعداد پیشنهاد</p>
                   <p class="number">{{ item.num_offers }} پیشنهاد</p>
                 </div>
-                <div class="flex w-full p-4 justify-between">
+                <div class="flex w-full  border-b-2  p-4 justify-between">
                   <p>زمان ثبت</p>
                   <p class="number">{{ item.jcreate_time }}</p>
-                </div>
-                <div
-                  v-if="item.question_type_name == `کلاس آنلاین`"
-                  class="flex bg-gray-300 w-full p-4 justify-center  text-red bg-white"
-                >
-                  <p class="text-center ">
-                    کاربر گرامی لطفا توجه داشته باشید مدت زمان کلاس آنلاین
-                    90 دقیقه می باشد.
-                  </p>
                 </div>
                 <div
                   v-if="
