@@ -10,7 +10,7 @@
       >
         <!--Left Col-->
         <div
-          class="flex flex-col w-full pr-8 pl-8 md:w-1/2 justify-center items-start text-center md:text-left"
+          class="flex flex-col w-full pr-auto pl-6 md:w-1/2 justify-center items-start text-center md:text-left"
         >
           <h1 class="my-4 text-2xl mr-10 text-black font-bold leading-tight">
             کیــفیت بــالا ، مدیریــت زمــان ، هزیــنه کمتــر!!
@@ -20,12 +20,12 @@
             <br />می توانید در پلتفرم حل یاب ، مدرسین تایید شده را پیدا کرده و
             با تضمین <br />کیفیت خدمات با اطمینان پروژه خود را ثبت کنید
           </p>
-          <div class="mt-5 statusdiv ml-auto mr-auto">
+          <div class="mt-5 statusdiv   mr-15">
             <nuxt-link to="/auth/register">
               <button
                 style="backgroundColor:#132a3e;"
                 type="button"
-                class=" shadow-lg rounded-lg hover:underline px-4 py-2 text-sm hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
+                class=" shadow-lg  rounded-lg hover:underline px-4 py-2 ml-auto mr-10 text-sm hover:font-bold text-white rounded focus:outline-none focus:shadow-outline"
               >
                 ثبـت نـام در حل یـاب
               </button>
@@ -35,7 +35,7 @@
                 <button
                   style="color:#67aadf;"
                   type="button"
-                  class="mt-3 px-3 pt-2 font-bold rounded focus:outline-none focus:shadow-outline"
+                  class="mt-3 px-3 pt-2 font-bold mr-10 rounded focus:outline-none focus:shadow-outline"
                 >
                   ورود به حساب کاربری
                 </button>
