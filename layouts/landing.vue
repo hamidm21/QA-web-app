@@ -222,12 +222,11 @@
                       </div>
                       <div class="flex w-full justify-center items-center">
                         <img
-                          class="w-32"
+                          class="w-24"
                           src="~/assets/icons/full-logo.png"
                           alt="icon"
                         />
                       </div>
-                      <hr />
                       <div
                         @click="openMenu = false"
                         class="w-full flex flex-col leading-10 justify-center items-center mt-4"
@@ -243,6 +242,7 @@
                         <div @click="menuSelect('/contact_us')">
                           <div>تماس با ما</div>
                         </div>
+                          <hr class="w-full" />
                         <div @click="menuSelect('/how')">
                           <div>چگونه کار میکند ؟</div>
                         </div>
@@ -300,7 +300,7 @@
           </nav>
           <div class="flex">
             <nuxt-link to="/">
-              <img class="w-32" src="~/assets/icons/full-logo.png" alt="icon" />
+              <img class="w-24" src="~/assets/icons/full-logo.png" alt="icon" />
             </nuxt-link>
           </div>
         </div>
