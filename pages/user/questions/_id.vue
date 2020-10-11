@@ -397,7 +397,7 @@
                   <p>تعداد پیشنهاد</p>
                   <p class="number">{{ item.num_offers }} پیشنهاد</p>
                 </div>
-                <div class="flex w-full  border-b-2  p-4 justify-between">
+                <div class="flex w-full bord border-b-2 border-gray-300 p-4 justify-between">
                   <p>زمان ثبت</p>
                   <p class="number">{{ item.jcreate_time }}</p>
                 </div>
@@ -551,11 +551,11 @@
                   />
                   <div class="flex w-full justify-center items-center mt-2">
                     <div
-                      style="backgroundcolor: #132a3e"
+                      style="backgroundColor: #132a3e"
                       @click="refreshAll()"
                       class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl text-white"
                     >
-                      <p class="m-1">به روز رسانی</p>
+                      <p class="m-1 ">به روز رسانی</p>
                       <img
                         class="w-5"
                         src="~/assets/icons/icon-refresh-black.svg"
@@ -578,11 +578,11 @@
                   />
                   <div class="flex w-full justify-center items-center mt-2">
                     <div
-                      style="backgroundcolor: #132a3e"
+                      style="backgroundColor: #132a3e"
                       @click="refreshAll()"
                       class="flex justify-center items-center rounded-md w-full sm:w-fit p-2 cursor-pointer hover:shadow-xl text-white"
                     >
-                      <p class="m-1">به روز رسانی</p>
+                      <p class="m-1 ">به روز رسانی</p>
                       <img
                         class="w-5"
                         src="~/assets/icons/icon-refresh-black.svg"
