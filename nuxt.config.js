@@ -5,9 +5,10 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'سامانه حل سوال - حل یاب - ',
+    title: "549625",
     meta: [
       { charset: 'utf-8' },
+      {  name:'enamad' ,  content:'344299'},
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'اولین سامانه حل سوال به صورت مناقصه ای که به صورت آنلاین و ۲۴ ساعته فعال است. با حل یاب سوالی بی پاسخ نمیمونه.' }
     ],
