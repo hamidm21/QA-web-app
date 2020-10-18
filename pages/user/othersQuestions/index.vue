@@ -16,6 +16,9 @@
                                 <th class="pb-2">
                                     وضعیت
                                 </th>
+                                    <th class="pb-2">
+                                    نوع پروژه
+                                </th>
                                 <th class="pb-2">
                                     نام پروژه
                                 </th>
@@ -45,10 +48,15 @@
                                         </p>
                                     </div>
                                 </td>
-                                <td class="py-4 px-2">
+                                 <td class="py-4 px-2">
+                                    <div class="flex justify-center w-full items-center number">
+                                        {{item['question_type_name']}} 
+                                    </div>
+                                </td>
+                                <td class="py-4 px-2 w-1/4">
                                     <div class="flex justify-center items-center">
                                         {{
-                                            item['subject'].length >= 50 ? item['subject'].substr(0,50) + ' ...' : item['subject']
+                                            item['subject'].length >= 30 ? item['subject'].substr(0,30) + ' ...' : item['subject']
                                         }}
                                     </div>
                                 </td>
@@ -106,6 +114,9 @@ import Pagination from '~/components/dashboard/pagination';
 
 export default {
     mounted: function () {
+        if(this.items){
+            console.log(this.items);
+        }
         this.$store.commit("setUserDashPage", 'others');
         var replaceDigits = function() {
             var map = ["&\#1776;","&\#1777;","&\#1778;","&\#1779;","&\#1780;","&\#1781;","&\#1782;","&\#1783;","&\#1784;","&\#1785;"]
