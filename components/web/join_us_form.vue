@@ -3,8 +3,8 @@
     <div class="mx-auto max-w-6xl px-6 py-12" style="width: inherit">
    <div class="flex flex-col md:flex-row shadow justify-center rounded" style="backgroundColor:">
       <div class="xl:w-1/2 max-w-md my-5 mx-5 flex flex-col justify-center ">
-         <div class="text-bold md:text-5xl  text-white  ">به ما ملحق شوید !</div>
-         <p class="text-xl text-base text-white mt-4 hidden sm:block">سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+         <div class="text-bold md:text-5xl  text-black  ">به ما ملحق شوید !</div>
+         <p class="text-xl text-base text-black mt-4 hidden sm:block">سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
       </div>
       <div class="md:w-1/2 flex justify-start my-5 md:justify-end w-full md:w-1/2 ">
          <form class="rounded flex-auto max-w-sm bg-gray-100 p-10 pb-20 shadow-2xl">
