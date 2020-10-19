@@ -104,6 +104,38 @@
                                     <p>زمان ثبت</p>
                                     <p class="number">{{item.jcreate_time}}</p>
                                 </div>
+                                 <div
+                  v-if="
+                    item.meeting_url != `` &
+                    item.question_type_name === `کلاس آنلاین`
+                  "
+                  class="flex w-full p-4 justify-center "
+                >
+                  <button
+                    @click="propmt()"
+                    v-if="
+                      this.description === false &&
+                      item.question_type_name === `کلاس آنلاین`
+                    "
+                    class="flex ml-auto mr-auto justify-center items-center w-2/5 text-white font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+                    style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);backgroundColor:#17C69B;"
+                  >
+                    شروع کلاس
+                  </button>
+                  <div v-if="this.description" class="mys  pb-2">
+                    <h1 class="text-center text-black mb-2 p-1 bg-white">
+                      لطفا قبل شروع کلاس با  دانشجو هماهنگ کنید .
+                    </h1>
+                    <button
+                      @click="newtab()"
+                      v-if="item.question_type_name === `کلاس آنلاین`"
+                    class="flex ml-auto mr-auto justify-center items-center w-2/5 text-white font-bold p-4 rounded-md focus:outline-none focus:shadow-outline cursor-pointer my-1 sm:my-0"
+                    style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);backgroundColor:#17C69B;"
+                  >
+                      شروع کلاس
+                    </button>
+                  </div>
+                </div>
                             </div>
                         </div>
                     </div>
@@ -234,6 +266,10 @@ export default {
         }
     },
     methods: {
+         newtab() {
+      const q_res = this.item.meeting_url;
+      window.open(q_res);
+    },
         async refreshAll() {
             const id = this.$route.params.id
             const c_res = await this.$axios.get(`/api/comments/?q=${id}`);
@@ -269,6 +305,9 @@ export default {
             const res = await this.$axios.get(`/api/questions/${this.$route.params.id}/solvedrequest`);
             this.$router.push("/user/myTasks");
         },
+        propmt() {
+            this.description = true;
+    },
     },
     data() {
         return {
@@ -279,7 +318,9 @@ export default {
             question: '',
             item: {},
             comments: [],
-            answers: []
+            answers: [],
+            description: false,
+
         }
     },
     components: {
