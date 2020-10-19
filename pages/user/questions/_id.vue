@@ -403,7 +403,7 @@
                 </div>
                 <div
                   v-if="
-                    item.meeting_url != `` &
+                    item.meeting_url != `` &&
                     item.question_type_name === `کلاس آنلاین`
                   "
                   class="flex w-full p-4 justify-center "
