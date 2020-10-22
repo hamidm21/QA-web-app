@@ -54,11 +54,7 @@
         </div>
       </form>
     </div>
-    <h3 class="text-xl mb-5 text-gray-700  text-center font-semibold">
-      آدرس: خرم آباد - ناصرخسرو - خیابان دانش جنوبی - کوچه دوم فرهنگیان
-    </h3>
-    <h3 class="text-xl mb-5 text-gray-700 text-center font-semibold">پلاک: 6816966184</h3>
-    <h3 class="text-xl mb-5 text-gray-700 text-center font-semibold">تلفن :06633229723</h3>
+   
     <hr class="hidden sm:block sm:w-full" />
   </div>
 </template>
