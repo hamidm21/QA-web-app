@@ -60,7 +60,7 @@ export default {
     methods: {
         goEnamad() {
             if (process.client) {
-                window.open("trustseal.enamad.ir/?id=184125&amp;Code=BBYCorYTakCPAOFMSZAX", 'Popup', "toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")
+                window.open("https://trustseal.enamad.ir/Verify.aspx?id=70629&p=G3Tz1TPWkTN1kxJq", 'Popup', "toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")
             }
         },
         goSaman() {
