@@ -8,8 +8,7 @@
       @click="getCount()"
     />
     <p @click="getCount()" class="text-md pb-2">
-      تعداد پروژه های حل شده در حل یاب تا کنون:
-    </p>
+تعداد پروژه های انجام شده موفق در حل یاب :    </p>
   </div>
 </template>
 <script>
@@ -22,7 +21,7 @@ export default {
   },
   data() {
     return {
-      value: 1054,
+      value: 1243,
     };
   },
   methods: {

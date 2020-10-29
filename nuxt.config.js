@@ -5,7 +5,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: "549625",
+    title: "حل یاب - سامانه حل سوال",
     meta: [
       { charset: 'utf-8' },
       {  name:'enamad' ,  content:'344299'},
