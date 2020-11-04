@@ -5,10 +5,10 @@
       :formatValue="formatToPrice"
       :value="value"
       :duration="8000"
-      @click="getCount()"
+      :v-bind="getCount()"
     />
-    <p @click="getCount()" class="text-md pb-2">
-تعداد پروژه های انجام شده موفق در حل یاب :    </p>
+    <p class="text-md pb-2">تعداد پروژه های حل شده در حل یاب تا کنون:</p>
+    
   </div>
 </template>
 <script>
@@ -21,18 +21,18 @@ export default {
   },
   data() {
     return {
-      value: 1243,
+      value: 1,
     };
   },
   methods: {
     formatToPrice(value) {
       return `${value.toFixed(0)}`;
     },
-    getCount() {
-      return axios.get("https://halyab.com/api/q_done").then((res) => {
-        const count = res.data;
-        prompt(count);
-      });
+    async getCount() {
+      const count = await this.$axios.get("/api/q_done");
+      const number = count.data.count_done_questions;
+      this.value = number;
+      console.log(this.value);
     },
   },
 };
