@@ -33,7 +33,8 @@ module.exports = {
   plugins: [
     '~/plugins/axios',
     '~/plugins/directives.js',
-    '~/plugins/recorder.client.js'
+    '~/plugins/recorder.client.js',
+    '~/plugins/plug.client.js'
   ],
   /*
   ** Nuxt.js dev-modules
