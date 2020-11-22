@@ -5,7 +5,7 @@ export default function() {
       p = t.createElement("script");
     (e.iwmfBadge = a),
       (p.async = true),
-      (p.src = "https://cdn.iwmf.ir/js/people-votes/people-vote-1-1.js"),
+      (p.src = "https://cdn.iwmf.ir/js/people-votes/people-vote-2-2.js"),
       s.appendChild(p);
-  })(window, document, "o-top-right");
+  })(window, document, "o-bottom-right");
 }
