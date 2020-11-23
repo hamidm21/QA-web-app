@@ -43,18 +43,10 @@
                 alt="نوتیفیکیشن"
               />
             </div>
-          </div>
-           <nuxt-link
-              to="/user/questions/addProject"
-              class="flex justify-center  items-center text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline"
-              style="
-                backgroundColor: #132A3E;
-                direction:rtl;  
-              "
-            >
-              ثبت پروژه
-              <img class="w-4 mx-2" src="~/assets/icons/plus.svg" />
+            <nuxt-link to="/how">
+            <h1 class="ml-5 text-white font-bold p-2 rounded text-sm " style="color:#fff;backgroundColor:#4C7FA7;">آموزش عملکرد سایت</h1>
             </nuxt-link>
+          </div>
           <transition
             enter-active-class="transition ease-out duration-100"
             enter-class="transform opacity-0 scale-95"
