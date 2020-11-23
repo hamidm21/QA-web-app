@@ -84,7 +84,7 @@ module.exports = {
   },
   toast: {
     action: {
-      text: "باشه",
+      text: "خطا",
       onClick: (e, toastObject) => {
         toastObject.goAway(0);
       }
