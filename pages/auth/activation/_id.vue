@@ -26,7 +26,7 @@
               <input v-model="activation.activation_code" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="activation" type="number" placeholder="کد دریافت شده" required/>
               </div>
               <div class="flex items-center justify-center">
-              <button @click="authActivation" type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
+              <button @click="authActivation" type="button"  class="text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="backgroundColor: #132A3E;">
                   ارسال
               </button>
               </div>
@@ -37,13 +37,13 @@
                     </span>
                 </div>
                 <div v-else>
-                    <button @click="authResend" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
+                    <button @click="authResend" class=" text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="backgroundColor:#132A3E;">
                         ارسال مجدد پیامک
                     </button>
                 </div>
               </div>
             </div>
-            <div class="hidden bg-blue-600 text-bold items-center justify-center md:flex md:flex-col md:max-w-md" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39); color:white; border-top-left-radius: inherit; border-bottom-left-radius: inherit;">
+            <div class="hidden  text-bold items-center justify-center md:flex md:flex-col md:max-w-md" style="backgroundColor: #132A3E;color:white; border-top-left-radius: inherit; border-bottom-left-radius: inherit;">
               <img class="p-4" src="~/assets/img/register.svg" style="width: 50%;" alt="auth-logo">
               <div class="block items-center justify-center pb-2">
                 <h1 class="font-bold" style="font-size: xx-large;">
