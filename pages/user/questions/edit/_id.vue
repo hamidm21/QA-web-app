@@ -22,7 +22,7 @@
                                             <div class="flex flex-col items-center relative">
                                                 <div class="w-full">
                                                     <div @click="opener(1)" class="my-2 bg-white p-1 flex border rounded" style="border-color: #d2d6dc;">
-                                                        <input v-bind:value="dd1Selected" placeholder="پروژه درسی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                                        <input v-bind:value="dd1Selected" placeholder="پروژه درسی"  class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
                                                         <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
                                                             <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 1 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
@@ -122,7 +122,7 @@
                                                 <div class="flex flex-col items-center relative">
                                                     <div class="w-full">
                                                         <div @click="opener(2)" class="my-2 bg-white p-1 flex border rounded" style="border-color: #d2d6dc;">
-                                                            <input v-bind:value="dd2Selected.name" placeholder="مقطع تحصیلی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                                            <input v-bind:value="dd2Selected.name" placeholder="مقطع تحصیلی"  class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
                                                             <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
                                                                 <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 2 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
@@ -159,7 +159,7 @@
                                             <div class="flex flex-col items-center relative">
                                                 <div class="w-full">
                                                     <div @click="opener(3)" class="my-2 bg-white p-1 flex border rounded" style="border-color: #d2d6dc;">
-                                                        <input v-bind:value="dd3Selected.name" placeholder="پروژه درسی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                                        <input v-bind:value="dd3Selected.name" placeholder="پروژه درسی"  class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
                                                         <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
                                                             <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 3 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
@@ -198,7 +198,7 @@
                                                 <div class="flex flex-col items-center relative">
                                                     <div class="w-full">
                                                         <div @click="opener(4)" class="my-2 bg-white p-1 flex border rounded" style="border-color: #d2d6dc;">
-                                                            <input v-bind:value="dd4Selected.name" placeholder="پروژه درسی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                                            <input v-bind:value="dd4Selected.name" placeholder="پروژه درسی"  class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
                                                             <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
                                                                 <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 4 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
