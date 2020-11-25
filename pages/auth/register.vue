@@ -2,7 +2,7 @@
   <div class="register w-full sm:w-auto">
     <div class="sm:w-auto  w-full sm:h-auto h-full">
       <form
-        style="backgroundColor:#17C69B;"
+        style="backgroundColor:#fff;"
         @keydown.enter="authRegister()"
         class=" shadow-lg rounded-lg flex w-max-md justify-center m-4 border"
       >
@@ -24,10 +24,10 @@
             />
           </div>
           <div class="flex items-center justify-center py-8">
-            <h1 class="font-bold text-gray-200 text-size-20">فرم ثبت نام</h1>
+            <h1 class="font-bold text-black text-size-20">فرم ثبت نام</h1>
           </div>
           <div class="mb-4">
-            <label class="flex text-white text-sm font-bold mb-2" for="row">
+            <label class="flex text-gray-700 text-sm font-bold mb-2" for="row">
               شماره همراه
             </label>
             <input
@@ -40,7 +40,7 @@
             />
           </div>
           <div class="mb-4">
-            <label class="flex text-white text-sm font-bold mb-2" for="row">
+            <label class="flex text-gray-700 text-sm font-bold mb-2" for="row">
               رمز عبور
             </label>
             <input
@@ -54,7 +54,7 @@
           </div>
           <div class="mb-6">
             <label
-              class="flex text-white text-sm font-bold mb-2"
+              class="flex text-gray-700 text-sm font-bold mb-2"
               for="column"
             >
               تکرار رمز عبور
@@ -81,7 +81,7 @@
             </button>
           </div>
           <div class="block items-center justify-center p-2">
-            <nuxt-link to="/auth/login" class="text-white">
+            <nuxt-link to="/auth/login" class="text-gray-700">
               قبلا ثبت نام کردی ؟
             </nuxt-link>
           </div>
@@ -92,7 +92,7 @@
             color: white;
             border-top-left-radius: inherit;
             border-bottom-left-radius: inherit;
-            backgroundColor: #fff;
+            backgroundColor:#132A3E;
             width: 80vh;
           "
         >
@@ -110,8 +110,8 @@
               </iframe>
             </div>
             <div class="block items-center justify-center mt-5 text-black">
-              <h1 style="" class="text-lg text-right px-2 font-bold text-black ">با حل یاب آسان،ارزان،سریع جوابتو بگیر!!!!</h1>
-              <p class="mt-5 text-base text-right px-2" >
+              <h1 style="" class="text-lg text-right px-2 font-bold text-white ">با حل یاب آسان،ارزان،سریع جوابتو بگیر!!!!</h1>
+              <p class="mt-5 text-base text-right text-white px-2" >
                حل یاب پلتفرمی آموزشی است برای یافتن مدرسین برتر و قابل اعتماد در هر ساعت از شبانه روز
                <br>
                بر اساس بودجه شما و با تضمین کیفیت بالای آموزشی به صورت مناقصه ای !!!
