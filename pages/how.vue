@@ -14,23 +14,36 @@
       </p>
     </div>
 
-    <div class="div1 mt-4">
+    <div class="div1 mt-4 mb-5 w-1/2  ml-auto w-full">
+    <hr class="border-t-2  mt-auto mb-auto border-blue-900 sm:w-1/6 hidden md:flex md:flex-col md:max-w-md">
+    <div class="border-t-2  w-auto border-blue-900">
       <button
-        class="bg-transparent btn1 hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-b-2 border-black"
-        @click="showOstad()"
-        @mouseenter="showOstad()"
+        class="bg-transparent mr-1 hover:bg-blue-900 text-blue-900 font-semibold hover:text-white py-2 px-4 border-b-2 border-l-2 border-blue-900"
+        @click="showVideo()"
+        @mouseenter="showVideo()"
       >
-        استاد
+        آموزش ویدیویی
       </button>
+
       <button
-        class="bg-transparent hover:bg-red text-red font-semibold hover:text-white py-2 px-4 border-b-2 border-red"
+        class="bg-transparent mx-1 hover:bg-red text-red font-semibold hover:text-white py-2 px-4 border-b-2 border-red"
         @click="showDaneshjoo()"
         @mouseenter="showDaneshjoo()"
       >
-        دانش آموز
+        راهنمای دانش آموز
       </button>
+       <button
+        class="bg-transparent ml-1 hover:bg-blue-900 text-blue-900 font-semibold hover:text-white py-2 px-4 border-b-2 border-r-2 border-blue-900"
+        @click="showOstad()"
+        @mouseenter="showOstad()"
+      >
+      راهنمای استـاد
+      </button>
+      </div>
+    <hr class="border-t-2  mt-auto mb-auto border-blue-900 sm:w-1/6 hidden md:flex md:flex-col md:max-w-md">
+
     </div>
-    <div class="flex justify-center" v-if="shows === true">
+    <div class="flex justify-center" v-if="shows === 1">
       <div class="w-3/4 flex flex-col mt-5">
         <h1
           class="div1 bg-transparent bg-red font-semibold text-white py-2 px-4 border-b-2 border-red"
@@ -73,7 +86,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1  bg-red w-6 h-6 rounded-full"
                 >2</span
               >پروژه خود را قرار دهید .
             </h6>
@@ -108,7 +121,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1  bg-red w-6 h-6 rounded-full"
                 >3</span
               >بهترین پیشنهاد ممکن را انتخاب کنید .
             </h6>
@@ -136,7 +149,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1  bg-red w-6 h-6 rounded-full"
                 >4</span
               >پروژه ی خود را پایان دهید.
             </h6>
@@ -159,12 +172,12 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center" v-if="shows === false">
+    <div class="flex justify-center" v-if="shows === 2">
       <div class="w-3/4 flex flex-col mt-5">
         <h1
-          class="div1 bg-transparent btn1 bg-black text-white font-semibold py-2 px-4 border-b-2 border-black shadow"
+          class="div1 bg-transparent bg-blue-900 font-semibold text-white py-2 px-4 border-b-2 border-blue-900"
         >
-          راهنمای اساتید
+          راهنمای استاد
         </h1>
         <div
           class="flex flex-col sm:flex-row justify-between items-center w-full my-10"
@@ -179,7 +192,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >1</span
               >
               به حل یاب ملحق شوید
@@ -202,7 +215,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >2</span
               >
               پروژه ای برای انجام انتخاب کنید
@@ -236,7 +249,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >3</span
               >پیشنهاد خود را ارسال کنید.
             </h6>
@@ -263,7 +276,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >4</span
               >وظایف خود را مشاهده کنید .
             </h6>
@@ -295,7 +308,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >5</span
               >پاسخ پروژه را ارسال کنید .
             </h4>
@@ -312,18 +325,32 @@
         </div>
       </div>
     </div>
+    <div class="flex justify-center" v-if="shows === 3">
+      <div class="w-3/4 flex flex-col mt-5">
+        <h1
+          class="div1 bg-transparent bg-blue-900 font-semibold text-white py-2 px-4 border-b-2 border-blue-900"
+        >
+          آموزش ویدیویی کار با سایت
+        </h1>
+        <div class="p-16 ml-auto mr-auto">
+          <h1 class="text-center text-4xl font-bold"> به زودی ویدیوهای آموزشی<br>کار با سایت بارگزاری می شود </h1>
+          <p class="text-center mt-5">پشتیبانی حل یاب</p>
+        </div>
+      </div>
+    </div>
     <hr />
     <p
+      v-if="shows!=3"
       class="flex justify-center items-center text-center sm:text-xl mt-10 mb-5"
     >
       .هم اکنون ، پروژه ی خود را در حل یاب قرار دهید
     </p>
-    <div class="text-center">
+    <div class="text-center" v-if="shows!=3">
       <nuxt-link to="/auth/register">
         <button
           type="button"
-          style="backgroundColor: #17C69B"
-          class="rounded-md p-2 shadow-md mb-4 text-white hover:shadow-xl"
+          style="backgroundColor: #17c69b"
+          class="rounded-md px-8 py-2 shadow-md mb-4 text-white hover:shadow-xl"
         >
           + ثبت پروژه
         </button>
@@ -344,19 +371,24 @@ export default {
   layout: "landing",
   data() {
     return {
-      shows: true,
+      shows: 1,
       bg1: "backgroundColor :red",
       bg2: "backgroundColor :black",
     };
   },
   methods: {
     showDaneshjoo() {
-      this.shows = true;
+      this.shows = 1;
       this.bg1 = "red";
       this.bg2 = "black";
     },
     showOstad() {
-      this.shows = false;
+      this.shows = 2;
+      this.bg1 = "black";
+      this.bg2 = "red";
+    },
+    showVideo() {
+      this.shows = 3;
       this.bg1 = "black";
       this.bg2 = "red";
     },
