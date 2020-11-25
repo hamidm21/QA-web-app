@@ -4,15 +4,51 @@
       <div
         class="w-full sm:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm sm:py-0 py-2 relative"
       >
-        <div class="flex flex justify-between items-center py-2">
+        <div
+          class="flex flex justify-between items-center py-2"
+          style="marginLeft: -3%"
+        >
           <div class="flex justify-center items-center relative">
+             <img
+              @click="
+                isProfOpen = !isProfOpen;
+                isNotifOpen = false;
+              "
+                 src="~/assets/icons/arrow-down.png"
+              id="prof"
+              class="rounded-full w-4   cursor-pointer"
+              v-bind:alt="
+                $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام'
+              "
+            />
+            <p
+              @click="
+                isProfOpen = !isProfOpen;
+                isNotifOpen = false;
+              "
+              id="prof"
+              v-bind:src="
+                $auth.user.profile_pic_thumb
+                  ? $auth.user.profile_pic_thumb
+                  : $auth.user.default_profile_pic
+              "
+              v-bind:alt="
+                $auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام'
+              "
+              class="text-xs"
+            >
+              {{
+                $auth.user.full_name ? $auth.user.full_name : "کاربر بدون نام"
+              }}
+            </p>
+
             <img
               @click="
                 isProfOpen = !isProfOpen;
                 isNotifOpen = false;
               "
               id="prof"
-              class="rounded-full w-12 border-2 border-transparent hover:border-primary mx-1 cursor-pointer"
+              class="rounded-full w-6 ml-2 border-2 border-transparent hover:border-primary cursor-pointer"
               v-bind:src="
                 $auth.user.profile_pic_thumb
                   ? $auth.user.profile_pic_thumb
@@ -28,7 +64,7 @@
                 isProfOpen = false;
               "
               id="notification"
-              class="flex justify-center items-center hover:shadow-md rounded-full w-12 h-12 border-transparent mx-1 cursor-pointer relative"
+              class="flex justify-center items-center rounded-full w-12 h-12 border-transparent mx-1 cursor-pointer relative"
             >
               <div
                 v-if="this.$store.state.dashboard.unReads >= 1"
@@ -36,16 +72,31 @@
               >
                 {{ this.$store.state.dashboard.unReads }}
               </div>
-              <img
-                id="notif"
-                class="w-6 mx-4"
-                src="~/assets/icons/bell-regular.svg"
-                alt="نوتیفیکیشن"
-              />
+              <div class="flex justify-center ml-16 items-center text-black">
+                <p class="text-xs">اعلامیه</p>
+                <img
+                  id="notif"
+                  class="w-5 ml-2"
+                  src="~/assets/icons/bell-regular.svg"
+                  alt="نوتیفیکیشن"
+                />
+              </div>
             </div>
-            <nuxt-link to="/how">
-            <h1 class="ml-5 text-white font-bold p-2 rounded text-sm " style="color:#fff;backgroundColor:#4C7FA7;">آموزش عملکرد سایت</h1>
-            </nuxt-link>
+            <div class="flex justify-center ml-16 items-center text-black">
+              <nuxt-link to="/how">
+                <h1 class="text-black text-xs p-2 rounded">
+                  آموزش عملکرد سایت
+                </h1>
+              </nuxt-link>
+              <nuxt-link to="/how">
+                <img
+                  id="notif"
+                  class="w-8"
+                  src="~/assets/icons/learni.png"
+                  alt="نوتیفیکیشن"
+                />
+              </nuxt-link>
+            </div>
           </div>
           <transition
             enter-active-class="transition ease-out duration-100"
