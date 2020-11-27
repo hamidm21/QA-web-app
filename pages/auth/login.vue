@@ -93,7 +93,7 @@ export default {
         this.$router.push("/user/dashboard")
       })
       .catch((e) => {
-        this.showError("ورود با موفقیت انجام نشد")
+        this.showError("ورود با موفقـیت انجام نشد")
       })
     }
   },
