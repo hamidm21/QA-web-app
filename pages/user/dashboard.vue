@@ -3,7 +3,7 @@
       <!-- <Title title="پیشخوان" /> -->
       <div class="p-4 flex sm:flex-row flex-col w-full">
         <div class="sm:w-2/3 w-full sm:pl-4">
-          <List v-bind:heads="this.others_heads" v-bind:items="this.others_items" title="پروژه های دیگران" />
+          <List v-bind:heads="this.others_heads" v-bind:items="this.others_items" title="پروژه های دیگـران" />
         </div>
         <div class="sm:w-1/3 sm:pt-0 pt-4 w-full">
           <Finance v-bind:transactions="this.transactions" />
