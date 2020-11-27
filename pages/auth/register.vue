@@ -24,11 +24,11 @@
             />
           </div>
           <div class="flex items-center justify-center py-8">
-            <h1 class="font-bold text-black text-size-20">فرم ثبت نام</h1>
+            <h1 class="font-bold text-black text-size-20">فــرم ثبت نام</h1>
           </div>
           <div class="mb-4">
             <label class="flex text-gray-700 text-sm font-bold mb-2" for="row">
-              شماره همراه
+              شماره همــراه
             </label>
             <input
               v-model="register.cell_phone"
