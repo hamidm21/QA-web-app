@@ -79,7 +79,7 @@ export default {
             this.$router.push("/auth/login")
         })
         .catch((e) => {
-            showError("مشکلی پیش آمده")
+            showError("مشکـلی پیش آمده")
         })
     },
   },
