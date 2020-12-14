@@ -15,33 +15,36 @@
     </div>
 
     <div class="div1  mt-4 mb-5  w-1/2  ml-auto w-full">
-              <hr class="border-b-1 border-gray-200 mt-auto mb-auto hidden sm:flex w-32">
+      <hr
+        class="border-b-1 border-gray-200 mt-auto mb-auto hidden sm:flex w-32"
+      />
 
-    <div class=" border-2 border-gray-200 p-2  w-auto rounded">
-      <button
-        class=" bg-blue-900 py-2 px-2 mx-auto sm:mx-5   hover:text-gray-400 rounded  text-white font-semibold   border-b-2  border-blue-900"
-        @click="showDaneshjoo()"
-        @mouseenter="showDaneshjoo()"
+      <div class=" border-2 border-gray-200 p-2  w-auto rounded">
+        <button
+          class=" bg-blue-900 py-2 px-2 mx-auto sm:mx-5   hover:text-gray-400 rounded  text-white font-semibold   border-b-2  border-blue-900"
+          @click="showDaneshjoo()"
+          @mouseenter="showDaneshjoo()"
         >
-        دانش آموز
-      </button>
-       <button
-        class=" bg-red  mx-auto  hover:text-gray-400 rounded  sm:mx-5 p-1  py-2 text-white hover:rounded font-semibold hover:text-white  border-2  border-red"
-        @click="showVideo()"
-        @mouseenter="showVideo()"
-      >
-        آموزش ویدیویی
-      </button>
-       <button
-        class="bg-blue-900 p-2 hover:text-gray-400 rounded mx-auto sm:mx-5  font-semibold text-white  border-b-2  border-blue-900"
-        @click="showOstad()"
-        @mouseenter="showOstad()"
-      >
-       استـاد
-      </button>
+          دانش آموز
+        </button>
+        <button
+          class=" bg-red  mx-auto  hover:text-gray-400 rounded  sm:mx-5 p-1  py-2 text-white hover:rounded font-semibold hover:text-white  border-2  border-red"
+          @click="showVideo()"
+          @mouseenter="showVideo()"
+        >
+          آموزش ویدیویی
+        </button>
+        <button
+          class="bg-blue-900 p-2 hover:text-gray-400 rounded mx-auto sm:mx-5  font-semibold text-white  border-b-2  border-blue-900"
+          @click="showOstad()"
+          @mouseenter="showOstad()"
+        >
+          استـاد
+        </button>
       </div>
-              <hr class="border-b-1 border-gray-200 mt-auto mb-auto hidden sm:flex w-32">
-
+      <hr
+        class="border-b-1 border-gray-200 mt-auto mb-auto hidden sm:flex w-32"
+      />
     </div>
     <div class="flex justify-center" v-if="shows === 3">
       <div class="w-3/4 flex flex-col mt-5">
@@ -181,7 +184,6 @@
         </h1>
         <div
           class="flex flex-col sm:flex-row justify-between items-center w-full my-10"
-          
         >
           <div class="flex sm:w-1/2 justify-center items-center">
             <img src="../assets/img/daneshjoo/1.jpg" />
@@ -327,55 +329,99 @@
       </div>
     </div>
     <div class="flex flex-col justify-center w-full" v-if="shows === 1">
-      <div class="w-full text-center flex flex-row mt-5 justify-center ml-auto mr-auto "> 
-          <hr class="border-b-1 border-gray-500 mt-auto mb-auto hidden sm:flex w-32">
-          <h1 class="font-bold  text-lg mx-2">ویدیو آموزش کار با حل یاب</h1>
-          <hr class="border-b-1 border-gray-500 mt-auto mb-auto hidden sm:flex w-32">
+      <div
+        class="w-full text-center flex flex-row mt-5 justify-center ml-auto mr-auto "
+      >
+        <hr
+          class="border-b-1 border-gray-500 mt-auto mb-auto hidden sm:flex w-32"
+        />
+        <h1 class="font-bold  text-lg mx-2">ویدیو آموزش کار با حل یاب</h1>
+        <hr
+          class="border-b-1 border-gray-500 mt-auto mb-auto hidden sm:flex w-32"
+        />
       </div>
-      <div class="flex py-5 px-5 sm:px-20 flex-col sm:flex-row justify-center   w-full mt-5 mb-10 h-auto ">
-        <div class="w-full  sm:mx-3 border-2 border-balck  sm:w-2/4  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5">
-             <div class="h_iframe-aparat_embed_frame rounded-lg	">
-              <span style="display: block"></span>
-              <iframe
-                               src="https://www.aparat.com/video/video/embed/videohash/9Fy8p/vt/frame"
-
-                class="rounded	w-full h-64"
-                allowFullScreen="true"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-              >
-              </iframe>
-            </div>
+      <div
+        class="flex py-5 px-5 sm:px-20 flex-col sm:flex-row justify-center   w-full mt-5  h-auto "
+      >
+        <div
+          class="w-full  sm:mx-3 border-2 border-balck  sm:w-2/4  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/9Fy8p/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
         </div>
-           <div class="w-full sm:mx-3  sm:w-2/4  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5">
-               <div class="h_iframe-aparat_embed_frame rounded-lg	">
-              <span style="display: block"></span>
-              <iframe
-                              src="https://www.aparat.com/video/video/embed/videohash/1WVJR/vt/frame"
-
-                class="rounded	w-full h-64"
-                allowFullScreen="true"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-              >
-              </iframe>
-            </div>
+        <div
+          class="w-full sm:mx-3  sm:w-2/4  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/1WVJR/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
         </div>
-         <div class="w-full sm:mx-3  sm:w-2/4  h-64 bg-blue-900 sm:mt-auto sm:mb-auto my-5">
-                   <div class="h_iframe-aparat_embed_frame rounded-lg	">
-              <span style="display: block"></span>
-              <iframe
-                class="rounded	w-full h-64"
-                                                src="https://www.aparat.com/video/video/embed/videohash/UBX6K/vt/frame"
-
-                allowFullScreen="true"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-              >
-              </iframe>
-            </div>
+        <div
+          class="w-full sm:mx-3  sm:w-2/4  h-64 bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              class="rounded	w-full h-64"
+              src="https://www.aparat.com/video/video/embed/videohash/UBX6K/vt/frame"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
         </div>
-        
+      </div>
+      <div
+        class="flex py-5 px-5 sm:px-20 flex-col sm:flex-row justify-center   w-full  mb-10 h-auto "
+      >
+        <div
+          class="w-full  sm:mx-3 border-2 border-balck  sm:w-2/6  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/QxHXJ/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div
+          class="w-full sm:mx-3  sm:w-2/6  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/PFm2k/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
     <hr />
@@ -384,7 +430,7 @@
     >
       .هم اکنون ، پروژه ی خود را در حل یاب قرار دهید
     </p>
-    <div class="text-center" >
+    <div class="text-center">
       <nuxt-link to="/auth/register">
         <button
           type="button"
@@ -404,15 +450,15 @@ import Footer from "~/components/landing/footer.vue";
 
 export default {
   components: {
-    Footer,
+    Footer
   },
   auth: false,
   layout: "landing",
   data() {
     return {
       shows: 1,
-      bg1: "backgroundColor :red",
-      bg2: "backgroundColor :black",
+      bg1: "backgroundcolor :red",
+      bg2: "backgroundcolor :black"
     };
   },
   methods: {
@@ -430,11 +476,11 @@ export default {
       this.shows = 1;
       this.bg1 = "black";
       this.bg2 = "red";
-    },
-  },
+    }
+  }
 };
 </script>
-<style >
+<style>
 .div1 {
   display: flex;
   flex-direction: row;
@@ -442,7 +488,7 @@ export default {
 }
 .div2 {
   display: flex;
-  flex-direction:column ;
+  flex-direction: column;
   justify-content: center;
 }
 </style>
