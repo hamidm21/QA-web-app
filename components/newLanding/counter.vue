@@ -7,7 +7,7 @@
       :duration="8000"
       :v-bind="getCount()"
     />
-    <p class="text-md pb-2">تعداد پروژه های حل شده در حل یاب تا کنون:</p>
+    <p class="text-md pb-2">تعداد پروژه های انجام  شده  موفق در حل یاب  :</p>
     
   </div>
 </template>
@@ -32,7 +32,6 @@ export default {
       const count = await this.$axios.get("/api/q_done");
       const number = count.data.count_done_questions;
       this.value = number;
-      console.log(this.value);
     },
   },
 };
