@@ -280,6 +280,7 @@ export default {
         const s_res = await $axios.get("/api/initdata");
         const q_res = await $axios.get(`/api/questions/${id}`);
         return {
+            q_type: q_res.question_type_id,
             categories: s_res.data.categories,
             catless: s_res.data.catless_sub_cats,
             dd1: s_res.data.question_types,
@@ -356,7 +357,10 @@ export default {
                     counter = counter + 1;
                 }
             }
-            this.$axios.post('/api/questions/', obj).then((res) => {
+            let f_obj = {}
+            Object.assign(f_obj , obj, {q_type: this.q_type})
+            console.log({f_obj})
+            this.$axios.put(`/api/questions/${this.$route.params.id}`, f_obj).then((res) => {
                 this.$router.push("/user/questions")
             }).catch((e) => {
             });
