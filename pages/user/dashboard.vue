@@ -3,7 +3,7 @@
       <!-- <Title title="پیشخوان" /> -->
       <div class="p-4 flex sm:flex-row flex-col w-full">
         <div class="sm:w-2/3 w-full sm:pl-4">
-          <List v-bind:heads="this.others_heads" v-bind:items="this.others_items" title="پروژه های دیگران" />
+          <List v-bind:heads="this.others_heads" v-bind:items="this.others_items" title="پروژه های دیگـران" />
         </div>
         <div class="sm:w-1/3 sm:pt-0 pt-4 w-full">
           <Finance v-bind:transactions="this.transactions" />
@@ -11,7 +11,7 @@
       </div>
       <div class="p-4 pt-2 h-full sm:pr-4">
         <div class="w-full">
-          <List v-bind:heads="this.my_heads" v-bind:items="this.my_items" title="پروژه های من" />
+          <Lists v-bind:heads="this.my_heads" v-bind:items="this.my_items" title="پروژه های من" />
         </div>
       </div>
   </div>
@@ -22,6 +22,7 @@
 <script>
 import Title from '~/components/dashboard/title.vue';
 import List from '~/components/dashboard/narrow_list.vue';
+import Lists from '~/components/dashboard/narrow_list2.vue';
 import Finance from '~/components/dashboard/finance_card.vue';
 
 export default {
@@ -116,7 +117,8 @@ return {
   components: {
     Title,
     List,
-    Finance
+    Finance,
+    Lists
 
   },
   auth: true,

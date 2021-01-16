@@ -8,16 +8,16 @@
           <div v-if="!$auth.loggedIn">
             <nuxt-link to="/auth/login">
               <button
-                style="border: solid 1px #132a3e; color :#132a3e;"
-                class="bg-white border  font-bold py-2 px-4 rounded"
+                style="border: solid 1px #132a3e; color: #132a3e"
+                class="bg-white border font-bold py-2 px-4 rounded"
               >
                 ورود
               </button>
             </nuxt-link>
             <nuxt-link to="/auth/register">
               <button
-                style="backgroundColor: #132a3e ;"
-                class=" border  text-white font-bold py-2 px-4 rounded"
+                style="backgroundcolor: #132a3e"
+                class="border text-white font-bold py-2 px-4 rounded"
               >
                 ثبت نام
               </button>
@@ -242,7 +242,7 @@
                         <div @click="menuSelect('/contact_us')">
                           <div>تماس با ما</div>
                         </div>
-                          <hr class="w-full" />
+                        <hr class="w-full" />
                         <div @click="menuSelect('/how')">
                           <div>چگونه کار میکند ؟</div>
                         </div>
@@ -267,10 +267,10 @@
             <ul
               class="sm:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0"
             >
-              <li>
+              <li class="rr2">
                 <nuxt-link
                   to="/how"
-                  class="p-3 py-3 block border-b-2 border-transparent hover:border-primary"
+                  class="p-3 font-bold rrr h2 py-3 block border-b-2 border-transparent hover:border-primary"
                   >چگونه کار میکند؟</nuxt-link
                 >
               </li>
@@ -340,6 +340,42 @@ export default {
 </script>
 
 <style>
+.rrr {
+  color: transparent;
+  text-align: center;
+  animation: effect 1s linear infinite;
+}
+
+@keyframes effect {
+  0% {
+    background: linear-gradient(#f82929, #ff0000);
+    -webkit-background-clip: text;
+  }
+
+
+  100% {
+    background: linear-gradient(#000000, #21222b);
+    -webkit-background-clip: text;
+  }
+}
+.rrr {
+  color: transparent;
+  text-align: center;
+  animation: effect 1s linear infinite;
+}
+
+@keyframes effect {
+  0% {
+    background: linear-gradient(#f82929, #ff0000);
+    -webkit-background-clip: text;
+  }
+
+
+  100% {
+    background: linear-gradient(#000000, #21222b);
+    -webkit-background-clip: text;
+  }
+}
 .landing-head {
   width: 100vw;
   max-width: 100%;

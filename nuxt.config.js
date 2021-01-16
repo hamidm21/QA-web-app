@@ -1,129 +1,141 @@
-
 module.exports = {
-  mode: 'universal',
+  mode: "universal",
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: "حل یاب - سامانه حل سوال",
     meta: [
-      { charset: 'utf-8' },
-      {  name:'enamad' ,  content:'344299'},
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'اولین سامانه حل سوال به صورت مناقصه ای که به صورت آنلاین و ۲۴ ساعته فعال است. با حل یاب سوالی بی پاسخ نمیمونه.' }
+      { charset: "utf-8" },
+      { name: "enamad", content: "344299" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "اولین سامانه حل سوال به صورت مناقصه ای که به صورت آنلاین و ۲۴ ساعته فعال است. با حل یاب سوالی بی پاسخ نمیمونه."
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'http://halyab.com/media/favicon.ico' }
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "http://halyab.com/media/favicon.ico"
+      }
     ]
   },
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: 'blue' },
+   ** Customize the progress-bar color
+   */
+  loading: { color: "blue" },
   /*
-  ** Global CSS
-  */
-  css: [
-    '~/assets/css/main.css',
-    '~/assets/css/tailwind.css'
-  ],
+   ** Global CSS
+   */
+  css: ["~/assets/css/main.css", "~/assets/css/tailwind.css"],
   /*
-  ** Plugins to load before mounting the App
-  */
+   ** Plugins to load before mounting the App
+   */
   plugins: [
-    '~/plugins/axios',
-    '~/plugins/directives.js',
-    '~/plugins/recorder.client.js'
+    "~/plugins/axios",
+    "~/plugins/directives.js",
+    "~/plugins/recorder.client.js",
+    "~/plugins/plug.client.js",
+    "~/plugins/raychat.client.js"
   ],
   /*
-  ** Nuxt.js dev-modules
-  */
+   ** Nuxt.js dev-modules
+   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    "@nuxtjs/tailwindcss"
   ],
   /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/auth',
-    '@nuxtjs/toast'
-  ],
+   ** Nuxt.js modules
+   */
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/toast"],
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
       config.module.rules.push({
         test: /\.(ogg|mp3|wav|mpe?g)$/i,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          name: '[path][name].[ext]'
+          name: "[path][name].[ext]"
         }
-      })
+      });
     }
   },
   axios: {
-    baseURL: 'https://halyab.com',
+    baseURL: "https://halyab.com",
     proxy: true // Can be also an object with default options
   },
   proxy: {
-    '/api/': 'https://halyab.com',
-    '/accounts/': 'https://halyab.com',
+    "/api/": "https://halyab.com",
+    "/accounts/": "https://halyab.com"
   },
   server: {
     port: 2121, // default: 3000
-    host: '0.0.0.0'
+    host: "0.0.0.0"
   },
   toast: {
-    action : {
-      text : 'باشه',
-      onClick : (e, toastObject) => {
-          toastObject.goAway(0);
+    action: {
+      text: "خطا",
+      onClick: (e, toastObject) => {
+        toastObject.goAway(0);
       }
     },
     duration: 5000,
-    position: 'top-center',
-    register: [ // Register custom toasts
+    position: "top-center",
+    register: [
+      // Register custom toasts
       {
-        name: 'my-error',
-        message: 'Oops...Something went wrong',
+        name: "my-error",
+        message: "Oops...Something went wrong",
         options: {
-          type: 'error'
+          type: "error"
         }
       }
     ]
   },
   auth: {
     redirect: {
-      login: '/auth/login',
+      login: "/auth/login",
       logout: false,
-      callback: '/auth/login',
-      home: '/dashboard'
+      callback: "/auth/login",
+      home: "/dashboard"
     },
     strategies: {
       local: {
-        scheme: 'refresh',
+        scheme: "refresh",
         // tokenType: 'Bearer',
         token: {
-          property: 'data.access',
+          property: "data.access",
           maxAge: 10000
         },
         refreshToken: {
-          property: 'data.refresh',
+          property: "data.refresh",
           maxAge: false
         },
         endpoints: {
-          user: { url: '/accounts/users/', method: 'get', propertyName: 'user_info'},
-          refresh: { url: '/accounts/refresh', method: 'post', propertyName: 'refresh' },
-          login: { url: '/accounts/', method: 'post', propertyName: 'access'},
-          logout: false,
-        },
+          user: {
+            url: "/accounts/users/",
+            method: "get",
+            propertyName: "user_info"
+          },
+          refresh: {
+            url: "/accounts/refresh",
+            method: "post",
+            propertyName: "refresh"
+          },
+          login: { url: "/accounts/", method: "post", propertyName: "access" },
+          logout: false
+        }
       }
     }
   }
-}
+};

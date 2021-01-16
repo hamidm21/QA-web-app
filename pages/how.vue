@@ -14,26 +14,42 @@
       </p>
     </div>
 
-    <div class="div1 mt-4">
-      <button
-        class="bg-transparent btn1 hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-b-2 border-black"
-        @click="showOstad()"
-        @mouseenter="showOstad()"
-      >
-        استاد
-      </button>
-      <button
-        class="bg-transparent hover:bg-red text-red font-semibold hover:text-white py-2 px-4 border-b-2 border-red"
-        @click="showDaneshjoo()"
-        @mouseenter="showDaneshjoo()"
-      >
-        دانش آموز
-      </button>
+    <div class="div1  mt-4 mb-5  w-1/2  ml-auto w-full">
+      <hr
+        class="border-b-1 border-gray-200 mt-auto mb-auto hidden sm:flex w-32"
+      />
+
+      <div class=" border-2 border-gray-200 p-2  w-auto rounded">
+        <button
+          class=" bg-blue-900 py-2 px-2 mx-auto sm:mx-5   hover:text-gray-400 rounded  text-white font-semibold   border-b-2  border-blue-900"
+          @click="showDaneshjoo()"
+          @mouseenter="showDaneshjoo()"
+        >
+          دانش آموز
+        </button>
+        <button
+          class=" bg-red  mx-auto  hover:text-gray-400 rounded  sm:mx-5 p-1  py-2 text-white hover:rounded font-semibold hover:text-white  border-2  border-red"
+          @click="showVideo()"
+          @mouseenter="showVideo()"
+        >
+          آموزش ویدیویی
+        </button>
+        <button
+          class="bg-blue-900 p-2 hover:text-gray-400 rounded mx-auto sm:mx-5  font-semibold text-white  border-b-2  border-blue-900"
+          @click="showOstad()"
+          @mouseenter="showOstad()"
+        >
+          استـاد
+        </button>
+      </div>
+      <hr
+        class="border-b-1 border-gray-200 mt-auto mb-auto hidden sm:flex w-32"
+      />
     </div>
-    <div class="flex justify-center" v-if="shows === true">
+    <div class="flex justify-center" v-if="shows === 3">
       <div class="w-3/4 flex flex-col mt-5">
         <h1
-          class="div1 bg-transparent bg-red font-semibold text-white py-2 px-4 border-b-2 border-red"
+          class="div1 bg-transparent bg-blue-900 font-semibold text-white py-2 px-4 border-b-2 border-blue-900"
         >
           راهنمای دانش آموزان
         </h1>
@@ -51,7 +67,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >1</span
               >در حل یاب ثبت نام کنید .
             </h4>
@@ -73,7 +89,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >2</span
               >پروژه خود را قرار دهید .
             </h6>
@@ -108,7 +124,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >3</span
               >بهترین پیشنهاد ممکن را انتخاب کنید .
             </h6>
@@ -136,7 +152,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >4</span
               >پروژه ی خود را پایان دهید.
             </h6>
@@ -159,12 +175,12 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center" v-if="shows === false">
+    <div class="flex justify-center" v-if="shows === 2">
       <div class="w-3/4 flex flex-col mt-5">
         <h1
-          class="div1 bg-transparent btn1 bg-black text-white font-semibold py-2 px-4 border-b-2 border-black shadow"
+          class="div1 bg-transparent bg-blue-900 font-semibold text-white py-2 px-4 border-b-2 border-blue-900"
         >
-          راهنمای اساتید
+          راهنمای استاد
         </h1>
         <div
           class="flex flex-col sm:flex-row justify-between items-center w-full my-10"
@@ -179,7 +195,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >1</span
               >
               به حل یاب ملحق شوید
@@ -202,7 +218,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >2</span
               >
               پروژه ای برای انجام انتخاب کنید
@@ -236,7 +252,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >3</span
               >پیشنهاد خود را ارسال کنید.
             </h6>
@@ -263,7 +279,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >4</span
               >وظایف خود را مشاهده کنید .
             </h6>
@@ -295,7 +311,7 @@
               href="#"
             >
               <span
-                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-red w-6 h-6 rounded-full"
+                class="flex text-white text-sm font-bold justify-center items-center mx-1 bg-blue-900 w-6 h-6 rounded-full"
                 >5</span
               >پاسخ پروژه را ارسال کنید .
             </h4>
@@ -312,6 +328,102 @@
         </div>
       </div>
     </div>
+    <div class="flex flex-col justify-center w-full" v-if="shows === 1">
+      <div
+        class="w-full text-center flex flex-row mt-5 justify-center ml-auto mr-auto "
+      >
+        <hr
+          class="border-b-1 border-gray-500 mt-auto mb-auto hidden sm:flex w-32"
+        />
+        <h1 class="font-bold  text-lg mx-2">ویدیو آموزش کار با حل یاب</h1>
+        <hr
+          class="border-b-1 border-gray-500 mt-auto mb-auto hidden sm:flex w-32"
+        />
+      </div>
+      <div
+        class="flex py-5 px-5 sm:px-20 flex-col sm:flex-row justify-center   w-full mt-5  h-auto "
+      >
+        <div
+          class="w-full  sm:mx-3 border-2 border-balck  sm:w-2/4  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/9Fy8p/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div
+          class="w-full sm:mx-3  sm:w-2/4  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/1WVJR/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div
+          class="w-full sm:mx-3  sm:w-2/4  h-64 bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              class="rounded	w-full h-64"
+              src="https://www.aparat.com/video/video/embed/videohash/UBX6K/vt/frame"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex py-5 px-5 sm:px-20 flex-col sm:flex-row justify-center   w-full  mb-10 h-auto "
+      >
+        <div
+          class="w-full  sm:mx-3 border-2 border-balck  sm:w-2/6  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/QxHXJ/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div
+          class="w-full sm:mx-3  sm:w-2/6  h-64  bg-blue-900 sm:mt-auto sm:mb-auto my-5"
+        >
+          <div class="h_iframe-aparat_embed_frame rounded-lg	">
+            <span style="display: block"></span>
+            <iframe
+              src="https://www.aparat.com/video/video/embed/videohash/PFm2k/vt/frame"
+              class="rounded	w-full h-64"
+              allowFullScreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
     <hr />
     <p
       class="flex justify-center items-center text-center sm:text-xl mt-10 mb-5"
@@ -322,8 +434,8 @@
       <nuxt-link to="/auth/register">
         <button
           type="button"
-          style="backgroundColor: #17C69B"
-          class="rounded-md p-2 shadow-md mb-4 text-white hover:shadow-xl"
+          style="backgroundColor: #17c69b"
+          class="rounded-md px-8 py-2 shadow-md mb-4 text-white hover:shadow-xl"
         >
           + ثبت پروژه
         </button>
@@ -338,35 +450,45 @@ import Footer from "~/components/landing/footer.vue";
 
 export default {
   components: {
-    Footer,
+    Footer
   },
   auth: false,
   layout: "landing",
   data() {
     return {
-      shows: true,
-      bg1: "backgroundColor :red",
-      bg2: "backgroundColor :black",
+      shows: 1,
+      bg1: "backgroundcolor :red",
+      bg2: "backgroundcolor :black"
     };
   },
   methods: {
     showDaneshjoo() {
-      this.shows = true;
+      this.shows = 3;
       this.bg1 = "red";
       this.bg2 = "black";
     },
     showOstad() {
-      this.shows = false;
+      this.shows = 2;
       this.bg1 = "black";
       this.bg2 = "red";
     },
-  },
+    showVideo() {
+      this.shows = 1;
+      this.bg1 = "black";
+      this.bg2 = "red";
+    }
+  }
 };
 </script>
-<style >
+<style>
 .div1 {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+.div2 {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 </style>
