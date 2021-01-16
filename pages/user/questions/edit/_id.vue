@@ -280,7 +280,7 @@ export default {
         const s_res = await $axios.get("/api/initdata");
         const q_res = await $axios.get(`/api/questions/${id}`);
         return {
-            q_type: q_res.question_type_id,
+            q_type: q_res.data.question_type_id,
             categories: s_res.data.categories,
             catless: s_res.data.catless_sub_cats,
             dd1: s_res.data.question_types,
