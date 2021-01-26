@@ -39,7 +39,6 @@ module.exports = {
     "~/plugins/axios",
     "~/plugins/directives.js",
     "~/plugins/recorder.client.js",
-    "~/plugins/plug.client.js",
     "~/plugins/raychat.client.js"
   ],
   /*
