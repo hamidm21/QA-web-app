@@ -16,7 +16,7 @@
             </nuxt-link>
             <nuxt-link to="/auth/register">
               <button
-                style="backgroundcolor: #132a3e"
+                style="backgroundColor: #132a3e"
                 class="border text-white font-bold py-2 px-4 rounded"
               >
                 ثبت نام
