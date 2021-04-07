@@ -39,6 +39,7 @@ module.exports = {
     "~/plugins/axios",
     "~/plugins/directives.js",
     "~/plugins/recorder.client.js",
+    "~/plugins/yektanet.client.js"
   ],
   /*
    ** Nuxt.js dev-modules
