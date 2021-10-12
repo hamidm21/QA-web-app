@@ -37,7 +37,7 @@
                 <div class="flex flex-col justify-center items-center p-4 w-full sm:w-1/2">
                     <img class="pb-4 hidden sm:block" src="~/assets/icons/full_white.png" alt="لوگو حل یاب" style="width: 60% ">
                     <div class="flex justify-center">
-                        <img src="../../assets/icons/enamad.png" alt="لوگو ی ای نماد" @click="goEnamad()" class="cursor-pointer" id="BBYCorYTakCPAOFMSZAX">
+                       <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=184125&amp;Code=BBYCorYTakCPAOFMSZAX"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=184125&amp;Code=BBYCorYTakCPAOFMSZAX" alt="" style="cursor:pointer" id="BBYCorYTakCPAOFMSZAX"></a>
                         <img id='jxlzesgtrgvjwlaoapfurgvjapfu' class="cursor-pointer" @click="goSaman()" alt='logo-samandehi' src='../../assets/icons/sabt.png'/>
                     </div>
                 </div>
