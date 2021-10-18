@@ -30,9 +30,6 @@
         action=""
         class="form bg-gray-50 rounded shadow-2xl p-6 my-10 relative"
       >
-        <h3 class="text-2xl mb-5 text-gray-700 font-semibold">
-          با ما در تماس باشید
-        </h3>
 
         <p class="text-gray-600 my-5">
           در این قسمت میتوانید با مدیریت سایت در ارتباط باشید.
