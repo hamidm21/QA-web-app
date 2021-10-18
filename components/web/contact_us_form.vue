@@ -5,55 +5,26 @@
         action=""
         class="form bg-gray-50 rounded shadow-2xl p-6 my-10 relative"
       >
-        <h3 class="text-2xl mb-5 text-gray-700 font-semibold">
+        <h3 class="text-2xl mb-5 text-gray-700 font-semibold block items-center justify-center p-2">
           با ما در تماس باشید
         </h3>
 
-        <p class="text-gray-600 my-5">
-          در این قسمت میتوانید با مدیریت سایت در ارتباط باشید.
-        </p>
-        <div class="flex space-x-5 mt-3">
-          <input
-            v-model="name"
-            type="text"
-            name=""
-            id=""
-            placeholder="نام و نام خانوادگی"
-            class="border p-2 w-1/2"
-          />
-          <input
-            v-model="subject"
-            type="txt"
-            name=""
-            id=""
-            placeholder="موضوع پیام"
-            class="border p-2 w-1/2"
-          />
-        </div>
-        <input
-          v-model="email"
-          type="email"
-          placeholder="ایمیل شما"
-          class="border p-2 w-full mt-3"
-        />
-        <textarea
-          v-model="desc"
-          name=""
-          id=""
-          cols="10"
-          rows="3"
-          placeholder="متن پیام خود را اینجا وارد نمایید"
-          class="border p-2 mt-3 w-full"
-        ></textarea>
-        <div
-          @click="send()"
-          style="backgroundColor: #132a3e"
-          class="w-full mt-6 text-center text-white font-semibold p-3"
-        >
-          ارسال
-        </div>
-      </form>
-    </div>
+        <h4 class="text-gray-600 block items-center justify-center p-2" ">
+            از طریق راه های ارتباطی زیر می توانید با ما در ارتباط باشید 
+        </h4>
+          <h5 class="text-gray-600 block items-center justify-center p-2" ">
+            آدرس : لرستان - خرم آباد - ناصرخسرو - خیابان دانش جنوبی -کوچه دوم فرهنگیان 
+        </h5>
+          <h5 class="text-gray-600 block items-center justify-center p-2" ">
+            پلاک : 686966184
+        </h5>
+         <h5 class="text-gray-600 block items-center justify-center p-2" ">
+            شماره تلفن  : 06633229723
+        </h5>
+        <h5 class="text-gray-600 block items-center justify-center p-2" ">
+            شماره همراه   : 09169824458
+        </h5>
+       
    
     <hr class="hidden sm:block sm:w-full" />
   </div>
