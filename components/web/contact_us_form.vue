@@ -31,7 +31,7 @@
         class="form bg-gray-50 rounded shadow-2xl p-6 my-10 relative"
       >
 
-        <p class="text-gray-600 my-5">
+        <p class="text-2xl mb-5 text-gray-700 font-semibold block items-center justify-center p-2">
           در این قسمت میتوانید با مدیریت سایت در ارتباط باشید.
         </p>
         <div class="flex space-x-5 mt-3">
