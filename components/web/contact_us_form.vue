@@ -9,19 +9,19 @@
           با ما در تماس باشید
         </h3>
 
-        <h4 class="text-gray-600 block items-center justify-center p-2" ">
+        <h4 class="text-gray-600 block items-center justify-center p-2" >
             از طریق راه های ارتباطی زیر می توانید با ما در ارتباط باشید 
         </h4>
-          <h5 class="text-gray-600 block items-center justify-center p-2" ">
+          <h5 class="text-gray-600 block items-center justify-center p-2" >
             آدرس : لرستان - خرم آباد - ناصرخسرو - خیابان دانش جنوبی -کوچه دوم فرهنگیان 
         </h5>
-          <h5 class="text-gray-600 block items-center justify-center p-2" ">
+          <h5 class="text-gray-600 block items-center justify-center p-2" >
             پلاک : 686966184
         </h5>
-         <h5 class="text-gray-600 block items-center justify-center p-2" ">
+         <h5 class="text-gray-600 block items-center justify-center p-2" >
             شماره تلفن  : 06633229723
         </h5>
-        <h5 class="text-gray-600 block items-center justify-center p-2" ">
+        <h5 class="text-gray-600 block items-center justify-center p-2" >
             شماره همراه   : 09169824458
         </h5>
        
