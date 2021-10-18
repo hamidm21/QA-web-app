@@ -69,7 +69,7 @@
         ></textarea>
         <div
           @click="send()"
-          style="backgroundColor: #132a3e"
+          style="backgroundColor:#132a3e"
           class="w-full mt-6 text-center text-white font-semibold p-3"
         >
           ارسال
