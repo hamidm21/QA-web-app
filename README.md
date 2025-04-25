@@ -1,22 +1,11 @@
-# halyab-web
+# Halyab Q&A Platform - Next.js Frontend
 
-> SSR Halyab Web Apllication
+This repository contains the frontend source code for the Halyab Q&A and freelancing platform, rebuilt using Next.js.
 
-## Build Setup
+**Key Features & Technologies:**
 
-``` bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+*   Modern, responsive user interface built with React.js.
+*   Server-Side Rendering (SSR) and Static Site Generation (SSG) via **Next.js** for performance and **SEO**.
+*   Real-time chat functionality using WebSockets.
+*   Integration with the Halyab Django backend API.
+*   **Tech Stack:** Next.js, React.js, TypeScript/JavaScript, CSS Modules/Styled-Components, WebSocket client library.
